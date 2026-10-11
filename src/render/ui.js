@@ -125,7 +125,8 @@ function footer() {
 }
 
 // TODO(gites): remove noindex (here and in vercel.json) once the owner validates the name, texts and photos
-// and the final domain is set; then point SITE_URL to it.
+// and the final domain is set; then point SITE_URL to it. The printed QR card (09-qr/final) opens
+// https://gites-de-chooz.vercel.app: keep that address alive (redirect) after any domain change.
 export function layout({ id, nav: active, title, description, body, bodyClass = '' }) {
   const fullTitle = id === 'home' ? `${brand.name} · ${brand.concept}` : `${title} · ${brand.name}`;
   return `<!doctype html>

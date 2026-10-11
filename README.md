@@ -226,6 +226,8 @@ Hosted on **Vercel** and connected to this repository: every push to `main` ship
 
 The design kit folders stay in the repository but are excluded from the deployment (`.vercelignore`).
 
+> **The printed QR code opens `https://gites-de-chooz.vercel.app`.** Never rename or delete the Vercel project; if a custom domain is added later, keep this address serving the site or redirecting to it.
+
 <br />
 
 ## 📌 Content checklist
@@ -240,7 +242,8 @@ Items waiting on the owner or on So Zen. Each one is marked `TODO(gites)` in the
 - [ ] Whether the sauna, spa and hammam of the listings have anything to do with So Zen (kept separate for now)
 - [ ] Gîtes 3 and 4, once their listings exist (no empty cards are shown meanwhile)
 - [ ] Mentions légales and privacy page
-- [ ] Final domain: then remove `noindex`, set `SITE_URL`, and generate the QR code with `09-qr/generer_qr.py`
+- [x] QR code generated on 2026-10-11 for `https://gites-de-chooz.vercel.app`, with the A6 card ready to print (`09-qr/final/`: PNG, SVG, PDF)
+- [ ] Final domain: then remove `noindex` and set `SITE_URL`; keep `gites-de-chooz.vercel.app` working (redirect) because the printed QR points to it
 
 Choices made where the kit contradicted itself:
 
