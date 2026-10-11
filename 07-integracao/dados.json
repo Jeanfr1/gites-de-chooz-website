@@ -1,0 +1,164 @@
+{
+  "brand": {
+    "name": "Les Gîtes de Chooz",
+    "status": "provisoire - à valider",
+    "concept": "La parenthèse verte",
+    "portal_url": null,
+    "palette": {
+      "forest": "#203F35",
+      "sage": "#98A384",
+      "linen": "#F4F0E5",
+      "brass": "#A98B52"
+    }
+  },
+  "gites": [
+    {
+      "id": "grain",
+      "name": "Le Grain d’Amour",
+      "reference": "08G430",
+      "capacity": 2,
+      "bedrooms": 1,
+      "area_m2": 55,
+      "active": true,
+      "booking_url": "https://www.gites-de-france.com/fr/grand-est/ardennes/le-grain-damour-08g430",
+      "photo": "photo-430_800_1067.jpg",
+      "tagline": "Une échappée à deux.",
+      "description": "Une maison indépendante au cœur d’un jardin partagé, pour savourer les Ardennes à deux.",
+      "gallery": [
+        "photo-430_800_1067.jpg",
+        "photo13-430_800_1067.jpg",
+        "photo15-430_800_1067.jpg",
+        "photo11-430_800_1067.jpg",
+        "photo6-430_800_600.jpg",
+        "photo10-430_800_1201.jpg"
+      ],
+      "features": [
+        "Wi-Fi",
+        "Cuisine et séjour",
+        "Chambre à l’étage",
+        "Jardin et piscine partagés"
+      ],
+      "energy": "Charges et chauffage inclus selon la fiche de réservation. Évitez de chauffer avec les fenêtres ouvertes.",
+      "pets": "Un animal autorisé selon la fiche de réservation.",
+      "linen": "Linge et ménage inclus selon la fiche de réservation.",
+      "private_wifi": null,
+      "bins": null,
+      "arrival_time": null,
+      "departure_time": null,
+      "status_instructions": "à compléter par la propriétaire"
+    },
+    {
+      "id": "brasserie",
+      "name": "La Brasserie",
+      "reference": "08G339",
+      "capacity": 12,
+      "bedrooms": 5,
+      "area_m2": 240,
+      "active": true,
+      "booking_url": "https://www.gites-de-france-ardennes.com/location-vacances-Gite-Chooz-08G339.html",
+      "photo": "photo-339_800_1093.jpg",
+      "tagline": "Le bonheur de se retrouver.",
+      "description": "De généreux espaces de vie, une terrasse et la vallée de la Meuse pour les retrouvailles en famille ou entre amis.",
+      "gallery": [
+        "photo-339_800_1093.jpg",
+        "photo1-339_800_1422.jpg",
+        "photo4-339_800_1422.jpg",
+        "photo7-339_800_1422.jpg",
+        "photo24-339_800_1422.jpg",
+        "photo11-339_800_1067.jpg"
+      ],
+      "features": [
+        "Wi-Fi",
+        "Grande pièce de vie",
+        "5 chambres",
+        "Vue Meuse et forêt"
+      ],
+      "energy": "Charges non comprises. Les conditions de chauffage et d’électricité sont détaillées sur votre fiche de réservation. Évitez de chauffer fenêtres ouvertes.",
+      "pets": "Deux animaux au maximum selon la fiche de réservation.",
+      "linen": "Le linge de lit et de toilette peut faire l’objet de prestations supplémentaires. Vérifiez votre réservation.",
+      "private_wifi": null,
+      "bins": null,
+      "arrival_time": null,
+      "departure_time": null,
+      "status_instructions": "à compléter par la propriétaire"
+    }
+  ],
+  "future_gites": [
+    {
+      "id": "future-3",
+      "active": false,
+      "name": null,
+      "booking_url": null
+    },
+    {
+      "id": "future-4",
+      "active": false,
+      "name": null,
+      "booking_url": null
+    }
+  ],
+  "outings": [
+    {
+      "category": "nature",
+      "name": "La Meuse à votre rythme",
+      "where": "Chooz",
+      "text": "À pied ou à vélo, découvrez la Voie Verte et le paysage des bords de Meuse.",
+      "url": "https://www.valdardennetourisme.com/incontournables-du-val-dardenne/villes-et-villages/chooz/",
+      "label": "Découvrir la balade",
+      "number": "01"
+    },
+    {
+      "category": "visites",
+      "name": "Fort de Charlemont",
+      "where": "Givet",
+      "text": "Un lieu d’histoire et des activités à découvrir au-dessus de la Meuse.",
+      "url": "https://www.charlemont.fr/",
+      "label": "Préparer ma visite",
+      "number": "02"
+    },
+    {
+      "category": "gourmand",
+      "name": "Pâtisserie Léval",
+      "where": "2 place Carnot · Givet",
+      "text": "Une adresse pour les douceurs, le pain et une pause au salon de thé.",
+      "url": "https://www.valdardennetourisme.com/commerce-service/boulangerie-patisserie-leval/",
+      "label": "Voir l’adresse",
+      "number": "03"
+    },
+    {
+      "category": "gourmand",
+      "name": "Presqu’île de Chooz",
+      "where": "Chooz",
+      "text": "Une suggestion de restaurant dans le village. Consultez les formules et disponibilités auprès de l’établissement.",
+      "url": "https://www.ile-chooz.com/presentation/restauration.html",
+      "label": "Découvrir le restaurant",
+      "number": "04"
+    }
+  ],
+  "so_zen": {
+    "name": "So Zen",
+    "facebook_url": "https://www.facebook.com/people/So-Zen/61578057072575/",
+    "address": "Rue Tony, Chooz",
+    "telephone": "+33621114358",
+    "contact_source": "capture utilisateur du 11 octobre 2026",
+    "symbol": "01-identidade/so-zen-logo-transparente.png",
+    "services": [
+      "Yoga sur place"
+    ],
+    "schedule": null,
+    "prices": null,
+    "logo_source": "05-secoes/so-zen/logo-source.png",
+    "photo_sources": [
+      "05-secoes/so-zen/yoga-terrasse-01.png",
+      "05-secoes/so-zen/yoga-terrasse-02.png"
+    ],
+    "services_source": "Confirmation utilisateur et photos fournies le 11/10/2026",
+    "language": "fr"
+  },
+  "shared": {
+    "pool": "Piscine extérieure partagée, chauffée de mai à septembre selon les fiches.",
+    "wellness": "Sauna, spa et hammam sur demande, selon disponibilité et avec supplément.",
+    "wellness_so_zen_relationship": "À confirmer : ne pas confondre prestations spa des fiches et programmation So Zen."
+  },
+  "checked_on": "2026-10-11"
+}

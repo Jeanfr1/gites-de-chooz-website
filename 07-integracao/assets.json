@@ -1,0 +1,447 @@
+[
+  {
+    "file": "00-referencias/animacao-frames.jpg",
+    "width": 2200,
+    "height": 850,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "reference board"
+  },
+  {
+    "file": "00-referencias/animacao-section-frames.jpg",
+    "width": 2200,
+    "height": 850,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "reference board"
+  },
+  {
+    "file": "00-referencias/referencias-1.jpg",
+    "width": 1500,
+    "height": 1080,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "reference board"
+  },
+  {
+    "file": "00-referencias/referencias-2.jpg",
+    "width": 1500,
+    "height": 1080,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "reference board"
+  },
+  {
+    "file": "00-referencias/referencias-3.jpg",
+    "width": 1500,
+    "height": 1080,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "reference board"
+  },
+  {
+    "file": "01-identidade/logo-provisoria-transparente.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "role": "art direction / layout"
+  },
+  {
+    "file": "01-identidade/prancha-identidade.jpg",
+    "width": 1800,
+    "height": 1200,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "art direction / layout"
+  },
+  {
+    "file": "01-identidade/so-zen-logo-transparente.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "role": "So Zen supplied illustration; transparent derivative preserving source marks"
+  },
+  {
+    "file": "02-direcao/mockup-desktop.png",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "art direction / layout"
+  },
+  {
+    "file": "02-direcao/mockup-mobile.png",
+    "width": 887,
+    "height": 1774,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "art direction / layout"
+  },
+  {
+    "file": "03-hero/camada-brasserie.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "role": "art direction / layout"
+  },
+  {
+    "file": "03-hero/camada-grain-e-meuse.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "role": "art direction / layout"
+  },
+  {
+    "file": "03-hero/maquete-conceitual.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "art direction / layout"
+  },
+  {
+    "file": "04-fotos-reais/photo-339_800_1093.jpg",
+    "width": 1093,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo1-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo10-339_800_1201.jpg",
+    "width": 1201,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo10-430_800_1201.jpg",
+    "width": 1201,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo11-339_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo11-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo12-339_800_1201.jpg",
+    "width": 1201,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo12-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo13-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo14-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo15-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo15-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo16-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo17-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo18-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo19-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo2-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo20-339_800_450.jpg",
+    "width": 450,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo21-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo22-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo23-339_800_450.jpg",
+    "width": 450,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo24-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo3-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo4-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo5-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo6-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo6-430_800_600.jpg",
+    "width": 600,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo7-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo7-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo8-339_800_1422.jpg",
+    "width": 1422,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo8-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo9-339_800_450.jpg",
+    "width": 450,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "04-fotos-reais/photo9-430_800_1067.jpg",
+    "width": 1067,
+    "height": 800,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "original property photo"
+  },
+  {
+    "file": "05-secoes/aba-so-zen.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "art direction / layout"
+  },
+  {
+    "file": "05-secoes/carnet-sejour.jpg",
+    "width": 1800,
+    "height": 1180,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "art direction / layout"
+  },
+  {
+    "file": "05-secoes/so-zen/logo-source.png",
+    "width": 946,
+    "height": 2048,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "role": "original user screenshot; native display framing"
+  },
+  {
+    "file": "05-secoes/so-zen/yoga-terrasse-01.png",
+    "width": 946,
+    "height": 2048,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "role": "original user screenshot; native display framing"
+  },
+  {
+    "file": "05-secoes/so-zen/yoga-terrasse-02.png",
+    "width": 946,
+    "height": 2048,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "role": "original user screenshot; native display framing"
+  },
+  {
+    "file": "06-roteiros/storyboard.jpg",
+    "width": 1800,
+    "height": 990,
+    "mode": "RGB",
+    "alpha_range": null,
+    "role": "art direction / layout"
+  }
+]

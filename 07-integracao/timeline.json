@@ -1,0 +1,44 @@
+{
+  "mode": "2.5D concept PNG layers + SVG path",
+  "master_canvas": [
+    1536,
+    1024
+  ],
+  "upper": "../03-hero/camada-brasserie.png",
+  "lower": "../03-hero/camada-grain-e-meuse.png",
+  "upper_base": {
+    "translate_y_percent": -5,
+    "scale": 0.92,
+    "origin_percent": [
+      75,
+      35
+    ]
+  },
+  "lower_base": {
+    "translate_percent": [
+      3,
+      14
+    ],
+    "scale": 0.94,
+    "origin_percent": [
+      70,
+      60
+    ]
+  },
+  "scroll": {
+    "upper_y_px": [
+      0,
+      -35
+    ],
+    "lower_y_px": [
+      0,
+      20
+    ],
+    "path_dashoffset": [
+      100,
+      0
+    ]
+  },
+  "reduced_motion": "static master image, no prolonged sticky",
+  "note": "Concept layers calibrated in CSS; not measured geometry or exact reconstructed floor plans."
+}
