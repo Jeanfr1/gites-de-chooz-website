@@ -88,6 +88,7 @@ function bottomNav(active) {
     .join('')}</nav>`;
 }
 
+// TODO(gites): mentions légales (éditeur, hébergeur) and privacy page before the public launch — not in the kit.
 function footer() {
   const links = [...nav, { label: 'Accueil', href: '/' }];
   return `<footer class="site-footer">

@@ -5,6 +5,8 @@
 // TODO(gites): confirm with the owner — brand name (provisional), arrival/departure times,
 // keys, bins location and collection days, Wi-Fi hand-over, pool rules, owner contact.
 // TODO(gites): gîtes 3 and 4 stay out of the site until their records exist (no empty cards).
+// TODO(gites): the owner confirms the use of the official Gîtes de France photos (07-integracao/FONTES.md).
+// TODO(gites): confirm whether the spa / sauna / hammam of the fiches has any link with So Zen (kept separate).
 
 export const brand = {
   name: 'Les Gîtes de Chooz',
