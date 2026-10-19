@@ -450,7 +450,8 @@ h1 em, h2 em, h3 em, .footer-title em { font-style: italic; color: var(--sage-in
 
 .carousel { position: relative; }
 .carousel-track {
-  display: flex; gap: clamp(18px, 2.4vw, 36px);
+  --gap: clamp(18px, 2.4vw, 36px);
+  display: flex; gap: var(--gap);
   overflow-x: auto; overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory; scroll-padding-inline: var(--edge);
   padding: 6px var(--edge) 10px;
@@ -486,6 +487,7 @@ h1 em, h2 em, h3 em, .footer-title em { font-style: italic; color: var(--sage-in
   position: absolute; left: 20px; bottom: 20px;
   display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
   background: var(--linen); color: var(--forest); font-size: 0.8rem; letter-spacing: 0.08em;
+  box-shadow: 0 4px 14px -4px rgba(23, 58, 48, 0.45);
 }
 .gite-card-body { padding-top: 24px; max-width: 560px; }
 .gite-card-facts { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass-ink); margin-bottom: 0.5rem; }
@@ -496,7 +498,22 @@ h1 em, h2 em, h3 em, .footer-title em { font-style: italic; color: var(--sage-in
 .gite-card-text { max-width: 46ch; }
 .gite-card-platforms { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--sage-ink); margin: 0; }
 .gite-card-platforms .icon { width: 16px; height: 16px; color: var(--brass-ink); }
-.gite-slide .card-actions { margin-top: 1.2rem; }
+/* Wide screens: the four gîtes side by side, no scrolling needed */
+@media (min-width: 1180px) {
+  .carousel-track { cursor: default; scroll-snap-type: none; }
+  .gite-slide { flex: 0 0 calc((100% - 3 * var(--gap)) / 4); }
+  .gite-slide .gite-card-photo { aspect-ratio: 4 / 4.6; }
+  .gite-slide .gite-card-title { font-size: clamp(1.55rem, 1.9vw, 2.1rem); }
+  .gite-slide .gite-card-facts { letter-spacing: 0.14em; }
+  .gite-slide .gite-card-platforms { font-size: 0.82rem; }
+  .gite-slide .gite-card-facts { font-size: clamp(0.64rem, 0.75vw, 0.72rem); }
+  .gite-slide .gite-card-tagline { font-size: clamp(1rem, 1.15vw, 1.18rem); }
+  .carousel-ui { display: none; }
+}
+/* buttons on one line whatever the length of the texts above */
+.gite-slide { display: flex; flex-direction: column; }
+.gite-slide .gite-card-body { flex: 1; display: flex; flex-direction: column; }
+.gite-slide .card-actions { margin-top: auto; padding-top: 1.2rem; }
 
 /* ==========================================================================
    Guest band + marquee

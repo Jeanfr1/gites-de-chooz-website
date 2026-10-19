@@ -1,4 +1,5 @@
 // Gîtes carousel (home). Without JS it is a native horizontal scroller with snap points.
+// On wide screens the four cards fit side by side (main.css) and the controls are hidden.
 // Adds: mouse drag with inertia, previous/next buttons, a progress line and a parallax
 // of each photo inside its arch while the row moves.
 export default function initCarousel(root) {
@@ -54,6 +55,7 @@ export default function initCarousel(root) {
   let moved = false;
   track.addEventListener('pointerdown', (e) => {
     if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    if (track.scrollWidth <= track.clientWidth + 1) return; // the four gîtes already fit: nothing to drag
     down = true;
     moved = false;
     startX = lastX = e.clientX;
