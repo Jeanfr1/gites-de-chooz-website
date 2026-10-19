@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>So Dream · Carte de visite 85 × 55 mm</title>
+<!--
+  Carte de visite So Dream — recto (logo) + verso (QR du site, gîtes, contact).
+  85 × 55 mm. Ajouter ?fond-perdu à l’adresse pour la version imprimeur 91 × 61 mm (3 mm de fond perdu).
+  Le QR ouvre https://gites-de-chooz.vercel.app/ (12-impression/qr/qr-so-dream.txt) : garder cette adresse active.
+  PDF : ouvrir dans Chrome > Imprimer > Enregistrer en PDF, marges « Aucune », graphiques d’arrière-plan cochés.
+-->
+<style>
+  @font-face { font-family: 'Playfair'; src: url('../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2') format('woff2'); font-weight: 400 900; }
+  @font-face { font-family: 'Playfair'; font-style: italic; src: url('../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-italic.woff2') format('woff2'); font-weight: 400 900; }
+  @font-face { font-family: 'Jost'; src: url('../node_modules/@fontsource-variable/jost/files/jost-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+  :root { --forest: #203F35; --linen: #F4F0E5; --brass: #A98B52; --brass-ink: #7A6235; --sage-ink: #556B4E; --bleed: 0mm; }
+  .bleed { --bleed: 3mm; }
+  @page { size: 85mm 55mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #d9d9d2; font-family: 'Jost', sans-serif; color: var(--forest); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sheet { display: flex; flex-direction: column; gap: 10mm; align-items: center; padding: 10mm; }
+  html, body { margin: 0; }
+  .face { width: calc(85mm + 2 * var(--bleed)); height: calc(55mm + 2 * var(--bleed)); padding: var(--bleed); position: relative; overflow: hidden; break-after: page; }
+  .face > .safe { position: relative; width: 85mm; height: 55mm; }
+  @media print { body { background: none; } .sheet { padding: 0; gap: 0; } }
+
+  /* recto */
+  .recto { background: var(--forest); }
+  .recto .safe { display: grid; place-items: center; }
+  .recto img { height: 41mm; width: auto; }
+  .recto .stars { position: absolute; inset: 0; }
+
+  /* verso */
+  .verso { background: var(--linen); }
+  .verso .safe { display: grid; grid-template-columns: 30mm 1fr; gap: 5mm; align-items: center; padding: 0 6mm 0 6mm; }
+  .qr { width: 30mm; height: 30mm; background: #fff; border-radius: 2mm; padding: 1mm; }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .scan { margin-top: 1.6mm; font-size: 5.6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-ink); text-align: center; }
+  .txt h1 { font-family: 'Playfair', serif; font-weight: 400; font-size: 11.5pt; line-height: 1.12; letter-spacing: -0.01em; }
+  .txt h1 em { color: var(--sage-ink); }
+  .gites { margin-top: 1.6mm; font-size: 6.4pt; line-height: 1.45; color: var(--forest); }
+  .rule { height: 0.25mm; width: 10mm; background: var(--brass); margin: 2.4mm 0 2mm; }
+  .who { font-family: 'Playfair', serif; font-style: italic; font-size: 9pt; }
+  .tel { font-size: 7.6pt; font-weight: 500; letter-spacing: 0.04em; margin-top: 0.4mm; }
+  .url { font-size: 6pt; letter-spacing: 0.06em; color: var(--sage-ink); margin-top: 0.8mm; }
+  .place { position: absolute; right: 6mm; bottom: 3.6mm; font-size: 5pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brass-ink); }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <section class="face recto">
+    <div class="safe"><img src="../01-identidade/so-dream/so-dream-stacked-linen.svg" alt="So Dream · Gîtes · Chooz · Ardennes"></div>
+  </section>
+  <section class="face verso">
+    <div class="safe">
+      <div>
+        <div class="qr"><img src="qr/qr-so-dream.svg" alt="QR : gites-de-chooz.vercel.app"></div>
+        <p class="scan">Scannez-moi</p>
+      </div>
+      <div class="txt">
+        <h1>Quatre gîtes<br><em>au bord de la Meuse.</em></h1>
+        <p class="gites">Le Grain d’Amour · La Brasserie<br>Chez Suzanne · Au Petit Bouchon</p>
+        <div class="rule"></div>
+        <p class="who">Sophie</p>
+        <p class="tel">+33 6 21 11 43 58</p>
+        <p class="url">gites-de-chooz.vercel.app</p>
+      </div>
+      <p class="place">Chooz · Ardennes</p>
+    </div>
+  </section>
+</div>
+<script>
+  if (location.search.includes('fond-perdu')) {
+    document.documentElement.classList.add('bleed');
+    const page = document.createElement('style');
+    page.textContent = '@page { size: 91mm 61mm; margin: 0; }';
+    document.head.append(page);
+  }
+</script>
+</body>
+</html>

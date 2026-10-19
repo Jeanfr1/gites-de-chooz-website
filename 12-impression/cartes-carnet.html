@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>So Dream · Cartes A6 « Votre carnet de séjour »</title>
+<!--
+  Une carte A6 (105 × 148 mm) par gîte, à poser dans le logement : le QR ouvre le carnet de séjour
+  du gîte (Wi-Fi disponible, tri, départ…) — 12-impression/qr/qr-carnet-<gîte>.txt.
+  PDF : ouvrir dans Chrome > Imprimer > Enregistrer en PDF, marges « Aucune », graphiques d’arrière-plan cochés.
+-->
+<style>
+  @font-face { font-family: 'Playfair'; src: url('../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2') format('woff2'); font-weight: 400 900; }
+  @font-face { font-family: 'Playfair'; font-style: italic; src: url('../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-italic.woff2') format('woff2'); font-weight: 400 900; }
+  @font-face { font-family: 'Jost'; src: url('../node_modules/@fontsource-variable/jost/files/jost-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+  :root { --forest: #203F35; --linen: #F4F0E5; --brass: #A98B52; --brass-ink: #7A6235; --sage-ink: #556B4E; --sage-light: #DFE3D6; }
+  @page { size: 105mm 148mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #d9d9d2; font-family: 'Jost', sans-serif; color: var(--forest); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sheet { display: flex; flex-wrap: wrap; gap: 10mm; justify-content: center; padding: 10mm; }
+  @media print { body { background: none; } .sheet { padding: 0; gap: 0; } }
+  .card {
+    width: 105mm; height: 148mm; background: var(--linen); position: relative; overflow: hidden; break-after: page;
+    display: flex; flex-direction: column; align-items: center; text-align: center; padding: 14mm 12mm 9mm;
+  }
+  /* arched frame, as on the site */
+  .card::before {
+    content: ''; position: absolute; inset: 6mm; border: 0.3mm solid var(--brass);
+    border-radius: 47mm 47mm 2mm 2mm; pointer-events: none;
+  }
+  .emblem { width: 19mm; height: 19mm; }
+  .eyebrow { margin-top: 3.2mm; font-size: 6.6pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brass-ink); }
+  h1 { margin-top: 2.4mm; font-family: 'Playfair', serif; font-weight: 400; font-size: 24pt; line-height: 1.02; letter-spacing: -0.02em; }
+  .tag { margin-top: 1.6mm; font-family: 'Playfair', serif; font-style: italic; font-size: 10.5pt; color: var(--sage-ink); }
+  .qr { margin-top: 5.5mm; width: 44mm; height: 44mm; background: #fff; border-radius: 3mm; padding: 1.4mm; box-shadow: 0 0 0 0.3mm rgba(32, 63, 53, 0.12); }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .scan { margin-top: 3.4mm; font-family: 'Playfair', serif; font-size: 11pt; }
+  .topics { margin-top: 1.2mm; font-size: 7.4pt; letter-spacing: 0.04em; color: var(--sage-ink); }
+  .langs { margin-top: 2.8mm; display: flex; gap: 1.4mm; }
+  .langs span { font-size: 6pt; letter-spacing: 0.12em; padding: 0.6mm 1.6mm; border: 0.25mm solid rgba(32, 63, 53, 0.28); border-radius: 3mm; }
+  .foot { margin-top: auto; font-size: 6pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brass-ink); }
+  .foot b { font-family: 'Playfair', serif; font-weight: 400; font-size: 8.5pt; letter-spacing: 0; text-transform: none; color: var(--forest); }
+  .foot b em { font-style: italic; }
+</style>
+</head>
+<body>
+<div class="sheet" id="sheet"></div>
+<template id="card">
+  <article class="card">
+    <img class="emblem" src="../assets-src/brand/emblem-forest.svg" alt="">
+    <p class="eyebrow">Votre carnet de séjour</p>
+    <h1 data-name></h1>
+    <p class="tag" data-tag></p>
+    <div class="qr"><img data-qr alt=""></div>
+    <p class="scan">Scannez, tout est là.</p>
+    <p class="topics" data-topics></p>
+    <p class="langs"><span>FR</span><span>EN</span><span>DE</span><span>ES</span><span>NL</span><span>PL</span><span>TR</span></p>
+    <p class="foot"><b>So <em>Dream</em></b> · Chooz · Ardennes</p>
+  </article>
+</template>
+<script>
+  // Same names and taglines as src/data/site.js + src/i18n/fr.js
+  const gites = [
+    { slug: 'le-grain-damour', name: 'Le Grain d’Amour', tag: 'Une échappée à deux.', pool: true },
+    { slug: 'la-brasserie', name: 'La Brasserie', tag: 'Le bonheur de se retrouver.', pool: true },
+    { slug: 'chez-suzanne', name: 'Chez Suzanne', tag: 'Quatre chambres, quatre cocons.', pool: false },
+    { slug: 'au-petit-bouchon', name: 'Au Petit Bouchon', tag: 'Un pied-à-terre lumineux.', pool: false },
+  ];
+  const only = new URLSearchParams(location.search).get('gite');
+  const tpl = document.getElementById('card');
+  for (const g of gites.filter((x) => !only || x.slug === only)) {
+    const c = tpl.content.cloneNode(true);
+    c.querySelector('[data-name]').textContent = g.name;
+    c.querySelector('[data-tag]').textContent = g.tag;
+    const qr = c.querySelector('[data-qr]');
+    qr.src = `qr/qr-carnet-${g.slug}.svg`;
+    qr.alt = `QR : carnet de séjour ${g.name}`;
+    c.querySelector('[data-topics]').textContent = g.pool ? 'Wi-Fi · tri · piscine · arrivée et départ' : 'Wi-Fi · tri · arrivée et départ';
+    document.getElementById('sheet').append(c);
+  }
+</script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src=".github/assets/banner.png" alt="Les Gîtes de Chooz: La parenthèse verte. Two gîtes in Chooz, on the banks of the Meuse." width="100%" />
+<img src=".github/assets/banner.png" alt="So Dream: La parenthèse verte. Four gîtes in Chooz, on the banks of the Meuse." width="100%" />
 
-<h3>A French guest portal for two holiday cottages in the Ardennes, opened by a scroll-driven 2.5D landscape where the houses part to let a brass thread through.</h3>
+<h3>A seven-language guest site for four holiday homes in the French Ardennes, opened by a scroll-driven 2.5D landscape and choreographed section by section.</h3>
 
 <p>
   <a href="https://gites-de-chooz.vercel.app"><strong>🌐 Live site</strong></a>
   &nbsp;·&nbsp;
-  <a href="#hero-animation"><strong>🎬 How the hero works</strong></a>
+  <a href="#motion"><strong>🎬 The motion system</strong></a>
   &nbsp;·&nbsp;
   <a href="#getting-started"><strong>🛠️ Run it locally</strong></a>
 </p>
@@ -15,9 +15,9 @@
 <p>
   <a href="https://gites-de-chooz.vercel.app"><img src="https://img.shields.io/badge/Vercel-Live-203F35?style=for-the-badge&logo=vercel&logoColor=white" alt="Live on Vercel" /></a>
   <img src="https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 6" />
-  <img src="https://img.shields.io/badge/JavaScript-ES2020-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/OpenCV-layer_registration-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV layer registration" />
-  <img src="https://img.shields.io/badge/♿_Accessibility-first-A98B52?style=for-the-badge" alt="Accessibility first" />
+  <img src="https://img.shields.io/badge/GSAP-3.13-0AE448?style=for-the-badge&logo=greensock&logoColor=black" alt="GSAP 3.13" />
+  <img src="https://img.shields.io/badge/🌍_Languages-7-A98B52?style=for-the-badge" alt="Seven languages" />
+  <img src="https://img.shields.io/badge/♿_Accessibility-first-556B4E?style=for-the-badge" alt="Accessibility first" />
 </p>
 
 </div>
@@ -26,132 +26,159 @@
 
 ## 🚀 Overview
 
-**Les Gîtes de Chooz** brings together two holiday homes on one shared property in Chooz, in the French Ardennes: **Le Grain d’Amour** (2 guests, 55 m²) and **La Brasserie** (12 guests, 240 m²). The owner wanted one green, calm entry point, reachable from a single QR code, that serves two kinds of visitors:
+**So Dream** gathers four holiday homes in Chooz, a village in a loop of the Meuse, under one name, one logo and one QR code:
 
-- **People planning a stay** compare the two gîtes, browse the official photos and continue to the right **Gîtes de France** booking page.
-- **Guests already on site** open the **carnet de séjour** of their own gîte: Wi-Fi, recycling, energy, pool, pets and linen, arrival and departure, each with the conditions that apply to *that* house.
+| Gîte                 | Guests | Bedrooms | Booking                                   |
+| :------------------- | :----: | :------: | :---------------------------------------- |
+| **Le Grain d’Amour** |   2    |    1     | Gîtes de France (08G430)                  |
+| **La Brasserie**     |   12   |    5     | Gîtes de France (08G339)                  |
+| **Chez Suzanne**     |   8    |    4     | Gîtes de France (08G466), Booking, Airbnb |
+| **Au Petit Bouchon** |   4    |    2     | Airbnb                                    |
 
-Around them sit **So Zen**, the yoga activities held on the terrace, and a short guide to the Meuse valley.
+The site serves two kinds of visitors:
 
-- **Cinematic first impression**: the approved architectural maquette is rebuilt from transparent layers and opens as you scroll, never blocking the page
-- **Two clear paths**: book from the gîte pages, or open the guest booklet; both are one tap away in the mobile bar
-- **Real places, real facts**: every photo of the houses is an official listing photo; capacities and conditions come from the listings, nothing is invented
-- **Works for everyone**: every page is complete without JavaScript, the hero turns into a still image with reduced motion, and the booklet prints cleanly
-- **Light**: 559 KB on the first desktop load and 331 KB on a phone, images included
+- **People planning a stay** compare the four houses, browse the owner’s photos and continue to the right platform for each house.
+- **Guests already there** scan the card left in their gîte and land on its **carnet de séjour**: Wi-Fi availability, a searchable recycling guide, energy, pets and linen, arrival and departure times, and the owner’s departure reminder as a checklist that remembers what is done.
 
-All visitor-facing text is in French.
+Around them: **La Palmeraie**, the spa, billiards and event space being restored; **Bonnes adresses**, the owner’s list of bakeries, tables, shops, pharmacies, outings and towns, with an agenda that removes past dates by itself; and **So Zen**, the yoga sessions held on the terrace.
+
+- **Short home page, deep site**: five buttons in the hero lead straight to the gîtes, the guest booklet, La Palmeraie, the addresses and So Zen
+- **Seven languages**: French, English, German, Spanish, Dutch, Polish and Turkish, each with its own URLs
+- **A distinct motion for every section**, all of it optional: reduced motion and no-JavaScript visitors get a complete, still site
+- **Real facts only**: capacities, platforms and times come from the public listings; nothing is invented, and the Wi-Fi network name and password stay in the house
 
 <br />
 
-<a name="hero-animation"></a>
+<a name="motion"></a>
 
-## 🎬 The hero animation
+## 🎬 The motion system
 
 <div align="center">
-  <a href="https://gites-de-chooz.vercel.app"><img src=".github/assets/hero-scroll.gif" alt="Scrolling through the hero: La Brasserie rises, Le Grain d’Amour settles, a brass thread draws itself between the two tiers and continues down to the gîte cards" width="100%" /></a>
+  <a href="https://gites-de-chooz.vercel.app"><img src=".github/assets/hero-scroll.gif" alt="Scrolling through the hero: the title arrives letter by letter, La Brasserie rises, Le Grain d’Amour settles and a brass thread draws itself between the two tiers" width="100%" /></a>
   <sub>Scroll-scrubbed on the live site · captured at 1440 × 900</sub>
 </div>
 
 <br />
 
-The hero is a short sticky section (0.7 screen height of scroll on desktop, 0.46 on phones) that follows the kit’s motion script, *Les maisons s’ouvrent sur le paysage*:
+The hero is a short sticky section that follows the kit’s motion script, *Les maisons s’ouvrent sur le paysage*: the two houses open apart on their paper tiers and a brass thread draws itself between them, then flows down into the next section’s eyebrow. Everything below it has its own choreography (GSAP 3.13 with ScrollTrigger, SplitText, DrawSVG, MotionPath and Flip):
 
-| Scroll   | What happens                                                                                          |
-| :------- | :---------------------------------------------------------------------------------------------------- |
-| 0%       | The two houses at rest on their paper tiers; title and **Découvrir les gîtes** visible                |
-| 20–55%   | La Brasserie rises, Le Grain d’Amour settles a little: the tiers open                                 |
-| 35–90%   | A brass thread draws itself through the gap between the tiers, then down past the river               |
-| 70–100%  | The hero releases and the thread carries on into the next section, ending between the two gîte cards |
+| Section                    | Choreography                                                                                          |
+| :------------------------- | :---------------------------------------------------------------------------------------------------- |
+| Hero                       | Title rises letter by letter from a mask, the quick buttons spring in; the copy drifts away as the houses open |
+| Gîtes carousel             | The four houses are dealt in like cards, arches open from the bottom; photos drift inside their arch as you drag |
+| Guest band                 | Words surface from a blur, icons draw themselves; a giant marquee speeds up, reverses and leans with scroll velocity |
+| So Zen                     | The photo opens as an iris with the scroll; the logo spins in; a ring breathes *Inspirez · Expirez* on an 8-second cycle |
+| La Meuse                   | The river draws itself from Charleville to Namur, a paper boat sails down it, towns light up as it passes Chooz |
+| Page titles                | Letters flip up in 3D, one after the other                                                             |
+| Gîte page                  | The lead photo unveils and zooms out, figures count up, gallery tiles uncover from alternating sides, conditions flip down like cards |
+| Guest booklet              | Items rise as you read, the recycling bins bounce in, the departure note lands like a pinned paper; ticks draw, a ring fills, a stamp lands at 7/7 |
+| La Palmeraie               | A curtain parts, then the glasshouse and its palms are drawn line by line under a twinkling sky        |
+| Bonnes adresses            | Cards glide to their new place when filtered (Flip); agenda dates fall like calendar pages             |
+| Guide band                 | The forest panel widens from a rounded card to full width as it scrolls in                            |
+| Footer                     | The emblem draws itself and *So Dream* rises letter by letter                                           |
+| Between pages              | Cross-document View Transitions fade and lift the new page in                                           |
 
-**Under the hood**
-
-- 🧩 **Two transparent layers on a 1536 × 1024 stage**, positioned in percentages of the stage so the scene scales to any screen; the stage covers the hero with a focal point on the houses.
-- 📐 **Measured, not guessed.** The kit said both layers shared the maquette’s canvas, but the lower one had been re-rendered: SIFT feature matching against the approved maquette measured it at **0.8745× scale, offset (161, 169) px** (the upper layer matched at 1.000). `scripts/prepare-hero.py` registers both, mirror-pads the edge that no longer reached the frame and checks the result side by side with the maquette.
-- 🌫️ **No ghosts in the gap.** The background plate is the maquette with both tiers filled by push-pull interpolation, so the space revealed by the opening shows mist, never a second copy of a house.
-- 🧵 **A thread drawn from the geometry.** The thread’s path follows the measured centre line between the two tiers at full opening, and sits between the layers: hidden under La Brasserie at rest, revealed as the tiers part. On scroll, its exit point is measured so the section below starts its own thread at the same spot.
-- 🐢 **Graceful by default.** With `prefers-reduced-motion` the scene stays still, the thread is removed and nothing is pinned; without JavaScript the hero is a plain still. A `?p=0.5` flag freezes the hero at any progress for checks.
+**Built to degrade gracefully.** Hidden start states exist only under an `html.motion` class added before first paint when motion is allowed; a safety timer removes it if the animation code does not start. With `prefers-reduced-motion`, without JavaScript, or when printing, every element is visible and still (checked on every page in all three modes).
 
 <br />
 
-## 🖥️ Sections
+## 🖥️ Pages
 
 <div align="center">
-  <img src=".github/assets/desktop-sections.jpg" alt="Desktop screenshots: La Brasserie, the Grain d’Amour gallery, the comparison table, the guest booklet, So Zen and the outings" width="100%" />
+  <img src=".github/assets/desktop-sections.jpg" alt="Desktop screenshots: the gîtes carousel, the Chez Suzanne gallery, the recycling guide, the departure checklist, La Palmeraie and the addresses" width="100%" />
 </div>
 
 <br />
 
-| #   | Page                                       | URL                                   | Role                                                                                         |
-| :-- | :----------------------------------------- | :------------------------------------ | :------------------------------------------------------------------------------------------- |
-| 01  | **La parenthèse verte.**                    | `/`                                   | Hero, the two gîtes, guest booklet teaser, So Zen and the Meuse outings                       |
-| 02  | **Deux adresses. Votre échappée.**          | `/gites/`                             | Both gîtes side by side, a comparison table and the shared garden, pool and wellness area    |
-| 03  | **Le Grain d’Amour** / **La Brasserie**     | `/gites/le-grain-damour/` · `/gites/la-brasserie/` | Facts, equipment, gallery of the official photos (11 and 23) in a dialog, conditions and booking |
-| 04  | **Bienvenue chez vous.**                    | `/sejour/`                            | Choose your gîte to open its booklet                                                          |
-| 05  | **Carnet de séjour**                        | `/sejour/le-grain-damour/` · `/sejour/la-brasserie/` | Eight practical points with the conditions of that gîte, printable                |
-| 06  | **Au fil de vos envies.**                   | `/explorer/`                          | Voie Verte, Fort de Charlemont, Pâtisserie Léval, Presqu’île de Chooz, with filters           |
-| 07  | **Un moment pour soi.**                     | `/so-zen/`                            | So Zen yoga on the terrace: identity, two real photos, Facebook and phone contact            |
-| 08  | **Ce chemin s’est égaré.**                  | `/404.html`                           | Friendly not-found page                                                                       |
+14 pages in each language (98 in all) plus a 404. French lives at the root, the other languages under `/en/`, `/de/`, `/es/`, `/nl/`, `/pl/` and `/tr/`.
+
+| #   | Page                                  | French URL                     | Role                                                                                      |
+| :-- | :------------------------------------ | :----------------------------- | :---------------------------------------------------------------------------------------- |
+| 01  | **La parenthèse verte.**              | `/`                            | Hero with five quick buttons, the four gîtes, guest band, So Zen, the Meuse map           |
+| 02  | **Quatre adresses. Votre échappée.**  | `/gites/`                      | The four gîtes, a comparison table, the shared garden and pool                            |
+| 03  | **Fiche gîte** × 4                    | `/gites/<gîte>/`               | Facts, one booking button per platform, gallery (10–24 photos), conditions, times, the village |
+| 04  | **Bienvenue chez vous.**              | `/sejour/`                     | Choose your gîte                                                                          |
+| 05  | **Carnet de séjour** × 4              | `/sejour/<gîte>/`              | 7–8 practical points, recycling guide with search, departure checklist; printable         |
+| 06  | **La Palmeraie.**                     | `/palmeraie/`                  | Wellness, billiards and events, being restored; contact                                   |
+| 07  | **Nos bonnes adresses.**              | `/bonnes-adresses/`            | 25 places in 7 categories with filters, the agenda, the Meuse map                         |
+| 08  | **Un moment pour soi.**               | `/so-zen/`                     | So Zen yoga: photos, Facebook, phone, the future room at La Palmeraie                     |
+
+`/explorer/` from the first version redirects to `/bonnes-adresses/`.
 
 <br />
 
-## 📱 Mobile first, motion optional
+## 📱 Mobile first
 
 <div align="center">
-  <img src=".github/assets/mobile-screens.jpg" alt="Mobile screenshots: hero, Le Grain d’Amour, the guest booklet and So Zen" width="100%" />
+  <img src=".github/assets/mobile-screens.jpg" alt="Mobile screenshots: hero with quick buttons, Au Petit Bouchon, the departure checklist and La Palmeraie in English" width="100%" />
 </div>
 
 <br />
 
-- Title above the scene, a shorter opening and reduced amplitude, as the motion script asks
-- A fixed bottom bar for the three things guests need most: **Les gîtes · Mon séjour · So Zen**
-- Every touch target is at least 44 px; no horizontal scroll from 320 px to 1920 px (checked with the menu open)
-- Phones download smaller hero layers: 153 KB of images on the first load
-- Nothing depends on hover
+- Title above the scene, quick buttons in a swipeable row, a shorter opening of the hero
+- A fixed bottom bar: **Les gîtes · Votre séjour · Bonnes adresses · So Zen**; the header hides while reading down and comes back up
+- Touch targets of at least 44 px; no horizontal scroll from 320 to 1920 px in any language (swept automatically)
+- Long German and Polish words hyphenate on small screens
 
 <br />
 
-## ✨ Highlights
+## 🌍 Seven languages
 
-- **🎞️ Scroll storytelling** without a library: one `requestAnimationFrame` loop maps scroll to the kit’s timeline (`07-integracao/timeline.json`)
-- **🏡 One booklet per house**: Le Grain d’Amour and La Brasserie have different energy, pet and linen conditions, so each booklet has its own URL, a switcher, and a print layout
-- **🖼️ Accessible gallery**: a native `<dialog>` where Escape closes, the arrow keys and swipes change photo, and focus returns to the photo you opened; without JavaScript each tile links to the full image
-- **🔗 Real links only**: booking goes to the official Gîtes de France listings (08G430 and 08G339); prices and availability stay on the platform
-- **🧾 Content rendered at build time** from one data file (`src/data/site.js`), so the site works without JavaScript and every fact has a single source
-- **🖼️ Image pipeline**: the kit’s masters stay untouched; `npm run images` writes AVIF and WebP in up to three widths, with versioned names for immutable caching
-- **🔎 Ready to share**: Open Graph image, page titles and descriptions; `noindex` stays on until the owner validates the content
+- Every word lives in `src/i18n/<lang>.js`; French (`fr.js`) is the source and the other six mirror its keys exactly. `npm run check:i18n` (also run before every build) fails on any missing or extra key.
+- Plurals follow each language (Polish *1 osoba · 2 osoby · 5 osób*), dates use the visitor’s locale, French gets its narrow no-break spaces.
+- Each page links its six translations with `hreflang`; a language menu in the header and in the footer works without JavaScript.
+- A visitor whose browser prefers another of the seven languages gets a one-time suggestion in that language. The site never redirects on its own.
+
+<br />
+
+## 🌙 The So Dream identity
+
+The name *So Dream* echoes So Zen. The emblem is drawn in code (`scripts/make-logo.py`): a crescent moon holding the hill, the big house, the small cottage, two trees and the river, under three brass stars. `scripts/make-lockups.py` sets the wordmark in Playfair Display (*So* roman, *Dream* italic) with the tagline *Gîtes · Chooz · Ardennes*, outlined to SVG paths.
+
+- `01-identidade/so-dream/`: stacked and horizontal lockups and the emblem, in forest, linen, white and black (SVG), plus `png/` exports at 2400 px
+- On the site the emblem is inlined in the header and footer, so it can draw itself and take any colour
+
+<br />
+
+## 🖨️ Print
+
+`12-impression/` holds the pieces to print, rendered from HTML:
+
+- **Carte de visite** 85 × 55 mm: logo on the front; on the back a QR to the site, the four gîtes, the owner’s phone (`carte-visite-imprimeur-91x61.pdf` adds 3 mm bleed for a print shop)
+- **Cartes A6** to leave in each gîte: *Votre carnet de séjour*, with a QR that opens that gîte’s booklet, in an arched frame
+- `qr/`: every QR in SVG and PNG with its destination (`generer_qr.py`, same settings as the kit), each one decoded back and checked
 
 <br />
 
 ## 💻 Tech stack
 
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" width="40" height="40" /><br />Vite 6 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40" /><br />JavaScript | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" height="40" /><br />HTML5 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" height="40" /><br />CSS3 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" /><br />Python | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="40" height="40" /><br />OpenCV | <img src="https://cdn.simpleicons.org/vercel/000000/ffffff" width="40" height="40" /><br />Vercel |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" width="40" height="40" /><br />Vite 6 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40" /><br />JavaScript | <img src="https://cdn.simpleicons.org/greensock/0AE448" width="40" height="40" /><br />GSAP | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" height="40" /><br />CSS3 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" /><br />Python | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="40" height="40" /><br />OpenCV | <img src="https://cdn.simpleicons.org/vercel/000000/ffffff" width="40" height="40" /><br />Vercel |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
 ### Why this stack?
 
-- **Vite + plain JavaScript**: ten static pages with three small modules (hero, gallery, filters); no framework runtime to ship
-- **Build-time rendering**: a small Vite plugin renders every page from `src/data/site.js`, so content lives in one place and the HTML is complete before any script runs
-- **Python + OpenCV, once**: registering the hero layers and building the background plate is a one-off measurement, kept as a script for when the art changes
-- **sharp**: AVIF/WebP encoding from the kit’s original photos
-- **Self-hosted Playfair Display and Jost**: a high-contrast serif with clean French accents, paired with a calm geometric sans, with no third-party font requests
-- **Vercel**: every push to `main` deploys automatically
+- **Vite + plain JavaScript**: 99 static pages and a handful of small modules; no framework runtime
+- **Build-time rendering**: a Vite plugin renders every page from `src/data/site.js` and the language files, and generates the HTML entries itself (14 routes × 7 languages)
+- **GSAP**, loaded only when motion is allowed, in its own chunk
+- **Python + OpenCV, once**: registering the hero layers on the approved maquette (SIFT) and drawing the logo
+- **sharp**: AVIF/WebP from the owner’s camera files (6,048 px) in three widths, with versioned names for immutable caching
+- **Self-hosted Playfair Display and Jost**, Latin Extended included for Polish and Turkish
 
 <br />
 
 ## 🎨 Design system
 
-| Token        | Value                                                                        | Use                                              |
-| :----------- | :--------------------------------------------------------------------------- | :----------------------------------------------- |
-| Forest       | ![#203F35](https://img.shields.io/badge/%23203F35-203F35?style=flat-square) | Text, hero, bands, footer, primary buttons       |
-| Sage         | ![#98A384](https://img.shields.io/badge/%2398A384-98A384?style=flat-square) | Numbers, quiet accents, panels (`#DFE3D6`)       |
-| Linen        | ![#F4F0E5](https://img.shields.io/badge/%23F4F0E5-F4F0E5?style=flat-square) | Page surface, with a light paper grain           |
-| Brass        | ![#A98B52](https://img.shields.io/badge/%23A98B52-A98B52?style=flat-square) | The thread, hairlines, link underlines           |
-| Peach        | ![#F7D9B9](https://img.shields.io/badge/%23F7D9B9-F7D9B9?style=flat-square) | So Zen only, echoing its illustration            |
+| Token  | Value                                                                        | Use                                         |
+| :----- | :--------------------------------------------------------------------------- | :------------------------------------------ |
+| Forest | ![#203F35](https://img.shields.io/badge/%23203F35-203F35?style=flat-square) | Text, hero, bands, footer, primary buttons  |
+| Sage   | ![#98A384](https://img.shields.io/badge/%2398A384-98A384?style=flat-square) | Quiet accents, panels (`#DFE3D6`), the river |
+| Linen  | ![#F4F0E5](https://img.shields.io/badge/%23F4F0E5-F4F0E5?style=flat-square) | Page surface, with a light paper grain      |
+| Brass  | ![#A98B52](https://img.shields.io/badge/%23A98B52-A98B52?style=flat-square) | The thread, stars, hairlines, progress      |
+| Peach  | ![#F7D9B9](https://img.shields.io/badge/%23F7D9B9-F7D9B9?style=flat-square) | So Zen only                                 |
 
-- **Type**: Playfair Display for headings (italic for the second half of each title), Jost for text; hero title 43–104 px, body 16–17 px
-- **Shapes**: arched photos, torn-paper edges echoing the maquette’s tiers, botanical sprigs as quiet ornaments
-- **Grid**: 1,320 px content width, side margins from 20 px (phones) to 72 px
-- **Motion**: entrances of 26 px over 900 ms; the hero follows the scroll, everything else stays still with reduced motion
+- **Type**: Playfair Display for headings (italic for the second half of each title), Jost for text
+- **Shapes**: arched photos and frames, torn-paper edges echoing the maquette’s tiers, botanical sprigs
+- **Grid**: 1,320 px content width, side margins from 20 px to 72 px
 
 <br />
 
@@ -170,7 +197,7 @@ npm install
 # Start the dev server  →  http://localhost:5173
 npm run dev
 
-# Production build  →  dist/
+# Check the seven language files, then build  →  dist/
 npm run build
 
 # Preview the production build  →  http://localhost:4190
@@ -179,7 +206,7 @@ npm run preview
 # Re-register the hero layers on the maquette (Python 3 with OpenCV, NumPy)
 npm run hero
 
-# Regenerate every web image from the kit's masters
+# Regenerate every web image (needs the owner's photo masters in 10-photos-so-dream/, kept locally)
 npm run images
 ```
 
@@ -189,25 +216,31 @@ npm run images
 
 ```
 gites-de-chooz-website/
-├── index.html, gites/, sejour/, explorer/, so-zen/, 404.html   # Page entries (one marker each)
 ├── src/
 │   ├── data/
-│   │   ├── site.js             # Every fact on the site: gîtes, booklet, outings, So Zen
+│   │   ├── site.js             # Facts shared by every language: gîtes, platforms, booklet, places, agenda, map
 │   │   ├── hero.json           # Layer boxes, opening amplitude and thread path (generated)
 │   │   └── images.json         # Image sizes for width/height and srcset (generated)
-│   ├── render/                 # Build-time HTML: layout, pages, icons
-│   ├── styles/main.css         # Tokens, components, responsive and print rules
+│   ├── i18n/                   # fr (source), en, de, es, nl, pl, tr
+│   ├── render/                 # Build-time HTML: pages, layout, emblem, icons, locale helpers
+│   ├── styles/main.css         # Tokens, components, motion start states, responsive and print rules
 │   ├── js/
-│   │   ├── hero.js             # Scroll progress, opening, thread drawing and hand-off
-│   │   ├── gallery.js          # <dialog> gallery: keys, swipe, focus return
-│   │   └── filters.js          # Outing filters
-│   └── main.js                 # Menu, reveal on scroll, print, page modules
+│   │   ├── motion.js           # GSAP choreography of every section
+│   │   ├── hero.js             # Hero scroll progress, opening, thread and hand-off
+│   │   ├── carousel.js         # Drag, buttons, progress and photo parallax
+│   │   ├── tri.js · checklist.js · filters.js · gallery.js · lang.js
+│   └── main.js                 # Menu, header, language menu, print, agenda, page modules
 ├── scripts/
+│   ├── make-logo.py · make-lockups.py   # So Dream emblem and lockups
 │   ├── prepare-hero.py         # SIFT registration, background plate, thread path
-│   └── build-images.mjs        # AVIF/WebP pipeline (sharp)
+│   ├── build-images.mjs        # AVIF/WebP pipeline, favicons, share image
+│   └── check-i18n.mjs          # Same keys in every language
 ├── public/img/                 # Encoded images (generated, versioned names)
-├── 01-identidade … 09-qr/      # The design kit, kept as the source of truth (LEIA-ME-KIT.md)
-└── vite.config.js              # Multi-page build + render plugin
+├── 01-identidade/so-dream/     # Logo files (SVG + PNG)
+├── 11-brief-v2/                # The owner's requests for this version
+├── 12-impression/              # Business card, A6 booklet cards, QR codes
+├── 01-identidade … 09-qr/      # The original design kit (LEIA-ME-KIT.md)
+└── vite.config.js              # Multi-page build, generated entries, render plugin
 ```
 
 <br />
@@ -224,39 +257,35 @@ Hosted on **Vercel** and connected to this repository: every push to `main` ship
 | Build command    | `npm run build` |
 | Output directory | `dist`          |
 
-The design kit folders stay in the repository but are excluded from the deployment (`.vercelignore`).
+The kit folders stay in the repository but are excluded from the deployment (`.vercelignore`).
 
-> **The printed QR code opens `https://gites-de-chooz.vercel.app`.** Never rename or delete the Vercel project; if a custom domain is added later, keep this address serving the site or redirecting to it.
+> **Every printed QR code opens `https://gites-de-chooz.vercel.app`** (the A6 card of 2026-10-11, the business card and the four booklet cards). Never rename or delete the Vercel project; if a custom domain is added later, keep this address serving the site or redirecting to it.
 
 <br />
 
 ## 📌 Content checklist
 
-Items waiting on the owner or on So Zen. Each one is marked `TODO(gites)` in the code.
+Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 
-- [ ] Final name: *Les Gîtes de Chooz* is provisional
-- [ ] Arrival and departure times, keys, location of the bins and collection days, how the Wi-Fi details are handed over, pool rules, owner contact
-- [ ] Owner’s confirmation for using the official Gîtes de France photos
-- [ ] So Zen: dates, prices and how to sign up (the site sends visitors to Facebook and the phone number)
-- [ ] So Zen illustration: the current file is a stock image that still carries its source’s watermarks; replace it with the licensed original or So Zen’s own artwork
-- [ ] Whether the sauna, spa and hammam of the listings have anything to do with So Zen (kept separate for now)
-- [ ] Gîtes 3 and 4, once their listings exist (no empty cards are shown meanwhile)
+- [ ] The 14 exterior photos: the Drive files in her e-mail are not shared, so the gîte pages still open with interiors for Chez Suzanne and Au Petit Bouchon
+- [ ] Arrival and departure times of Le Grain d’Amour (Gîtes de France only gives them after booking)
+- [ ] Whether guests of Chez Suzanne and Au Petit Bouchon can use the pool
+- [ ] Keys, where the bins are, the owner’s contact for each gîte
+- [ ] Contact for La Palmeraie (So Zen’s phone is shown meanwhile)
+- [ ] So Zen illustration: the current file is a stock image with its source’s watermarks; replace it with the licensed original or So Zen’s own artwork
 - [ ] Mentions légales and privacy page
-- [x] QR code generated on 2026-10-11 for `https://gites-de-chooz.vercel.app`, with the A6 card ready to print (`09-qr/final/`: PNG, SVG, PDF)
-- [ ] Final domain: then remove `noindex` and set `SITE_URL`; keep `gites-de-chooz.vercel.app` working (redirect) because the printed QR points to it
-
-Choices made where the kit contradicted itself:
-
-- The editorial text file (`06-roteiros/CONTEUDO-FR.md`) wins over the words drawn in the mockups (for example, no “gîtes d’exception”)
-- The study’s single page with `#` routes became real URLs, including one booklet URL per gîte
-- The kit lists six photos per gîte; the gallery opens with those and adds the rest of each official listing
+- [ ] A read of the six translations by native speakers before the public launch
+- [ ] Final domain: then remove `noindex` and set `SITE_URL`; keep `gites-de-chooz.vercel.app` working
+- [x] So Dream name and logo, four gîtes, seven languages, Palmeraie, bonnes adresses, agenda, recycling guide, departure checklist, pool May to September, Presqu’île de Chooz removed
+- [x] Business card and A6 booklet cards ready to print (`12-impression/final/`)
 
 <br />
 
 ## 🙏 Acknowledgments
 
-- **The owner of the gîtes** and **So Zen** for the brief, the photos and the approved visual direction
-- **[Gîtes de France](https://www.gites-de-france.com)** for the listings the photos and facts come from
+- **The owner of So Dream** and **So Zen** for the brief, the photos and the list of addresses
+- **[Gîtes de France](https://www.gites-de-france.com)**, **Airbnb** and **Booking.com** for the listings the facts come from
+- **[GSAP](https://gsap.com)** by GreenSock (free for all uses since 3.13)
 - **[Lucide](https://lucide.dev)** for the line icons the interface icons are based on (ISC)
 - **[Playfair Display](https://fonts.google.com/specimen/Playfair+Display)** by Claus Eggers Sørensen and **[Jost](https://fonts.google.com/specimen/Jost)** by indestructible type* (OFL), via Fontsource
 - **[OpenCV](https://opencv.org)**, **[sharp](https://sharp.pixelplumbing.com)**, **[Vite](https://vite.dev)** and **[Vercel](https://vercel.com)**
@@ -266,8 +295,8 @@ Choices made where the kit contradicted itself:
 ---
 
 <div align="center">
-  <img src="public/img/apple-touch-icon-v1.png" width="44" height="44" alt="" />
-  <p><strong>La parenthèse verte</strong></p>
-  <p>Built with ❤️ by <a href="https://github.com/Jeanfr1">Jean</a> for Les Gîtes de Chooz</p>
-  <sub>© 2026 Les Gîtes de Chooz. All rights reserved.</sub>
+  <img src="public/img/apple-touch-icon-v2.png" width="44" height="44" alt="" />
+  <p><strong>So Dream · La parenthèse verte</strong></p>
+  <p>Built with ❤️ by <a href="https://github.com/Jeanfr1">Jean</a> for So Dream</p>
+  <sub>© 2026 So Dream. All rights reserved.</sub>
 </div>

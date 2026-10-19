@@ -1,165 +1,273 @@
-// Single source of truth for every fact shown on the site.
-// Sources: 07-integracao/dados.json (checked 2026-10-11) and 06-roteiros/CONTEUDO-FR.md / SO-ZEN.md.
-// Rendered into the HTML at build time (vite.config.js) so the site works without JavaScript.
+// Facts shared by every language (numbers, links, photos). All wording lives in src/i18n/<locale>.js.
+// Sources: 07-integracao (kit V3), 11-brief-v2/DEMANDES-SOPHIE.md (Sophie, 18/10/2026) and the public
+// listings checked on 19/10/2026 (Gîtes de France, Airbnb, Booking).
 //
-// TODO(gites): confirm with the owner — brand name (provisional), arrival/departure times,
-// keys, bins location and collection days, Wi-Fi hand-over, pool rules, owner contact.
-// TODO(gites): gîtes 3 and 4 stay out of the site until their records exist (no empty cards).
-// TODO(gites): the owner confirms the use of the official Gîtes de France photos (07-integracao/FONTES.md).
-// TODO(gites): confirm whether the spa / sauna / hammam of the fiches has any link with So Zen (kept separate).
+// TODO(gites): Sophie to confirm — key hand-over, bins location, owner contact for the gîtes,
+// Le Grain d'Amour times (Gîtes de France only gives them after booking), pool access for
+// Chez Suzanne / Au Petit Bouchon guests, exterior photos (Drive files not shared), mentions légales.
 
-export const brand = {
-  name: 'Les Gîtes de Chooz',
-  tagline: 'Ardennes · Bords de Meuse',
-  concept: 'La parenthèse verte',
-  place: 'Chooz · Ardennes · Bords de Meuse',
-};
+export const LOCALES = ['fr', 'en', 'de', 'es', 'nl', 'pl', 'tr'];
+export const DEFAULT_LOCALE = 'fr';
 
-const photo = (gite, file, alt) => ({
-  key: `${gite}-${file.replace(/\.jpg$/, '').replace(/_.*$/, '')}`,
-  file,
-  alt,
-});
+export const brand = { name: 'So Dream' };
+
+// Photo helper: `kind` drives the translated alt text (src/i18n -> photoKinds).
+const gdf = (key, kind) => ({ key, kind });
+const sd = (gite, n, kind) => ({ key: `sd-${gite}-${n}`, src: `10-photos-so-dream/${gite}/Z62_${n}.jpg`, kind });
 
 export const gites = [
   {
     id: 'grain',
     slug: 'le-grain-damour',
     name: 'Le Grain d’Amour',
-    reference: '08G430',
     number: '01',
     capacity: 2,
     bedrooms: 1,
     area: 55,
-    tagline: 'Une échappée à deux.',
-    description: 'Une maison indépendante au cœur d’un jardin partagé, pour savourer les Ardennes à deux.',
-    bookingUrl: 'https://www.gites-de-france.com/fr/grand-est/ardennes/le-grain-damour-08g430',
-    features: ['Wi-Fi', 'Cuisine et séjour', 'Chambre à l’étage', 'Jardin et piscine partagés'],
-    energy: 'Charges et chauffage inclus selon la fiche de réservation. Évitez de chauffer avec les fenêtres ouvertes.',
-    pets: 'Un animal autorisé selon la fiche de réservation.',
-    linen: 'Linge et ménage inclus selon la fiche de réservation.',
-    compare: { energy: 'Charges et chauffage inclus', pets: 'Un animal', linen: 'Linge et ménage inclus' },
-    // first six = selection of dados.json; the rest of the official gallery follows
+    sharedGardenPool: true,
+    booking: [
+      { platform: 'gdf', ref: '08G430', url: 'https://www.gites-de-france.com/fr/grand-est/ardennes/le-grain-damour-08g430' },
+    ],
+    // Gîtes de France communicates the times after booking — not published.
+    times: null,
+    features: ['wifi', 'kitchen', 'bedroomUpstairs', 'gardenPool'],
+    card: 'grain-photo-430',
     photos: [
-      photo('grain', 'photo-430_800_1067.jpg', 'La maison en bois et pierre du Grain d’Amour, sa terrasse et la piscine partagée'),
-      photo('grain', 'photo13-430_800_1067.jpg', 'Le salon : canapé, fauteuil à bascule et mur en pierre'),
-      photo('grain', 'photo6-430_800_600.jpg', 'La salle d’eau avec douche, habillée de bois'),
-      photo('grain', 'photo15-430_800_1067.jpg', 'La cuisine équipée et la table à manger'),
-      photo('grain', 'photo11-430_800_1067.jpg', 'La chambre à l’étage, sous la charpente en bois'),
-      photo('grain', 'photo10-430_800_1201.jpg', 'Vue d’ensemble : la maison, la pelouse et la piscine'),
-      photo('grain', 'photo12-430_800_1067.jpg', 'Le séjour et son coin repas, ouverts sur le jardin'),
-      photo('grain', 'photo14-430_800_1067.jpg', 'La pièce de vie, l’escalier vers la chambre et le coin salon'),
-      photo('grain', 'photo7-430_800_1067.jpg', 'Le jardin et la piscine, face aux collines'),
-      photo('grain', 'photo8-430_800_1067.jpg', 'La piscine entre graminées et tournesols'),
-      photo('grain', 'photo9-430_800_1067.jpg', 'La piscine et le jardin fleuri'),
+      gdf('grain-photo-430', 'exterior'),
+      sd('grain', '8659', 'living'),
+      sd('grain', '8661', 'kitchen'),
+      sd('grain', '8675', 'bedroom'),
+      sd('grain', '8663-HDR', 'kitchen'),
+      sd('grain', '8678', 'atticBedroom'),
+      sd('grain', '8681', 'bathroom'),
+      sd('grain', '8674', 'view'),
+      sd('grain', '8671', 'poolView'),
+      sd('grain', '8670', 'detail'),
+      sd('grain', '8676', 'bedroom'),
+      sd('grain', '8677', 'bedroom'),
+      sd('grain', '8679', 'atticBedroom'),
+      sd('grain', '8680', 'bedroom'),
+      sd('grain', '8682', 'bathroom'),
+      sd('grain', '8672', 'poolView'),
+      gdf('grain-photo7-430', 'garden'),
+      gdf('grain-photo8-430', 'pool'),
+      gdf('grain-photo10-430', 'aerial'),
     ],
   },
   {
     id: 'brasserie',
     slug: 'la-brasserie',
     name: 'La Brasserie',
-    reference: '08G339',
     number: '02',
     capacity: 12,
     bedrooms: 5,
     area: 240,
-    tagline: 'Le bonheur de se retrouver.',
-    description: 'De généreux espaces de vie, une terrasse et la vallée de la Meuse pour les retrouvailles en famille ou entre amis.',
-    bookingUrl: 'https://www.gites-de-france-ardennes.com/location-vacances-Gite-Chooz-08G339.html',
-    features: ['Wi-Fi', 'Grande pièce de vie', '5 chambres', 'Vue Meuse et forêt'],
-    energy: 'Charges non comprises. Les conditions de chauffage et d’électricité sont détaillées sur votre fiche de réservation. Évitez de chauffer fenêtres ouvertes.',
-    pets: 'Deux animaux au maximum selon la fiche de réservation.',
-    linen: 'Le linge de lit et de toilette peut faire l’objet de prestations supplémentaires. Vérifiez votre réservation.',
-    compare: { energy: 'Charges non comprises', pets: 'Deux animaux au maximum', linen: 'Linge en option' },
+    sharedGardenPool: true,
+    booking: [
+      { platform: 'gdf', ref: '08G339', url: 'https://www.gites-de-france-ardennes.com/location-vacances-Gite-Chooz-08G339.html' },
+    ],
+    times: { arrival: '16:00', arrivalUntil: '18:00', departure: '10:00' }, // Airbnb listing rooms/52766277
+    features: ['wifi', 'livingRoom', 'fiveBedrooms', 'viewMeuse'],
+    card: 'brasserie-photo-339',
     photos: [
-      photo('brasserie', 'photo-339_800_1093.jpg', 'La Brasserie : façade en pierre, terrasse surélevée et jardin fleuri'),
-      photo('brasserie', 'photo1-339_800_1422.jpg', 'La grande table sous les poutres et la cuisine ouverte'),
-      photo('brasserie', 'photo4-339_800_1422.jpg', 'La pièce de vie : cheminée, table et escalier'),
-      photo('brasserie', 'photo7-339_800_1422.jpg', 'Une chambre avec lit double en fer forgé'),
-      photo('brasserie', 'photo24-339_800_1422.jpg', 'Une chambre mansardée avec lit double et lit bébé'),
-      photo('brasserie', 'photo11-339_800_1067.jpg', 'La terrasse couverte sous la plateforme, tables et ping-pong'),
-      photo('brasserie', 'photo2-339_800_1422.jpg', 'La cuisine avec îlot et la salle à manger'),
-      photo('brasserie', 'photo3-339_800_1422.jpg', 'Le salon et ses grands canapés'),
-      photo('brasserie', 'photo5-339_800_1422.jpg', 'Le salon vu depuis l’étage'),
-      photo('brasserie', 'photo12-339_800_1201.jpg', 'La terrasse en bois, sa table et la vue sur la vallée'),
-      photo('brasserie', 'photo10-339_800_1201.jpg', 'Vue sur le jardin, la piscine partagée et les collines'),
-      photo('brasserie', 'photo6-339_800_1422.jpg', 'Une chambre avec lit double et mur en briques'),
-      photo('brasserie', 'photo15-339_800_1422.jpg', 'Une chambre avec tête de lit en bois'),
-      photo('brasserie', 'photo16-339_800_1422.jpg', 'Une chambre avec lit double et fauteuil'),
-      photo('brasserie', 'photo18-339_800_1422.jpg', 'Une chambre avec grande armoire ancienne'),
-      photo('brasserie', 'photo19-339_800_1422.jpg', 'Une chambre avec tête de lit sculptée'),
-      photo('brasserie', 'photo21-339_800_1422.jpg', 'Une chambre mansardée avec lit double'),
-      photo('brasserie', 'photo22-339_800_1422.jpg', 'Une chambre avec lit simple et lit bébé'),
-      photo('brasserie', 'photo20-339_800_450.jpg', 'Une chambre avec lit simple'),
-      photo('brasserie', 'photo8-339_800_1422.jpg', 'Une salle d’eau avec douche et vasque'),
-      photo('brasserie', 'photo17-339_800_1422.jpg', 'Une salle d’eau avec douche, vasque et WC'),
-      photo('brasserie', 'photo9-339_800_450.jpg', 'Une salle d’eau avec douche'),
-      photo('brasserie', 'photo23-339_800_450.jpg', 'Une salle d’eau avec douche'),
+      gdf('brasserie-photo-339', 'exterior'),
+      sd('brasserie', '8703', 'dining'),
+      sd('brasserie', '8713', 'living'),
+      sd('brasserie', '8704-HDR', 'kitchen'),
+      sd('brasserie', '8716', 'living'),
+      sd('brasserie', '8717', 'bedroom'),
+      sd('brasserie', '8722', 'mezzanine'),
+      sd('brasserie', '8714', 'bar'),
+      sd('brasserie', '8720', 'bedroom'),
+      sd('brasserie', '8723', 'mezzanine'),
+      sd('brasserie', '8727', 'familyBedroom'),
+      sd('brasserie', '8729', 'atticBedroom'),
+      sd('brasserie', '8730', 'atticBedroom'),
+      sd('brasserie', '8731', 'bedroom'),
+      sd('brasserie', '8753-HDR', 'bedroom'),
+      sd('brasserie', '8754', 'singleBedroom'),
+      sd('brasserie', '8721', 'bathroom'),
+      sd('brasserie', '8725', 'bathroom'),
+      sd('brasserie', '8732', 'bathroom'),
+      sd('brasserie', '8715', 'stairs'),
+      sd('brasserie', '8711', 'detail'),
+      gdf('brasserie-photo11-339', 'terrace'),
+      gdf('brasserie-photo12-339', 'terrace'),
+      gdf('brasserie-photo10-339', 'aerial'),
+    ],
+  },
+  {
+    id: 'suzanne',
+    slug: 'chez-suzanne',
+    name: 'Chez Suzanne',
+    number: '03',
+    capacity: 8,
+    bedrooms: 4,
+    area: 100,
+    sharedGardenPool: false,
+    booking: [
+      { platform: 'gdf', ref: '08G466', url: 'https://www.gites-de-france.com/fr/grand-est/ardennes/chez-suzanne-08g466' },
+      { platform: 'booking', url: 'https://www.booking.com/hotel/fr/chez-suzanne-chooz.fr.html' },
+      { platform: 'airbnb', url: 'https://www.airbnb.fr/rooms/43855290' },
+    ],
+    // Airbnb: arrival 16:00–20:00, departure before 10:00. Booking shows 16:00–19:00 / 09:30–11:30.
+    times: { arrival: '16:00', arrivalUntil: '20:00', departure: '10:00', variesByPlatform: true },
+    features: ['wifi', 'privateBathrooms', 'allInclusive', 'village'],
+    card: 'sd-suzanne-8759',
+    photos: [
+      sd('suzanne', '8759', 'living'),
+      sd('suzanne', '8757', 'dining'),
+      sd('suzanne', '8758', 'kitchen'),
+      sd('suzanne', '8760', 'bedroom'),
+      sd('suzanne', '8762', 'bedroom'),
+      sd('suzanne', '8765', 'bedroom'),
+      sd('suzanne', '8766', 'atticBedroom'),
+      sd('suzanne', '8761', 'bedroom'),
+      sd('suzanne', '8767', 'atticBedroom'),
+      sd('suzanne', '8769', 'bathroom'),
+      sd('suzanne', '8756', 'detail'),
+    ],
+  },
+  {
+    id: 'bouchon',
+    slug: 'au-petit-bouchon',
+    name: 'Au Petit Bouchon',
+    number: '04',
+    capacity: 4,
+    bedrooms: 2,
+    area: null,
+    sharedGardenPool: false,
+    booking: [
+      { platform: 'airbnb', url: 'https://www.airbnb.fr/rooms/1442187832227866709' },
+    ],
+    times: { arrival: '16:00', arrivalUntil: '20:00', departure: '10:00' }, // Airbnb
+    features: ['wifi', 'terrace', 'workspace', 'parking'],
+    card: 'sd-petit-bouchon-8787',
+    photos: [
+      sd('petit-bouchon', '8787', 'terrace'),
+      sd('petit-bouchon', '8772', 'living'),
+      sd('petit-bouchon', '8771', 'kitchen'),
+      sd('petit-bouchon', '8777-HDR', 'bedroom'),
+      sd('petit-bouchon', '8773', 'bedroom'),
+      sd('petit-bouchon', '8788', 'terrace'),
+      sd('petit-bouchon', '8774', 'bedroom'),
+      sd('petit-bouchon', '8786', 'bedroom'),
+      sd('petit-bouchon', '8776', 'bathroom'),
+      sd('petit-bouchon', '8784', 'bathroom'),
     ],
   },
 ];
 
-export const shared = {
-  pool: 'Piscine extérieure partagée, chauffée de mai à septembre selon les fiches.',
-  garden: 'Le jardin et la piscine sont également accessibles aux propriétaires et à leur chien.',
-  wellness: 'Sauna, spa et hammam sur demande, selon disponibilité et avec supplément.',
+export const platforms = {
+  gdf: { name: 'Gîtes de France' },
+  booking: { name: 'Booking.com' },
+  airbnb: { name: 'Airbnb' },
 };
 
-// Carnet de séjour — 8 repères (CONTEUDO-FR.md, study 08-estudo). Per-gîte values come from `gites`.
+// Carnet: 8 points. `scope: 'pool'` only for the gîtes with the shared garden and pool.
 export const carnet = [
-  { n: '01', icon: 'wifi', title: 'Wi-Fi', text: 'Le Wi-Fi est disponible dans votre gîte. Pour le nom du réseau et le mot de passe, demandez les informations à votre hôte.' },
-  { n: '02', icon: 'recycle', title: 'Tri et poubelles', text: 'Triez vos déchets et gardez les espaces communs propres. Votre hôte vous indiquera l’emplacement des bacs et les consignes de collecte adaptées au gîte.' },
-  { n: '03', icon: 'leaf', title: 'Électricité et chauffage', field: 'energy' },
-  { n: '04', icon: 'heart', title: 'Respect des lieux', text: 'Prenez soin du logement et des espaces partagés. Pensez à la tranquillité du voisinage et signalez à votre hôte tout problème rencontré.' },
-  { n: '05', icon: 'waves', title: 'Jardin et piscine', text: 'La piscine est partagée et chauffée de mai à septembre selon les fiches. Suivez les consignes communiquées sur place et surveillez les enfants.' },
-  { n: '06', icon: 'paw', title: 'Animaux et linge', fields: ['pets', 'linen'] },
-  { n: '07', icon: 'key', title: 'Arrivée et départ', text: 'Les horaires, la remise des clés et les consignes de départ vous seront confirmés par votre hôte.' },
-  { n: '08', icon: 'sparkle', title: 'Espace bien-être', text: 'Sauna, spa et hammam sont accessibles sur demande, selon les disponibilités des propriétaires et avec supplément. Contactez votre hôte pour les modalités.' },
+  { id: 'wifi', n: '01', icon: 'wifi' },
+  { id: 'tri', n: '02', icon: 'recycle' },
+  { id: 'energy', n: '03', icon: 'leaf', perGite: 'energy' },
+  { id: 'respect', n: '04', icon: 'heart' },
+  { id: 'pool', n: '05', icon: 'waves', scope: 'pool' },
+  { id: 'petsLinen', n: '06', icon: 'paw', perGite: ['pets', 'linen'] },
+  { id: 'times', n: '07', icon: 'key' },
+  { id: 'palmeraie', n: '08', icon: 'sparkle' },
 ];
 
-export const outingCategories = [
-  { id: 'all', label: 'Toutes les envies' },
-  { id: 'nature', label: 'Nature' },
-  { id: 'visites', label: 'Visites' },
-  { id: 'gourmand', label: 'À savourer' },
+// Tri guide — rebuilt from the local sorting posters Sophie sent.
+export const tri = [
+  { id: 'packaging', tone: 'sun', items: 13 },
+  { id: 'glass', tone: 'sage', items: 6 },
+  { id: 'compost', tone: 'leaf', items: 9 },
+  { id: 'household', tone: 'stone', items: 7 },
+  { id: 'dump', tone: 'brass', items: 6 },
 ];
 
-export const outings = [
-  { n: '01', category: 'nature', name: 'La Meuse à votre rythme', where: 'Chooz', text: 'À pied ou à vélo, découvrez la Voie Verte et le paysage des bords de Meuse.', url: 'https://www.valdardennetourisme.com/incontournables-du-val-dardenne/villes-et-villages/chooz/', label: 'Découvrir la balade' },
-  { n: '02', category: 'visites', name: 'Fort de Charlemont', where: 'Givet', text: 'Un lieu d’histoire et des activités à découvrir au-dessus de la Meuse.', url: 'https://www.charlemont.fr/', label: 'Préparer ma visite' },
-  { n: '03', category: 'gourmand', name: 'Pâtisserie Léval', where: '2 place Carnot · Givet', text: 'Une adresse pour les douceurs, le pain et une pause au salon de thé.', url: 'https://www.valdardennetourisme.com/commerce-service/boulangerie-patisserie-leval/', label: 'Voir l’adresse' },
-  { n: '04', category: 'gourmand', name: 'Presqu’île de Chooz', where: 'Chooz', text: 'Une suggestion de restaurant dans le village. Consultez les formules et disponibilités auprès de l’établissement.', url: 'https://www.ile-chooz.com/presentation/restauration.html', label: 'Découvrir le restaurant' },
+export const departureChecklist = 7;
+
+// Bonnes adresses (Sophie's list, links resolved 19/10/2026). Presqu'île de Chooz removed at her request.
+// `kind` is translated (i18n -> placeKinds).
+export const placeCategories = ['all', 'bakery', 'restaurant', 'shopping', 'health', 'activity', 'visit', 'town'];
+export const places = [
+  { cat: 'bakery', name: 'Boulangerie Lopes', town: 'Chooz', kind: 'bakery', url: 'https://www.facebook.com/lechequecadeaulapointe/videos/1241361537858567/', inVillage: true },
+  { cat: 'bakery', name: 'Boulangerie Pâte à Choux', town: 'Vireux-Wallerand', kind: 'bakery', url: 'https://www.facebook.com/p/Boulangerie-p%C3%A2te-%C3%A0-choux-100057602732749/' },
+  { cat: 'bakery', name: 'Aux Délices de la Tour', town: 'Givet', kind: 'bakery', url: 'https://www.facebook.com/p/Boulangerie-aux-D%C3%A9lices-de-la-Tour-100063563829141/' },
+  { cat: 'bakery', name: 'Au Pétrin 1900', town: 'Vireux-Molhain', kind: 'bakery', url: 'https://www.facebook.com/Petrinmilleneufcent/' },
+  { cat: 'bakery', name: 'Pâtisserie Léval', town: 'Givet', kind: 'pastry', url: 'https://www.valdardennetourisme.com/commerce-service/boulangerie-patisserie-leval/' },
+  { cat: 'restaurant', name: 'Auberge de la Voûte', town: 'Chooz', kind: 'inn', url: 'https://www.facebook.com/aubergedelavoutechooz/', inVillage: true },
+  { cat: 'restaurant', name: 'Maison Baudoin', town: 'Givet', kind: 'regional', url: 'https://www.valdardennetourisme.com/restaurant/restaurant-maison-baudoin/' },
+  { cat: 'restaurant', name: 'Les Mouettes', town: 'Givet', kind: 'brasserie', url: 'https://www.facebook.com/mouettesgivet/' },
+  { cat: 'restaurant', name: 'L’Olivo', town: 'Givet', kind: 'italian', url: 'https://www.facebook.com/p/LOlivo-61554948454172/' },
+  { cat: 'restaurant', name: 'Casa Mia', town: 'Givet', kind: 'restaurant', url: 'https://www.facebook.com/p/Restaurant-Casa-Mia-61577481585781/' },
+  { cat: 'shopping', name: 'Intermarché Rives d’Europe', town: 'Givet', kind: 'supermarket', url: 'https://www.facebook.com/CentreCommercialIntermarcheRivesdEurope/' },
+  { cat: 'shopping', name: 'Intermarché', town: 'Vireux-Molhain', kind: 'supermarket', url: 'https://www.facebook.com/intermarchevireux/' },
+  { cat: 'shopping', name: 'Lidl · Netto · Aldi', town: 'Givet', kind: 'discount' },
+  { cat: 'health', name: 'Pharmacie de la Marine', town: 'Givet', kind: 'pharmacy', url: 'https://www.facebook.com/pharmaciedelamarinegivet/' },
+  { cat: 'health', name: 'Pharmacie de l’Europe', town: 'Givet', kind: 'pharmacy', url: 'https://www.facebook.com/p/Pharmacie-de-lEurope-Givet-100057335114110/' },
+  { cat: 'health', name: 'Maison de Santé de la Pointe', town: 'Givet', kind: 'clinic', url: 'https://www.facebook.com/p/Maison-de-Sant%C3%A9-de-la-Pointe-Givet-61570037294521/' },
+  { cat: 'activity', name: 'Captain d’Ô Douce', town: 'Givet', kind: 'boats', url: 'https://www.valdardennetourisme.com/sports-loisirs/captain-do-douce/' },
+  { cat: 'activity', name: 'La Voie Verte', town: 'Chooz', kind: 'greenway', url: 'https://www.valdardennetourisme.com/incontournables-du-val-dardenne/villes-et-villages/chooz/', inVillage: true },
+  { cat: 'activity', name: 'La Brasserie — Escape Room', town: 'Aubrives', kind: 'escape', url: 'https://www.labrasserie-aubrives.fr/' },
+  { cat: 'visit', name: 'Fort de Charlemont', town: 'Givet', kind: 'fort', url: 'https://www.charlemont.fr/' },
+  { cat: 'visit', name: 'Écomusée du Viroin', town: 'Treignes (BE)', kind: 'museum', url: 'https://www.ecomuseeduviroin.be/' },
+  { cat: 'visit', name: 'États d’Ânes', town: 'Treignes (BE)', kind: 'donkeys', url: 'https://www.facebook.com/etatsdanes/' },
+  { cat: 'town', name: 'Dinant', country: 'BE', kind: 'town', url: 'https://www.dinant-tourisme.com/' },
+  { cat: 'town', name: 'Namur', country: 'BE', kind: 'town', url: 'https://www.namurtourisme.be/' },
+  { cat: 'town', name: 'Charleville-Mézières', town: 'Ardennes', kind: 'town', url: 'https://charleville-sedan-tourisme.fr/' },
 ];
 
-// TODO(gites): So Zen — dates, prices and how to sign up are asked to So Zen directly (none invented).
-// TODO(gites): the So Zen illustration is a stock image that still carries the source's watermarks;
-// replace it with the licensed original (or So Zen's own artwork) before the public launch.
+// Agenda — dated items disappear by themselves once passed (build time + in the browser).
+export const agenda = [
+  { id: 'four-pain', dates: ['2026-11-14', '2027-02-13', '2027-04-10', '2027-06-12'], place: 'Écomusée du Viroin', town: 'Treignes (BE)', phone: '+32 60 39 96 24', phoneHref: 'tel:+3260399624', price: '9 €' },
+  { id: 'marche-producteurs', dates: ['2026-11-07'], place: 'Givet', town: 'Givet', url: 'https://www.valdardennetourisme.com/agenda/marche-des-producteurs/' },
+];
+
+// Map of the Meuse (schematic, north up): lat/lon of the towns in the list.
+export const mapTowns = [
+  { name: 'Charleville-Mézières', lat: 49.7620, lon: 4.7260 },
+  { name: 'Vireux', lat: 50.0820, lon: 4.7290 },
+  { name: 'Aubrives', lat: 50.1012, lon: 4.7699 },
+  { name: 'Treignes', lat: 50.0920, lon: 4.6770 },
+  { name: 'Chooz', lat: 50.0954, lon: 4.7975, home: true },
+  { name: 'Givet', lat: 50.1385, lon: 4.8256 },
+  { name: 'Dinant', lat: 50.2607, lon: 4.9122 },
+  { name: 'Namur', lat: 50.4674, lon: 4.8720 },
+];
+// The river through those towns (schematic course: Nouzonville, Monthermé, Revin, Fumay,
+// Vireux, the Chooz loop, Givet, Hastière, Dinant, Yvoir).
+export const meuseCourse = [
+  [49.762, 4.726], [49.80, 4.745], [49.835, 4.755], [49.865, 4.735], [49.884, 4.731], [49.897, 4.70], [49.92, 4.668],
+  [49.94, 4.642], [49.957, 4.668], [49.975, 4.70], [49.99, 4.716], [50.012, 4.708], [50.045, 4.72], [50.082, 4.729],
+  [50.101, 4.770], [50.0954, 4.7975], [50.112, 4.815], [50.1385, 4.8256], [50.18, 4.83], [50.216, 4.838],
+  [50.24, 4.888], [50.2607, 4.9122], [50.30, 4.893], [50.36, 4.876], [50.4674, 4.872],
+];
+
 export const sozen = {
   name: 'So Zen',
   facebookUrl: 'https://www.facebook.com/people/So-Zen/61578057072575/',
   phone: '06 21 11 43 58',
+  phoneIntl: '+33 6 21 11 43 58',
   phoneHref: 'tel:+33621114358',
   address: 'Rue Tony · Chooz',
   logo: '01-identidade/so-zen-logo-transparente.png',
   photos: [
-    {
-      key: 'sozen-yoga-01',
-      source: '05-secoes/so-zen/yoga-terrasse-01.png',
-      region: { left: 0, top: 670, width: 946, height: 708 },
-      alt: 'Un moment de yoga et de relaxation sur la terrasse des gîtes',
-    },
-    {
-      key: 'sozen-yoga-02',
-      source: '05-secoes/so-zen/yoga-terrasse-02.png',
-      region: { left: 0, top: 710, width: 946, height: 628 },
-      alt: 'Les participants allongés sur leurs tapis, sous la terrasse couverte',
-    },
+    { key: 'sozen-yoga-01', source: '05-secoes/so-zen/yoga-terrasse-01.png', region: { left: 0, top: 670, width: 946, height: 708 }, kind: 'yoga1' },
+    { key: 'sozen-yoga-02', source: '05-secoes/so-zen/yoga-terrasse-02.png', region: { left: 0, top: 710, width: 946, height: 628 }, kind: 'yoga2' },
   ],
 };
 
-export const nav = [
-  { id: 'gites', label: 'Les gîtes', href: '/gites/' },
-  { id: 'sejour', label: 'Votre séjour', href: '/sejour/' },
-  { id: 'explorer', label: 'Explorer', href: '/explorer/' },
-  { id: 'sozen', label: 'So Zen', href: '/so-zen/' },
+// La Palmeraie: contact = So Zen until Sophie confirms (Jean, 19/10/2026).
+export const palmeraie = { contact: 'sozen' };
+
+export const routes = [
+  { id: 'home', path: '' },
+  { id: 'gites', path: 'gites/' },
+  ...gites.map((g) => ({ id: `fiche-${g.id}`, path: `gites/${g.slug}/`, gite: g.id })),
+  { id: 'sejour', path: 'sejour/' },
+  ...gites.map((g) => ({ id: `carnet-${g.id}`, path: `sejour/${g.slug}/`, gite: g.id })),
+  { id: 'palmeraie', path: 'palmeraie/' },
+  { id: 'adresses', path: 'bonnes-adresses/' },
+  { id: 'sozen', path: 'so-zen/' },
 ];

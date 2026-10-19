@@ -2,7 +2,7 @@
 //   0 %      planes at rest, title and button visible
 //   20–55 %  La Brasserie rises, Le Grain d’Amour goes down a little
 //   35–90 %  the brass thread draws itself between the planes
-//   70–100 % hand-off: the thread leaves the hero and continues towards the gîte cards
+//   70–100 % hand-off: the thread leaves the hero and flows into the intro eyebrow
 // Scroll is never blocked: the hero is a short sticky section. Reduced motion = static scene.
 // Capture flag: ?p=0.5 freezes the hero at that progress.
 
@@ -10,16 +10,6 @@ const STAGE_W = 1536;
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const seg = (p, a, b) => clamp((p - a) / (b - a));
 const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
-
-// Intro thread, in % of the intro section (x, y pairs); the start x is set from the hero thread exit.
-const INTRO = (x0) => [
-  ['M', [x0, 0]],
-  ['C', [x0, 7, 53.6, 5, 53.6, 14]],
-  ['S', [53.4, 27, 51.5, 33]],
-  ['S', [50, 42, 50, 50]],
-  ['C', [50, 62, 51.2, 72, 50, 84]],
-  ['S', [49.6, 96, 50, 100]],
-];
 
 export default function initHero() {
   const hero = document.querySelector('[data-hero]');
@@ -74,15 +64,21 @@ export default function initHero() {
     introStartX = clamp(((exitX - introRect.left) / introRect.width) * 100, 5, 95);
   }
 
+  // The intro thread leaves the hero where the hero thread does and flows into the intro eyebrow.
+  let introEnd = 0;
   function layoutIntro() {
     if (!introSvg || !introPath) return;
     const w = intro.offsetWidth;
     const hgt = intro.offsetHeight;
+    const r = intro.getBoundingClientRect();
+    const eb = intro.querySelector('.eyebrow');
+    const e = eb ? eb.getBoundingClientRect() : { left: w * 0.1, top: 80, height: 10 };
+    const x0 = (introStartX / 100) * w;
+    const ex = e.left - r.left - 6;
+    const ey = e.top - r.top + e.height / 2;
+    introEnd = ey;
     introSvg.setAttribute('viewBox', `0 0 ${w} ${hgt}`);
-    const d = INTRO(introStartX)
-      .map(([cmd, nums]) => `${cmd} ${nums.map((n, i) => (i % 2 === 0 ? (n / 100) * w : (n / 100) * hgt).toFixed(1)).join(' ')}`)
-      .join(' ');
-    introPath.setAttribute('d', d);
+    introPath.setAttribute('d', `M ${x0.toFixed(1)} 0 C ${x0.toFixed(1)} ${(ey * 0.62).toFixed(1)}, ${(ex + Math.min(160, (x0 - ex) * 0.5)).toFixed(1)} ${ey.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
     introPath.style.strokeDasharray = '1 1';
   }
 
@@ -102,7 +98,7 @@ export default function initHero() {
     if (introPath) {
       const r = intro.getBoundingClientRect();
       const vh = window.innerHeight;
-      const q = still ? 1 : clamp((vh * 0.98 - r.top) / (r.height * 0.82));
+      const q = still ? 1 : clamp((vh * 0.98 - r.top) / Math.max(1, introEnd + vh * 0.25));
       introPath.style.strokeDashoffset = (1 - q).toFixed(4);
     }
   }
