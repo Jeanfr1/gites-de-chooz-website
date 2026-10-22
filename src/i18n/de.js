@@ -149,7 +149,7 @@ export default {
 
   features: {
     wifi: 'WLAN', kitchen: 'Küche und Wohnraum', bedroomUpstairs: 'Schlafzimmer im Obergeschoss', gardenPool: 'Gemeinsamer Garten und Pool', livingRoom: 'Großer Wohnraum', fiveBedrooms: '5 Schlafzimmer',
-    viewMeuse: 'Blick auf Maas und Wald', privateBathrooms: 'Ein Duschbad pro Zimmer', allInclusive: 'All-inclusive', village: 'Mitten im Dorf', terrace: 'Terrasse', workspace: 'Arbeitsplatz', parking: 'Kostenlose Parkplätze',
+    viewMeuse: 'Blick auf Maas und Wald', privateBathrooms: 'Ein Duschbad pro Zimmer', allInclusive: 'All-inclusive', village: 'Mitten im Dorf', terrace: 'Terrasse', workspace: 'Arbeitsplatz', parking: 'Kostenlose Parkplätze', aircon: 'Klimaanlage', kidsArea: 'Kinderspielecke auf der Galerie', babyGear: 'Hochstühle, Babybett, Wickeltisch',
   },
 
   giteText: {
@@ -164,10 +164,12 @@ export default {
     brasserie: {
       tagline: 'Die Freude am Wiedersehen.',
       description: 'Großzügige Wohnräume, eine Terrasse und das Maastal für Treffen mit Familie oder Freunden.',
-      energy: 'Nebenkosten nicht inklusive. Die Bedingungen für Heizung und Strom stehen in Ihrer Buchung. Bitte nicht bei offenem Fenster heizen.',
+      energy: 'Ab Januar 2027 sind die Nebenkosten inklusive. Bis dahin stehen die Bedingungen für Heizung und Strom in Ihrer Buchung. Bitte nicht bei offenem Fenster heizen.',
       pets: 'Höchstens zwei Haustiere laut Buchung.',
-      linen: 'Bettwäsche und Handtücher können extra berechnet werden. Bitte prüfen Sie Ihre Buchung.',
-      compare: { energy: 'Nebenkosten nicht inklusive', pets: 'Höchstens zwei Haustiere', linen: 'Wäsche optional' },
+      linen: 'Haushaltswäsche wird gestellt. Ab Januar 2027 sind Bettwäsche und Handtücher inklusive.',
+      compare: { energy: 'Nebenkosten inklusive ab Januar 2027', pets: 'Höchstens zwei Haustiere', linen: 'Haushaltswäsche; Bettwäsche und Handtücher ab Januar 2027' },
+      rooms: 'Auf der Ebene von Küche und Wohnraum 3 Schlafzimmer mit eigenem Bad. Im Obergeschoss teilen sich 2 Schlafzimmer ein Bad und ein separates WC.',
+      pool: 'Bitte nutzen Sie den Pool mit Rücksicht auf Le Grain d’Amour direkt nebenan.',
     },
     suzanne: {
       tagline: 'Vier Zimmer, vier Rückzugsorte.',
@@ -180,10 +182,10 @@ export default {
     bouchon: {
       tagline: 'Ein helles Refugium.',
       description: 'Eine Wohnung mit zwei schönen Schlafzimmern und einer Terrasse, mitten in einem ruhigen Dorf.',
-      energy: 'Gemäß Ihrer Airbnb-Buchung. Bitte nicht bei offenem Fenster heizen.',
-      pets: 'Gemäß Ihrer Airbnb-Buchung.',
-      linen: 'Gemäß Ihrer Airbnb-Buchung.',
-      compare: { energy: 'Laut Airbnb', pets: 'Laut Airbnb', linen: 'Laut Airbnb' },
+      energy: 'Alles inklusive: Heizung, Strom und Reinigung.',
+      pets: 'Haustiere sind nicht erlaubt.',
+      linen: 'Bettwäsche und Handtücher werden gestellt.',
+      compare: { energy: 'Alles inklusive', pets: 'Nicht erlaubt', linen: 'Bettwäsche und Handtücher inklusive' },
     },
   },
 
@@ -276,7 +278,7 @@ export default {
     title: ['Unsere guten', 'Adressen.'],
     lead: 'Eine Bäckerei, ein Restaurant, ein Spaziergang: unsere Lieblingsorte rund um Chooz.',
     filters: 'Adressen filtern',
-    categories: { all: 'Alle', bakery: 'Bäckereien', restaurant: 'Restaurants', shopping: 'Einkaufen', health: 'Gesundheit', activity: 'Aktivitäten', visit: 'Ausflüge', town: 'Städte entdecken' },
+    categories: { all: 'Alle', bakery: 'Bäckereien', restaurant: 'Restaurants', shopping: 'Einkaufen', health: 'Gesundheit', activity: 'Aktivitäten', hike: 'Wanderungen', visit: 'Ausflüge', town: 'Städte entdecken' },
     inVillage: 'Im Dorf',
     link: 'Mehr erfahren',
     note: 'Bitte informieren Sie sich direkt über Öffnungszeiten und Bedingungen.',
@@ -300,9 +302,15 @@ export default {
   placeKinds: {
     bakery: 'Bäckerei', pastry: 'Bäckerei, Konditorei und Teesalon', inn: 'Hotel-Restaurant', regional: 'Französische und regionale Küche', restaurant: 'Restaurant', brasserie: 'Brasserie', italian: 'Italienisches Restaurant',
     supermarket: 'Supermarkt', discount: 'Supermärkte', pharmacy: 'Apotheke', clinic: 'Ärztehaus', boats: 'Führerscheinfreie Elektroboote', greenway: 'Zu Fuß oder mit dem Rad entlang der Maas',
-    escape: 'Escape Room', fort: 'Historischer Ort über der Maas', museum: 'Ökomuseum im Schlossgut Treignes', donkeys: 'Spaziergänge und Begegnungen mit Eseln', town: 'Stadt zum Entdecken',
+    escape: 'Escape Room', fort: 'Historischer Ort über der Maas', museum: 'Ökomuseum im Schlossgut Treignes', donkeys: 'Spaziergänge und Begegnungen mit Eseln', town: 'Stadt zum Entdecken', tourism: 'Fremdenverkehrsamt Val d’Ardenne', cave: 'Höhlen, Führung', hike: 'Markierter Wanderweg ab Chooz',
   },
 
+  hike: {
+    trail: (n, color) => `Rundweg Nr. ${n} · ${color} markiert`,
+    colors: { blue: 'blau', yellow: 'gelb', red: 'rot', violet: 'violett' },
+    stats: (km, h, m, up) => `${km} km · ${h} Std. ${String(m).padStart(2, '0')} Min. · ${up} Hm`,
+    note: 'Die markierten Rundwege der Gemeinde Chooz: Karten und Beschreibungen (auf Französisch) auf chooz.com.',
+  },
   photoKinds: {
     exterior: 'das Haus und sein Garten', living: 'das Wohnzimmer', kitchen: 'die Küche', dining: 'das Esszimmer', bedroom: 'ein Schlafzimmer', atticBedroom: 'ein Dachzimmer',
     familyBedroom: 'ein Schlafzimmer mit Babybett', singleBedroom: 'ein Schlafzimmer mit Einzelbett', bathroom: 'ein Duschbad', view: 'der Blick aus dem Fenster', poolView: 'der Pool von innen gesehen',
@@ -329,6 +337,11 @@ export default {
     palmeraieTitle: 'La Palmeraie wird Ihre Stunden beherbergen.',
     palmeraieText: 'In La Palmeraie entsteht ein Raum für Yoga, Workshops und Treffen von So Zen.',
     palmeraieCta: 'La Palmeraie entdecken',
+    calendarEyebrow: 'Der So-Zen-Kalender',
+    calendarTitle: ['Die nächsten', 'Termine.'],
+    calendarEmpty: 'Neue Termine folgen in Kürze. Bis dahin finden Sie So Zen auf Facebook, oder rufen Sie uns an.',
+    calendarBook: 'Platz reservieren',
+    eventTypes: { yoga: 'Yogastunde', constellation: 'Familienaufstellung', bougie: 'Kerzenwerkstatt', noel: 'Weihnachtsmarkt', other: 'So-Zen-Termin' },
   },
 
   notFound: { eyebrow: 'Seite nicht gefunden', title: ['Dieser Weg', 'hat sich verirrt.'], lead: 'Die gesuchte Seite existiert nicht oder wurde verschoben.', home: 'Zur Startseite' },

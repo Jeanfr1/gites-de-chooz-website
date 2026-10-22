@@ -385,7 +385,12 @@ function adresses() {
     ScrollTrigger.batch(places, {
       start: 'top 92%',
       once: true,
-      onEnter: (els) => gsap.fromTo(els, { opacity: 0, y: 60, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 1, ease: EXPO, stagger: 0.07 }),
+      // a card already shown by a filter (src/js/filters.js) is not animated again
+      onEnter: (els) => {
+        const fresh = els.filter((el) => !el.hasAttribute('data-revealed'));
+        fresh.forEach((el) => el.setAttribute('data-revealed', ''));
+        if (fresh.length) gsap.fromTo(fresh, { opacity: 0, y: 60, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 1, ease: EXPO, stagger: 0.07 });
+      },
     });
   }
   for (const list of $('[data-anim="calendar"]')) {
@@ -403,9 +408,9 @@ function footer() {
   const split = SplitText.create(word, { type: 'chars', charsClass: 'char' });
   const em = giant.querySelector('.footer-emblem');
   const tl = gsap.timeline({ scrollTrigger: { trigger: giant, start: 'top 92%', once: true } });
-  tl.fromTo(split.chars, { yPercent: 105, opacity: 0, rotate: 8 }, { yPercent: 0, opacity: 1, rotate: 0, duration: 1.4, ease: EXPO, stagger: 0.05 }, 0)
-    .fromTo(strokes(em).filter((p) => !p.closest('[data-stars]') && !p.closest('mask') && !p.closest('clipPath')), { drawSVG: '0%' }, { drawSVG: '100%', duration: 2, ease: 'power2.inOut', stagger: 0.08 }, 0)
-    .fromTo(em.querySelector('[data-stars]'), { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.9, ease: 'back.out(3)' }, 1.4);
+  // the painted moon rolls in like a rising moon, then SO DREAM rises letter by letter
+  tl.fromTo(em, { opacity: 0, rotate: -70, scale: 0.6, y: 40 }, { opacity: 1, rotate: 0, scale: 1, y: 0, duration: 1.8, ease: 'back.out(1.3)' }, 0)
+    .fromTo(split.chars, { yPercent: 105, opacity: 0, rotate: 8 }, { yPercent: 0, opacity: 1, rotate: 0, duration: 1.4, ease: EXPO, stagger: 0.06 }, 0.25);
 }
 
 // ---------------------------------------------------------------------------

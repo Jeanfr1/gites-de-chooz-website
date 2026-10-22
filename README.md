@@ -73,9 +73,9 @@ The hero is a short sticky section that follows the kit’s motion script, *Les 
 | Gîte page                  | The lead photo unveils and zooms out, figures count up, gallery tiles uncover from alternating sides, conditions flip down like cards |
 | Guest booklet              | Items rise as you read, the recycling bins bounce in, the departure note lands like a pinned paper; ticks draw, a ring fills, a stamp lands at 7/7 |
 | La Palmeraie               | A curtain parts, then the glasshouse and its palms are drawn line by line under a twinkling sky        |
-| Bonnes adresses            | Cards glide to their new place when filtered (Flip); agenda dates fall like calendar pages             |
+| Bonnes adresses            | Cards glide to their new place when filtered (Flip); trail cards carry their waymark colour; agenda dates fall like calendar pages |
 | Guide band                 | The forest panel widens from a rounded card to full width as it scrolls in                            |
-| Footer                     | The emblem draws itself and *So Dream* rises letter by letter                                           |
+| Footer                     | The painted moon rolls in like a rising moon, then *SO DREAM* rises letter by letter                    |
 | Between pages              | Cross-document View Transitions fade and lift the new page in                                           |
 
 **Built to degrade gracefully.** Hidden start states exist only under an `html.motion` class added before first paint when motion is allowed; a safety timer removes it if the animation code does not start. With `prefers-reduced-motion`, without JavaScript, or when printing, every element is visible and still (checked on every page in all three modes).
@@ -133,10 +133,12 @@ The hero is a short sticky section that follows the kit’s motion script, *Les 
 
 ## 🌙 The So Dream identity
 
-The name *So Dream* echoes So Zen. The emblem is drawn in code (`scripts/make-logo.py`): a crescent moon holding the hill, the big house, the small cottage, two trees and the river, under three brass stars. `scripts/make-lockups.py` sets the wordmark in Playfair Display (*So* roman, *Dream* italic) with the tagline *Gîtes · Chooz · Ardennes*, outlined to SVG paths.
+The name *So Dream* echoes So Zen. The logo was painted for the owner by a friend: a starry Meuse night in a round frame, held by a golden crescent, under the arched line *Gîtes bord de Meuse à Chooz*, above *SO DREAM* in navy capitals.
 
-- `01-identidade/so-dream/`: stacked and horizontal lockups and the emblem, in forest, linen, white and black (SVG), plus `png/` exports at 2400 px
-- On the site the emblem is inlined in the header and footer, so it can draw itself and take any colour
+- `11-brief-v2/logo-client/`: the artwork as received (small original PNG + a large copy on cream)
+- `scripts/prepare-client-logo.py` colour-matches the large copy to the original, cuts it out of its background and writes `assets-src/brand/client/` (full logo, painted disc, versions for dark backgrounds)
+- On the site the painted disc sits in the header beside *So Dream* set in Bebas Neue (the face of the logo, OFL), so the name stays sharp at any size; the footer shows the logo in its dark-background version
+- The earlier drawn emblem (`scripts/make-logo.py`, `01-identidade/so-dream/`) is kept in the repo but no longer used
 
 <br />
 
@@ -222,7 +224,7 @@ gites-de-chooz-website/
 │   │   ├── hero.json           # Layer boxes, opening amplitude and thread path (generated)
 │   │   └── images.json         # Image sizes for width/height and srcset (generated)
 │   ├── i18n/                   # fr (source), en, de, es, nl, pl, tr
-│   ├── render/                 # Build-time HTML: pages, layout, emblem, icons, locale helpers
+│   ├── render/                 # Build-time HTML: pages, layout, icons, locale helpers
 │   ├── styles/main.css         # Tokens, components, motion start states, responsive and print rules
 │   ├── js/
 │   │   ├── motion.js           # GSAP choreography of every section
@@ -231,12 +233,13 @@ gites-de-chooz-website/
 │   │   ├── tri.js · checklist.js · filters.js · gallery.js · lang.js
 │   └── main.js                 # Menu, header, language menu, print, agenda, page modules
 ├── scripts/
-│   ├── make-logo.py · make-lockups.py   # So Dream emblem and lockups
+│   ├── prepare-client-logo.py  # The owner's logo → transparent web and print files
+│   ├── make-logo.py · make-lockups.py   # Earlier drawn emblem (unused since v3)
 │   ├── prepare-hero.py         # SIFT registration, background plate, thread path
 │   ├── build-images.mjs        # AVIF/WebP pipeline, favicons, share image
 │   └── check-i18n.mjs          # Same keys in every language
 ├── public/img/                 # Encoded images (generated, versioned names)
-├── 01-identidade/so-dream/     # Logo files (SVG + PNG)
+├── assets-src/brand/client/    # The owner's logo, prepared (PNG)
 ├── 11-brief-v2/                # The owner's requests for this version
 ├── 12-impression/              # Business card, A6 booklet cards, QR codes
 ├── 01-identidade … 09-qr/      # The original design kit (LEIA-ME-KIT.md)
@@ -267,9 +270,10 @@ The kit folders stay in the repository but are excluded from the deployment (`.v
 
 Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 
-- [ ] The 14 exterior photos: the Drive files in her e-mail are not shared, so the gîte pages still open with interiors for Chez Suzanne and Au Petit Bouchon
+- [ ] 13 of the 14 exterior photos: the Drive files are still not shared (only Z62_8683, the terrace, came through). Le Grain d’Amour opens with the pool photo the owner sent on WhatsApp (~830 px), to swap for the camera original
 - [ ] Arrival and departure times of Le Grain d’Amour (Gîtes de France only gives them after booking)
 - [ ] Whether guests of Chez Suzanne and Au Petit Bouchon can use the pool
+- [ ] So Zen dates for the new calendar (`sozenEvents` in `src/data/site.js`; past dates hide themselves)
 - [ ] Keys, where the bins are, the owner’s contact for each gîte
 - [ ] Contact for La Palmeraie (So Zen’s phone is shown meanwhile)
 - [ ] So Zen illustration: the current file is a stock image with its source’s watermarks; replace it with the licensed original or So Zen’s own artwork
@@ -277,7 +281,8 @@ Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 - [ ] A read of the six translations by native speakers before the public launch
 - [ ] Final domain: then remove `noindex` and set `SITE_URL`; keep `gites-de-chooz.vercel.app` working
 - [x] So Dream name and logo, four gîtes, seven languages, Palmeraie, bonnes adresses, agenda, recycling guide, departure checklist, pool May to September, Presqu’île de Chooz removed
-- [x] Business card and A6 booklet cards ready to print (`12-impression/final/`)
+- [x] Business card and A6 booklet cards ready to print (`12-impression/final/`), with the owner’s logo
+- [x] v3 (owner’s feedback, October 2026): her logo everywhere, Le Grain d’Amour pool photo and air conditioning, La Brasserie rooms, baby gear, kids’ corner and linen/charges from January 2027, Au Petit Bouchon all-inclusive with no pets, the four Chooz trails, Grottes de Nichet and the tourist office in the addresses, filter fix on iPhone, So Zen calendar
 
 <br />
 
@@ -287,7 +292,7 @@ Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 - **[Gîtes de France](https://www.gites-de-france.com)**, **Airbnb** and **Booking.com** for the listings the facts come from
 - **[GSAP](https://gsap.com)** by GreenSock (free for all uses since 3.13)
 - **[Lucide](https://lucide.dev)** for the line icons the interface icons are based on (ISC)
-- **[Playfair Display](https://fonts.google.com/specimen/Playfair+Display)** by Claus Eggers Sørensen and **[Jost](https://fonts.google.com/specimen/Jost)** by indestructible type* (OFL), via Fontsource
+- **[Playfair Display](https://fonts.google.com/specimen/Playfair+Display)** by Claus Eggers Sørensen and **[Jost](https://fonts.google.com/specimen/Jost)** by indestructible type* and **[Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue)** by Dharma Type (OFL), via Fontsource
 - **[OpenCV](https://opencv.org)**, **[sharp](https://sharp.pixelplumbing.com)**, **[Vite](https://vite.dev)** and **[Vercel](https://vercel.com)**
 
 <br />
@@ -295,7 +300,7 @@ Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 ---
 
 <div align="center">
-  <img src="public/img/apple-touch-icon-v2.png" width="44" height="44" alt="" />
+  <img src="public/img/apple-touch-icon-v3.png" width="44" height="44" alt="" />
   <p><strong>So Dream · La parenthèse verte</strong></p>
   <p>Built with ❤️ by <a href="https://github.com/Jeanfr1">Jean</a> for So Dream</p>
   <sub>© 2026 So Dream. All rights reserved.</sub>

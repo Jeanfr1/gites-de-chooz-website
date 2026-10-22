@@ -178,7 +178,7 @@ export default {
     village: 'Au cœur du village',
     terrace: 'Terrasse',
     workspace: 'Espace de travail',
-    parking: 'Stationnement gratuit',
+    parking: 'Stationnement gratuit', aircon: 'Climatisation', kidsArea: 'Espace jeux enfants sur la mezzanine', babyGear: 'Chaises hautes, lit bébé, table à langer',
   },
 
   giteText: {
@@ -193,10 +193,12 @@ export default {
     brasserie: {
       tagline: 'Le bonheur de se retrouver.',
       description: 'De généreux espaces de vie, une terrasse et la vallée de la Meuse pour les retrouvailles en famille ou entre amis.',
-      energy: 'Charges non comprises. Les conditions de chauffage et d’électricité sont détaillées sur votre fiche de réservation. Évitez de chauffer fenêtres ouvertes.',
+      energy: 'Dès janvier 2027, les charges sont comprises. Jusque-là, les conditions de chauffage et d’électricité figurent sur votre fiche de réservation. Évitez de chauffer fenêtres ouvertes.',
       pets: 'Deux animaux au maximum selon la fiche de réservation.',
-      linen: 'Le linge de lit et de toilette peut faire l’objet de prestations supplémentaires. Vérifiez votre réservation.',
-      compare: { energy: 'Charges non comprises', pets: 'Deux animaux au maximum', linen: 'Linge en option' },
+      linen: 'Linge de maison fourni. Dès janvier 2027, les draps et les serviettes de toilette sont compris.',
+      compare: { energy: 'Charges comprises dès janvier 2027', pets: 'Deux animaux au maximum', linen: 'Linge de maison fourni, draps et serviettes dès janvier 2027' },
+      rooms: 'Au niveau de la cuisine et du séjour, 3 chambres avec salle de bain privative. À l’étage, 2 chambres qui se partagent une salle de bain et un WC séparé.',
+      pool: 'L’accès à la piscine se fait dans le respect du Grain d’Amour, situé juste à côté.',
     },
     suzanne: {
       tagline: 'Quatre chambres, quatre cocons.',
@@ -209,10 +211,10 @@ export default {
     bouchon: {
       tagline: 'Un pied-à-terre lumineux.',
       description: 'Un appartement avec deux belles chambres et une terrasse, au cœur d’un village paisible.',
-      energy: 'Selon les conditions de votre réservation Airbnb. Évitez de chauffer avec les fenêtres ouvertes.',
-      pets: 'Selon les conditions de votre réservation Airbnb.',
-      linen: 'Selon les conditions de votre réservation Airbnb.',
-      compare: { energy: 'Selon Airbnb', pets: 'Selon Airbnb', linen: 'Selon Airbnb' },
+      energy: 'Tout compris : chauffage, électricité et ménage.',
+      pets: 'Les animaux ne sont pas acceptés.',
+      linen: 'Draps et serviettes de toilette fournis.',
+      compare: { energy: 'Tout compris', pets: 'Non acceptés', linen: 'Draps et serviettes fournis' },
     },
   },
 
@@ -330,7 +332,7 @@ export default {
     title: ['Nos bonnes', 'adresses.'],
     lead: 'Une boulangerie, une table, une balade : nos adresses préférées autour de Chooz.',
     filters: 'Filtrer les adresses',
-    categories: { all: 'Toutes', bakery: 'Boulangeries', restaurant: 'Restaurants', shopping: 'Courses', health: 'Santé', activity: 'Activités', visit: 'Visites', town: 'Villes à découvrir' },
+    categories: { all: 'Toutes', bakery: 'Boulangeries', restaurant: 'Restaurants', shopping: 'Courses', health: 'Santé', activity: 'Activités', hike: 'Randonnées', visit: 'Visites', town: 'Villes à découvrir' },
     inVillage: 'Au village',
     link: 'En savoir plus',
     note: 'Consultez les établissements pour les horaires et conditions du jour.',
@@ -357,9 +359,15 @@ export default {
   placeKinds: {
     bakery: 'Boulangerie', pastry: 'Boulangerie-pâtisserie, salon de thé', inn: 'Hôtel-restaurant', regional: 'Cuisine française et régionale', restaurant: 'Restaurant', brasserie: 'Brasserie', italian: 'Restaurant italien',
     supermarket: 'Supermarché', discount: 'Supermarchés', pharmacy: 'Pharmacie', clinic: 'Maison de santé', boats: 'Location de bateaux électriques sans permis', greenway: 'Balade à pied ou à vélo au bord de la Meuse',
-    escape: 'Escape game', fort: 'Lieu d’histoire au-dessus de la Meuse', museum: 'Écomusée, ferme-château de Treignes', donkeys: 'Balades et rencontres avec les ânes', town: 'Ville à découvrir',
+    escape: 'Escape game', fort: 'Lieu d’histoire au-dessus de la Meuse', museum: 'Écomusée, ferme-château de Treignes', donkeys: 'Balades et rencontres avec les ânes', town: 'Ville à découvrir', tourism: 'Office de tourisme du Val d’Ardenne', cave: 'Grottes, visite guidée', hike: 'Randonnée balisée au départ de Chooz',
   },
 
+  hike: {
+    trail: (n, color) => `Parcours n°${n} · balisage ${color}`,
+    colors: { blue: 'bleu', yellow: 'jaune', red: 'rouge', violet: 'violet' },
+    stats: (km, h, m, up) => `${km} km · ${h} h ${String(m).padStart(2, '0')} · dénivelé ${up} m`,
+    note: 'Les parcours balisés de la commune de Chooz : cartes et descriptions sur chooz.com.',
+  },
   photoKinds: {
     exterior: 'la maison et son extérieur', living: 'le séjour', kitchen: 'la cuisine', dining: 'la salle à manger', bedroom: 'une chambre', atticBedroom: 'une chambre mansardée',
     familyBedroom: 'une chambre avec lit bébé', singleBedroom: 'une chambre avec lit simple', bathroom: 'une salle d’eau', view: 'la vue depuis la fenêtre', poolView: 'la piscine vue de l’intérieur',
@@ -386,6 +394,11 @@ export default {
     palmeraieTitle: 'La Palmeraie accueillera vos séances.',
     palmeraieText: 'Une salle pour le yoga, les ateliers et les rendez-vous de So Zen est en préparation à La Palmeraie.',
     palmeraieCta: 'Découvrir La Palmeraie',
+    calendarEyebrow: 'L’agenda So Zen',
+    calendarTitle: ['Les prochaines', 'séances.'],
+    calendarEmpty: 'Les prochaines dates arrivent très bientôt. En attendant, suivez So Zen sur Facebook ou appelez-nous.',
+    calendarBook: 'Réserver ma place',
+    eventTypes: { yoga: 'Séance de yoga', constellation: 'Constellations familiales', bougie: 'Atelier bougie', noel: 'Marché de Noël', other: 'Rendez-vous So Zen' },
   },
 
   notFound: {

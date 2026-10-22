@@ -12,6 +12,7 @@
   @font-face { font-family: 'Playfair'; src: url('../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2') format('woff2'); font-weight: 400 900; }
   @font-face { font-family: 'Playfair'; font-style: italic; src: url('../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-italic.woff2') format('woff2'); font-weight: 400 900; }
   @font-face { font-family: 'Jost'; src: url('../node_modules/@fontsource-variable/jost/files/jost-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Bebas Neue'; src: url('../node_modules/@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2') format('woff2'); }
   :root { --forest: #203F35; --linen: #F4F0E5; --brass: #A98B52; --brass-ink: #7A6235; --sage-ink: #556B4E; --sage-light: #DFE3D6; }
   @page { size: 105mm 148mm; margin: 0; }
   * { box-sizing: border-box; margin: 0; }
@@ -27,7 +28,7 @@
     content: ''; position: absolute; inset: 6mm; border: 0.3mm solid var(--brass);
     border-radius: 47mm 47mm 2mm 2mm; pointer-events: none;
   }
-  .emblem { width: 19mm; height: 19mm; }
+  .emblem { width: 22mm; height: 22mm; object-fit: contain; }
   .eyebrow { margin-top: 3.2mm; font-size: 6.6pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brass-ink); }
   h1 { margin-top: 2.4mm; font-family: 'Playfair', serif; font-weight: 400; font-size: 24pt; line-height: 1.02; letter-spacing: -0.02em; }
   .tag { margin-top: 1.6mm; font-family: 'Playfair', serif; font-style: italic; font-size: 10.5pt; color: var(--sage-ink); }
@@ -38,15 +39,14 @@
   .langs { margin-top: 2.8mm; display: flex; gap: 1.4mm; }
   .langs span { font-size: 6pt; letter-spacing: 0.12em; padding: 0.6mm 1.6mm; border: 0.25mm solid rgba(32, 63, 53, 0.28); border-radius: 3mm; }
   .foot { margin-top: auto; font-size: 6pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brass-ink); }
-  .foot b { font-family: 'Playfair', serif; font-weight: 400; font-size: 8.5pt; letter-spacing: 0; text-transform: none; color: var(--forest); }
-  .foot b em { font-style: italic; }
+  .foot b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 11pt; letter-spacing: 0.04em; color: #1b2a6b; }
 </style>
 </head>
 <body>
 <div class="sheet" id="sheet"></div>
 <template id="card">
   <article class="card">
-    <img class="emblem" src="../assets-src/brand/emblem-forest.svg" alt="">
+    <img class="emblem" src="../assets-src/brand/client/so-dream-disc.png" alt="">
     <p class="eyebrow">Votre carnet de séjour</p>
     <h1 data-name></h1>
     <p class="tag" data-tag></p>
@@ -54,7 +54,7 @@
     <p class="scan">Scannez, tout est là.</p>
     <p class="topics" data-topics></p>
     <p class="langs"><span>FR</span><span>EN</span><span>DE</span><span>ES</span><span>NL</span><span>PL</span><span>TR</span></p>
-    <p class="foot"><b>So <em>Dream</em></b> · Chooz · Ardennes</p>
+    <p class="foot"><b>So Dream</b> · Chooz · Ardennes</p>
   </article>
 </template>
 <script>

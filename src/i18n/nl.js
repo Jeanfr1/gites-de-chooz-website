@@ -149,7 +149,7 @@ export default {
 
   features: {
     wifi: 'Wifi', kitchen: 'Keuken en woonkamer', bedroomUpstairs: 'Slaapkamer boven', gardenPool: 'Gedeelde tuin en zwembad', livingRoom: 'Ruime leefruimte', fiveBedrooms: '5 slaapkamers',
-    viewMeuse: 'Uitzicht op Maas en bos', privateBathrooms: 'Eigen badkamer per slaapkamer', allInclusive: 'All-inclusive', village: 'Midden in het dorp', terrace: 'Terras', workspace: 'Werkplek', parking: 'Gratis parkeren',
+    viewMeuse: 'Uitzicht op Maas en bos', privateBathrooms: 'Eigen badkamer per slaapkamer', allInclusive: 'All-inclusive', village: 'Midden in het dorp', terrace: 'Terras', workspace: 'Werkplek', parking: 'Gratis parkeren', aircon: 'Airconditioning', kidsArea: 'Speelhoek voor kinderen op de mezzanine', babyGear: 'Kinderstoelen, babybed, commode',
   },
 
   giteText: {
@@ -164,10 +164,12 @@ export default {
     brasserie: {
       tagline: 'Het geluk van samenzijn.',
       description: 'Ruime leefruimtes, een terras en het Maasdal voor reünies met familie of vrienden.',
-      energy: 'Kosten niet inbegrepen. De voorwaarden voor verwarming en elektriciteit staan in uw boeking. Verwarm niet met open ramen.',
+      energy: 'Vanaf januari 2027 zijn de kosten inbegrepen. Tot dan staan de voorwaarden voor verwarming en elektriciteit in uw boeking. Verwarm niet met open ramen.',
       pets: 'Maximaal twee huisdieren volgens uw boeking.',
-      linen: 'Bedlinnen en handdoeken kunnen extra kosten. Controleer uw boeking.',
-      compare: { energy: 'Kosten niet inbegrepen', pets: 'Maximaal twee huisdieren', linen: 'Linnengoed optioneel' },
+      linen: 'Huishoudlinnen aanwezig. Vanaf januari 2027 zijn ook bedlinnen en handdoeken inbegrepen.',
+      compare: { energy: 'Kosten inbegrepen vanaf januari 2027', pets: 'Maximaal twee huisdieren', linen: 'Huishoudlinnen; bedlinnen en handdoeken vanaf januari 2027' },
+      rooms: 'Op de verdieping van de keuken en de woonkamer 3 slaapkamers met eigen badkamer. Boven delen 2 slaapkamers een badkamer en een apart toilet.',
+      pool: 'Gebruik het zwembad met respect voor Le Grain d’Amour, direct ernaast.',
     },
     suzanne: {
       tagline: 'Vier slaapkamers, vier cocons.',
@@ -180,10 +182,10 @@ export default {
     bouchon: {
       tagline: 'Een licht pied-à-terre.',
       description: 'Een appartement met twee mooie slaapkamers en een terras, midden in een rustig dorp.',
-      energy: 'Volgens de voorwaarden van uw Airbnb-boeking. Verwarm niet met open ramen.',
-      pets: 'Volgens de voorwaarden van uw Airbnb-boeking.',
-      linen: 'Volgens de voorwaarden van uw Airbnb-boeking.',
-      compare: { energy: 'Volgens Airbnb', pets: 'Volgens Airbnb', linen: 'Volgens Airbnb' },
+      energy: 'Alles inbegrepen: verwarming, elektriciteit en schoonmaak.',
+      pets: 'Huisdieren zijn niet toegestaan.',
+      linen: 'Bedlinnen en handdoeken aanwezig.',
+      compare: { energy: 'Alles inbegrepen', pets: 'Niet toegestaan', linen: 'Bedlinnen en handdoeken aanwezig' },
     },
   },
 
@@ -276,7 +278,7 @@ export default {
     title: ['Onze goede', 'adressen.'],
     lead: 'Een bakker, een restaurant, een wandeling: onze favoriete plekken rond Chooz.',
     filters: 'Adressen filteren',
-    categories: { all: 'Alle', bakery: 'Bakkers', restaurant: 'Restaurants', shopping: 'Boodschappen', health: 'Gezondheid', activity: 'Activiteiten', visit: 'Uitstapjes', town: 'Steden om te ontdekken' },
+    categories: { all: 'Alle', bakery: 'Bakkers', restaurant: 'Restaurants', shopping: 'Boodschappen', health: 'Gezondheid', activity: 'Activiteiten', hike: 'Wandelingen', visit: 'Uitstapjes', town: 'Steden om te ontdekken' },
     inVillage: 'In het dorp',
     link: 'Meer info',
     note: 'Controleer openingstijden en voorwaarden bij de zaak zelf.',
@@ -300,9 +302,15 @@ export default {
   placeKinds: {
     bakery: 'Bakker', pastry: 'Bakker, banketbakker en tearoom', inn: 'Hotel-restaurant', regional: 'Franse en streekkeuken', restaurant: 'Restaurant', brasserie: 'Brasserie', italian: 'Italiaans restaurant',
     supermarket: 'Supermarkt', discount: 'Supermarkten', pharmacy: 'Apotheek', clinic: 'Gezondheidscentrum', boats: 'Elektrische boten zonder vaarbewijs', greenway: 'Wandelen of fietsen langs de Maas',
-    escape: 'Escape room', fort: 'Historische plek boven de Maas', museum: 'Ecomuseum in de kasteelhoeve van Treignes', donkeys: 'Wandelen met en ontmoeten van ezels', town: 'Stad om te ontdekken',
+    escape: 'Escape room', fort: 'Historische plek boven de Maas', museum: 'Ecomuseum in de kasteelhoeve van Treignes', donkeys: 'Wandelen met en ontmoeten van ezels', town: 'Stad om te ontdekken', tourism: 'Toeristenbureau Val d’Ardenne', cave: 'Grotten, rondleiding', hike: 'Bewegwijzerde wandeling vanuit Chooz',
   },
 
+  hike: {
+    trail: (n, color) => `Route nr. ${n} · ${color} markering`,
+    colors: { blue: 'blauwe', yellow: 'gele', red: 'rode', violet: 'paarse' },
+    stats: (km, h, m, up) => `${km} km · ${h} u ${String(m).padStart(2, '0')} min · ${up} m stijgen`,
+    note: 'De bewegwijzerde routes van de gemeente Chooz: kaarten en beschrijvingen (in het Frans) op chooz.com.',
+  },
   photoKinds: {
     exterior: 'het huis en de tuin', living: 'de woonkamer', kitchen: 'de keuken', dining: 'de eetkamer', bedroom: 'een slaapkamer', atticBedroom: 'een zolderslaapkamer',
     familyBedroom: 'een slaapkamer met babybedje', singleBedroom: 'een slaapkamer met eenpersoonsbed', bathroom: 'een badkamer', view: 'het uitzicht uit het raam', poolView: 'het zwembad gezien van binnen',
@@ -329,6 +337,11 @@ export default {
     palmeraieTitle: 'La Palmeraie zal uw lessen ontvangen.',
     palmeraieText: 'In La Palmeraie wordt een zaal voorbereid voor yoga, workshops en bijeenkomsten van So Zen.',
     palmeraieCta: 'Ontdek La Palmeraie',
+    calendarEyebrow: 'De So Zen-agenda',
+    calendarTitle: ['De volgende', 'sessies.'],
+    calendarEmpty: 'Nieuwe data volgen binnenkort. Volg So Zen intussen op Facebook of bel ons.',
+    calendarBook: 'Mijn plaats reserveren',
+    eventTypes: { yoga: 'Yogasessie', constellation: 'Familieopstellingen', bougie: 'Kaarsenworkshop', noel: 'Kerstmarkt', other: 'So Zen-afspraak' },
   },
 
   notFound: { eyebrow: 'Pagina niet gevonden', title: ['Dit pad', 'is verdwaald.'], lead: 'De gevraagde pagina bestaat niet of is verhuisd.', home: 'Terug naar home' },

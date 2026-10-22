@@ -178,7 +178,7 @@ export default {
     village: 'W sercu wioski',
     terrace: 'Taras',
     workspace: 'Miejsce do pracy',
-    parking: 'Bezpłatny parking',
+    parking: 'Bezpłatny parking', aircon: 'Klimatyzacja', kidsArea: 'Kącik zabaw dla dzieci na antresoli', babyGear: 'Krzesełka do karmienia, łóżeczko, przewijak',
   },
 
   giteText: {
@@ -193,10 +193,12 @@ export default {
     brasserie: {
       tagline: 'Radość wspólnych spotkań.',
       description: 'Przestronne wnętrza, taras i dolina Mozy na rodzinne i przyjacielskie spotkania.',
-      energy: 'Opłaty niewliczone. Warunki dotyczące ogrzewania i prądu znajdziesz w opisie rezerwacji. Nie ogrzewaj przy otwartych oknach.',
+      energy: 'Od stycznia 2027 opłaty są wliczone w cenę. Do tego czasu warunki dotyczące ogrzewania i prądu znajdziesz w opisie rezerwacji. Nie ogrzewaj przy otwartych oknach.',
       pets: 'Maksymalnie dwa zwierzęta zgodnie z opisem rezerwacji.',
-      linen: 'Pościel i ręczniki mogą być dodatkowo płatne. Sprawdź swoją rezerwację.',
-      compare: { energy: 'Opłaty niewliczone', pets: 'Maksymalnie dwa zwierzęta', linen: 'Pościel za dopłatą' },
+      linen: 'Bielizna domowa zapewniona. Od stycznia 2027 pościel i ręczniki są wliczone w cenę.',
+      compare: { energy: 'Opłaty wliczone od stycznia 2027', pets: 'Maksymalnie dwa zwierzęta', linen: 'Bielizna domowa; pościel i ręczniki od stycznia 2027' },
+      rooms: 'Na poziomie kuchni i salonu 3 sypialnie z prywatnymi łazienkami. Na piętrze 2 sypialnie dzielą łazienkę i osobne WC.',
+      pool: 'Z basenu prosimy korzystać z poszanowaniem gości Le Grain d’Amour, który znajduje się tuż obok.',
     },
     suzanne: {
       tagline: 'Cztery sypialnie, cztery przytulne kąty.',
@@ -209,10 +211,10 @@ export default {
     bouchon: {
       tagline: 'Jasna przystań.',
       description: 'Mieszkanie z dwiema ładnymi sypialniami i tarasem, w sercu spokojnej wioski.',
-      energy: 'Zgodnie z warunkami rezerwacji na Airbnb. Nie ogrzewaj przy otwartych oknach.',
-      pets: 'Zgodnie z warunkami rezerwacji na Airbnb.',
-      linen: 'Zgodnie z warunkami rezerwacji na Airbnb.',
-      compare: { energy: 'Według Airbnb', pets: 'Według Airbnb', linen: 'Według Airbnb' },
+      energy: 'Wszystko w cenie: ogrzewanie, prąd i sprzątanie.',
+      pets: 'Zwierzęta nie są akceptowane.',
+      linen: 'Pościel i ręczniki zapewnione.',
+      compare: { energy: 'Wszystko w cenie', pets: 'Nieakceptowane', linen: 'Pościel i ręczniki zapewnione' },
     },
   },
 
@@ -330,7 +332,7 @@ export default {
     title: ['Nasze polecane', 'miejsca.'],
     lead: 'Piekarnia, stolik, spacer: nasze ulubione miejsca wokół Chooz.',
     filters: 'Filtruj miejsca',
-    categories: { all: 'Wszystkie', bakery: 'Piekarnie', restaurant: 'Restauracje', shopping: 'Zakupy', health: 'Zdrowie', activity: 'Aktywności', visit: 'Zwiedzanie', town: 'Miasta do odkrycia' },
+    categories: { all: 'Wszystkie', bakery: 'Piekarnie', restaurant: 'Restauracje', shopping: 'Zakupy', health: 'Zdrowie', activity: 'Aktywności', hike: 'Szlaki', visit: 'Zwiedzanie', town: 'Miasta do odkrycia' },
     inVillage: 'W wiosce',
     link: 'Więcej informacji',
     note: 'Godziny otwarcia i aktualne warunki sprawdź bezpośrednio u danego miejsca.',
@@ -357,9 +359,15 @@ export default {
   placeKinds: {
     bakery: 'Piekarnia', pastry: 'Piekarnia-cukiernia, herbaciarnia', inn: 'Hotel z restauracją', regional: 'Kuchnia francuska i regionalna', restaurant: 'Restauracja', brasserie: 'Brasserie', italian: 'Restauracja włoska',
     supermarket: 'Supermarket', discount: 'Supermarkety', pharmacy: 'Apteka', clinic: 'Przychodnia', boats: 'Wypożyczalnia łodzi elektrycznych bez uprawnień', greenway: 'Spacer lub rower nad brzegiem Mozy',
-    escape: 'Escape room', fort: 'Miejsce historyczne nad Mozą', museum: 'Ekomuzeum, zamek-folwark w Treignes', donkeys: 'Spacery i spotkania z osiołkami', town: 'Miasto do odkrycia',
+    escape: 'Escape room', fort: 'Miejsce historyczne nad Mozą', museum: 'Ekomuzeum, zamek-folwark w Treignes', donkeys: 'Spacery i spotkania z osiołkami', town: 'Miasto do odkrycia', tourism: 'Biuro turystyczne Val d’Ardenne', cave: 'Jaskinie, zwiedzanie z przewodnikiem', hike: 'Oznakowany szlak z Chooz',
   },
 
+  hike: {
+    trail: (n, color) => `Trasa nr ${n} · szlak ${color}`,
+    colors: { blue: 'niebieski', yellow: 'żółty', red: 'czerwony', violet: 'fioletowy' },
+    stats: (km, h, m, up) => `${km} km · ${h} godz. ${String(m).padStart(2, '0')} min · przewyższenie ${up} m`,
+    note: 'Oznakowane trasy gminy Chooz: mapy i opisy (po francusku) na chooz.com.',
+  },
   photoKinds: {
     exterior: 'dom i jego otoczenie', living: 'salon', kitchen: 'kuchnia', dining: 'jadalnia', bedroom: 'sypialnia', atticBedroom: 'sypialnia na poddaszu',
     familyBedroom: 'sypialnia z łóżeczkiem dziecięcym', singleBedroom: 'sypialnia z pojedynczym łóżkiem', bathroom: 'łazienka', view: 'widok z okna', poolView: 'basen widziany z wnętrza',
@@ -386,6 +394,11 @@ export default {
     palmeraieTitle: 'La Palmeraie przyjmie Twoje zajęcia.',
     palmeraieText: 'W La Palmeraie powstaje sala na jogę, warsztaty i spotkania So Zen.',
     palmeraieCta: 'Odkryj La Palmeraie',
+    calendarEyebrow: 'Kalendarz So Zen',
+    calendarTitle: ['Najbliższe', 'zajęcia.'],
+    calendarEmpty: 'Nowe terminy już wkrótce. Do tego czasu obserwuj So Zen na Facebooku lub zadzwoń do nas.',
+    calendarBook: 'Zarezerwuj miejsce',
+    eventTypes: { yoga: 'Zajęcia jogi', constellation: 'Ustawienia rodzinne', bougie: 'Warsztaty świecowe', noel: 'Jarmark bożonarodzeniowy', other: 'Spotkanie So Zen' },
   },
 
   notFound: {

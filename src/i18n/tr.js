@@ -177,7 +177,7 @@ export default {
     village: 'Köyün kalbinde',
     terrace: 'Teras',
     workspace: 'Çalışma alanı',
-    parking: 'Ücretsiz otopark',
+    parking: 'Ücretsiz otopark', aircon: 'Klima', kidsArea: 'Asma katta çocuk oyun alanı', babyGear: 'Mama sandalyesi, bebek yatağı, alt değiştirme masası',
   },
 
   giteText: {
@@ -192,10 +192,12 @@ export default {
     brasserie: {
       tagline: 'Bir araya gelmenin mutluluğu.',
       description: 'Aile ya da arkadaş buluşmaları için ferah yaşam alanları, bir teras ve Meuse vadisi.',
-      energy: 'Giderler dahil değildir. Isınma ve elektrik koşulları rezervasyon bilgilerinizde yer alır. Pencereler açıkken ısıtmayın.',
+      energy: 'Ocak 2027’den itibaren giderler fiyata dahildir. O zamana kadar ısınma ve elektrik koşulları rezervasyon bilgilerinizde yer alır. Pencereler açıkken ısıtmayın.',
       pets: 'Rezervasyon bilgilerine göre en fazla iki evcil hayvan.',
-      linen: 'Çarşaf ve havlu ek hizmet olarak ücretlendirilebilir. Rezervasyonunuzu kontrol edin.',
-      compare: { energy: 'Giderler dahil değil', pets: 'En fazla iki evcil hayvan', linen: 'Çarşaf isteğe bağlı' },
+      linen: 'Ev tekstili sağlanır. Ocak 2027’den itibaren çarşaf ve havlular da dahildir.',
+      compare: { energy: 'Ocak 2027’den itibaren giderler dahil', pets: 'En fazla iki evcil hayvan', linen: 'Ev tekstili; çarşaf ve havlu Ocak 2027’den itibaren' },
+      rooms: 'Mutfak ve oturma odasıyla aynı katta özel banyolu 3 yatak odası. Üst katta 2 yatak odası bir banyoyu ve ayrı bir WC’yi paylaşır.',
+      pool: 'Havuzu, hemen yanındaki Le Grain d’Amour’a saygı göstererek kullanın.',
     },
     suzanne: {
       tagline: 'Dört oda, dört sıcak yuva.',
@@ -208,10 +210,10 @@ export default {
     bouchon: {
       tagline: 'Aydınlık bir konaklama.',
       description: 'Sakin bir köyün kalbinde, iki güzel yatak odalı ve teraslı bir daire.',
-      energy: 'Airbnb rezervasyon koşullarınıza göre. Pencereler açıkken ısıtmayın.',
-      pets: 'Airbnb rezervasyon koşullarınıza göre.',
-      linen: 'Airbnb rezervasyon koşullarınıza göre.',
-      compare: { energy: 'Airbnb’ye göre', pets: 'Airbnb’ye göre', linen: 'Airbnb’ye göre' },
+      energy: 'Her şey dahil: ısınma, elektrik ve temizlik.',
+      pets: 'Evcil hayvan kabul edilmez.',
+      linen: 'Çarşaf ve havlu sağlanır.',
+      compare: { energy: 'Her şey dahil', pets: 'Kabul edilmez', linen: 'Çarşaf ve havlu sağlanır' },
     },
   },
 
@@ -329,7 +331,7 @@ export default {
     title: ['Önerilen', 'yerlerimiz.'],
     lead: 'Bir fırın, bir sofra, bir yürüyüş: Chooz çevresinde en sevdiğimiz yerler.',
     filters: 'Yerleri filtrele',
-    categories: { all: 'Tümü', bakery: 'Fırınlar', restaurant: 'Restoranlar', shopping: 'Alışveriş', health: 'Sağlık', activity: 'Aktiviteler', visit: 'Geziler', town: 'Keşfedilecek şehirler' },
+    categories: { all: 'Tümü', bakery: 'Fırınlar', restaurant: 'Restoranlar', shopping: 'Alışveriş', health: 'Sağlık', activity: 'Aktiviteler', hike: 'Yürüyüş rotaları', visit: 'Geziler', town: 'Keşfedilecek şehirler' },
     inVillage: 'Köyde',
     link: 'Daha fazla bilgi',
     note: 'Günün saatleri ve koşulları için doğrudan işletmelere danışın.',
@@ -356,9 +358,15 @@ export default {
   placeKinds: {
     bakery: 'Fırın', pastry: 'Fırın-pastane, çay salonu', inn: 'Otel-restoran', regional: 'Fransız ve yöresel mutfak', restaurant: 'Restoran', brasserie: 'Brasserie', italian: 'İtalyan restoranı',
     supermarket: 'Süpermarket', discount: 'Süpermarketler', pharmacy: 'Eczane', clinic: 'Sağlık merkezi', boats: 'Ehliyetsiz elektrikli tekne kiralama', greenway: 'Meuse kıyısında yürüyüş ya da bisiklet',
-    escape: 'Kaçış oyunu', fort: 'Meuse’ün üzerinde tarihî bir mekân', museum: 'Ekomüze, Treignes çiftlik-şatosu', donkeys: 'Eşeklerle yürüyüşler ve buluşmalar', town: 'Keşfedilecek şehir',
+    escape: 'Kaçış oyunu', fort: 'Meuse’ün üzerinde tarihî bir mekân', museum: 'Ekomüze, Treignes çiftlik-şatosu', donkeys: 'Eşeklerle yürüyüşler ve buluşmalar', town: 'Keşfedilecek şehir', tourism: 'Val d’Ardenne turizm ofisi', cave: 'Mağaralar, rehberli tur', hike: 'Chooz’dan başlayan işaretli rota',
   },
 
+  hike: {
+    trail: (n, color) => `${n} numaralı rota · ${color} işaretler`,
+    colors: { blue: 'mavi', yellow: 'sarı', red: 'kırmızı', violet: 'mor' },
+    stats: (km, h, m, up) => `${km} km · ${h} sa ${String(m).padStart(2, '0')} dk · ${up} m tırmanış`,
+    note: 'Chooz belediyesinin işaretli rotaları: haritalar ve açıklamalar (Fransızca) chooz.com’da.',
+  },
   photoKinds: {
     exterior: 'ev ve dış alanı', living: 'oturma odası', kitchen: 'mutfak', dining: 'yemek odası', bedroom: 'bir yatak odası', atticBedroom: 'çatı katında bir yatak odası',
     familyBedroom: 'bebek yataklı bir yatak odası', singleBedroom: 'tek kişilik yataklı bir oda', bathroom: 'bir banyo', view: 'pencereden manzara', poolView: 'içeriden havuz manzarası',
@@ -385,6 +393,11 @@ export default {
     palmeraieTitle: 'La Palmeraie seanslarınıza ev sahipliği yapacak.',
     palmeraieText: 'La Palmeraie’de yoga, atölyeler ve So Zen buluşmaları için bir salon hazırlanıyor.',
     palmeraieCta: 'La Palmeraie’yi keşfedin',
+    calendarEyebrow: 'So Zen ajandası',
+    calendarTitle: ['Yaklaşan', 'seanslar.'],
+    calendarEmpty: 'Yeni tarihler çok yakında. Bu arada So Zen’i Facebook’ta takip edin ya da bizi arayın.',
+    calendarBook: 'Yerimi ayırt',
+    eventTypes: { yoga: 'Yoga seansı', constellation: 'Aile dizimi', bougie: 'Mum atölyesi', noel: 'Noel pazarı', other: 'So Zen buluşması' },
   },
 
   notFound: {

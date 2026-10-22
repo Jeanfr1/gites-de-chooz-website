@@ -2,7 +2,6 @@ import images from '../data/images.json';
 import { brand, gites, sozen, platforms, routes } from '../data/site.js';
 import { L, LOC, LOCALES, DEFAULT_LOCALE, dicts, href, prefix } from './i18n.js';
 import { icon, sprite } from './icons.js';
-import { emblem, wordmark } from './brand.js';
 
 export const SITE_URL = process.env.SITE_URL || 'https://gites-de-chooz.vercel.app';
 
@@ -83,8 +82,8 @@ const navItems = () => [
 
 function brandLink() {
   return `<a class="brand" href="${prefix()}" aria-label="${esc(`${brand.name} · ${L.ui.home}`)}">`
-    + emblem({ cls: 'brand-emblem', sw: 4.6 })
-    + `<span class="brand-text">${wordmark('brand-name')}<span class="brand-tag">Chooz · Ardennes</span></span></a>`;
+    + picture('brand-disc', { sizes: '52px', cls: 'brand-disc', loading: 'eager' })
+    + `<span class="brand-text"><span class="brand-name">So Dream</span><span class="brand-tag">Gîtes bord de Meuse</span></span></a>`;
 }
 
 function langSwitch(routeId) {
@@ -163,8 +162,8 @@ function footer(routeId) {
       </div>
     </div>
     <a class="footer-giant" href="${prefix()}" aria-label="${esc(`${brand.name} · ${L.ui.home}`)}" data-giant>
-      ${emblem({ cls: 'footer-emblem', sw: 2.2 })}
-      <span class="footer-wordmark" aria-hidden="true"><span>So</span> <em>Dream</em></span>
+      ${picture('brand-emblem-linen', { sizes: '(max-width: 700px) 150px, 260px', cls: 'footer-emblem' })}
+      <span class="footer-wordmark" aria-hidden="true">So Dream</span>
     </a>
     <p class="footer-note"><span>${t(L.footer.note)}</span><span>${t(L.footer.note2)}</span></p>
   </div>
@@ -207,13 +206,12 @@ ${ogAlt}
 <meta property="og:site_name" content="${esc(brand.name)}">
 <meta property="og:title" content="${esc(fullTitle)}">
 <meta property="og:description" content="${esc(description)}">
-<meta property="og:image" content="${SITE_URL}/img/og-v2.jpg">
+<meta property="og:image" content="${SITE_URL}/img/og-v3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/img/favicon-v2.svg" type="image/svg+xml">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32-v2.png">
-<link rel="apple-touch-icon" href="/img/apple-touch-icon-v2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32-v3.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon-v3.png">
 <script>(function(d){var r=d.documentElement;r.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('motion');setTimeout(function(){if(!r.classList.contains('motion-ready'))r.classList.remove('motion')},3500)}})(document)</script>
 <link rel="stylesheet" href="/src/styles/main.css">
 <script type="module" src="/src/main.js"></script>
@@ -233,4 +231,4 @@ ${suggestData(routeId)}
 `;
 }
 
-export { L, LOC, href, prefix, icon, emblem, wordmark, routes };
+export { L, LOC, href, prefix, icon, routes };

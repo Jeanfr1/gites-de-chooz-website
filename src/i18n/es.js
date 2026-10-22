@@ -149,7 +149,7 @@ export default {
 
   features: {
     wifi: 'Wifi', kitchen: 'Cocina y salón', bedroomUpstairs: 'Dormitorio en la planta alta', gardenPool: 'Jardín y piscina compartidos', livingRoom: 'Gran espacio de estar', fiveBedrooms: '5 dormitorios',
-    viewMeuse: 'Vistas al Mosa y al bosque', privateBathrooms: 'Un baño por dormitorio', allInclusive: 'Todo incluido', village: 'En el corazón del pueblo', terrace: 'Terraza', workspace: 'Zona de trabajo', parking: 'Aparcamiento gratuito',
+    viewMeuse: 'Vistas al Mosa y al bosque', privateBathrooms: 'Un baño por dormitorio', allInclusive: 'Todo incluido', village: 'En el corazón del pueblo', terrace: 'Terraza', workspace: 'Zona de trabajo', parking: 'Aparcamiento gratuito', aircon: 'Aire acondicionado', kidsArea: 'Zona de juegos infantil en el altillo', babyGear: 'Tronas, cuna y cambiador',
   },
 
   giteText: {
@@ -164,10 +164,12 @@ export default {
     brasserie: {
       tagline: 'La alegría de reencontrarse.',
       description: 'Amplios espacios de vida, una terraza y el valle del Mosa para reuniones familiares o entre amigos.',
-      energy: 'Gastos no incluidos. Las condiciones de calefacción y electricidad figuran en su reserva. Evite calentar con las ventanas abiertas.',
+      energy: 'A partir de enero de 2027, los gastos están incluidos. Hasta entonces, las condiciones de calefacción y electricidad figuran en su reserva. Evite calentar con las ventanas abiertas.',
       pets: 'Dos animales como máximo según su reserva.',
-      linen: 'La ropa de cama y las toallas pueden tener un coste adicional. Revise su reserva.',
-      compare: { energy: 'Gastos no incluidos', pets: 'Dos animales como máximo', linen: 'Ropa opcional' },
+      linen: 'Ropa de hogar incluida. A partir de enero de 2027, también la ropa de cama y las toallas.',
+      compare: { energy: 'Gastos incluidos desde enero de 2027', pets: 'Dos animales como máximo', linen: 'Ropa de hogar; ropa de cama y toallas desde enero de 2027' },
+      rooms: 'En la planta de la cocina y el salón, 3 dormitorios con baño privado. Arriba, 2 dormitorios comparten un baño y un aseo independiente.',
+      pool: 'El uso de la piscina se hace respetando a Le Grain d’Amour, situado justo al lado.',
     },
     suzanne: {
       tagline: 'Cuatro dormitorios, cuatro refugios.',
@@ -180,10 +182,10 @@ export default {
     bouchon: {
       tagline: 'Un refugio luminoso.',
       description: 'Un apartamento con dos bonitos dormitorios y una terraza, en el corazón de un pueblo tranquilo.',
-      energy: 'Según las condiciones de su reserva en Airbnb. Evite calentar con las ventanas abiertas.',
-      pets: 'Según las condiciones de su reserva en Airbnb.',
-      linen: 'Según las condiciones de su reserva en Airbnb.',
-      compare: { energy: 'Según Airbnb', pets: 'Según Airbnb', linen: 'Según Airbnb' },
+      energy: 'Todo incluido: calefacción, electricidad y limpieza.',
+      pets: 'No se admiten animales.',
+      linen: 'Ropa de cama y toallas incluidas.',
+      compare: { energy: 'Todo incluido', pets: 'No admitidos', linen: 'Ropa de cama y toallas incluidas' },
     },
   },
 
@@ -276,7 +278,7 @@ export default {
     title: ['Nuestras buenas', 'direcciones.'],
     lead: 'Una panadería, una mesa, un paseo: nuestros lugares favoritos cerca de Chooz.',
     filters: 'Filtrar las direcciones',
-    categories: { all: 'Todas', bakery: 'Panaderías', restaurant: 'Restaurantes', shopping: 'Compras', health: 'Salud', activity: 'Actividades', visit: 'Visitas', town: 'Ciudades por descubrir' },
+    categories: { all: 'Todas', bakery: 'Panaderías', restaurant: 'Restaurantes', shopping: 'Compras', health: 'Salud', activity: 'Actividades', hike: 'Senderismo', visit: 'Visitas', town: 'Ciudades por descubrir' },
     inVillage: 'En el pueblo',
     link: 'Más información',
     note: 'Consulte con cada establecimiento los horarios y condiciones del día.',
@@ -300,9 +302,15 @@ export default {
   placeKinds: {
     bakery: 'Panadería', pastry: 'Panadería, pastelería y salón de té', inn: 'Hotel-restaurante', regional: 'Cocina francesa y regional', restaurant: 'Restaurante', brasserie: 'Brasserie', italian: 'Restaurante italiano',
     supermarket: 'Supermercado', discount: 'Supermercados', pharmacy: 'Farmacia', clinic: 'Centro de salud', boats: 'Alquiler de barcos eléctricos sin licencia', greenway: 'A pie o en bici junto al Mosa',
-    escape: 'Escape room', fort: 'Lugar histórico sobre el Mosa', museum: 'Ecomuseo en la granja-castillo de Treignes', donkeys: 'Paseos y encuentros con burros', town: 'Ciudad por descubrir',
+    escape: 'Escape room', fort: 'Lugar histórico sobre el Mosa', museum: 'Ecomuseo en la granja-castillo de Treignes', donkeys: 'Paseos y encuentros con burros', town: 'Ciudad por descubrir', tourism: 'Oficina de turismo del Val d’Ardenne', cave: 'Cuevas, visita guiada', hike: 'Sendero señalizado desde Chooz',
   },
 
+  hike: {
+    trail: (n, color) => `Ruta n.º ${n} · señalización ${color}`,
+    colors: { blue: 'azul', yellow: 'amarilla', red: 'roja', violet: 'violeta' },
+    stats: (km, h, m, up) => `${km} km · ${h} h ${String(m).padStart(2, '0')} min · desnivel ${up} m`,
+    note: 'Las rutas señalizadas del municipio de Chooz: mapas y descripciones (en francés) en chooz.com.',
+  },
   photoKinds: {
     exterior: 'la casa y su exterior', living: 'el salón', kitchen: 'la cocina', dining: 'el comedor', bedroom: 'un dormitorio', atticBedroom: 'un dormitorio abuhardillado',
     familyBedroom: 'un dormitorio con cuna', singleBedroom: 'un dormitorio con cama individual', bathroom: 'un baño', view: 'la vista desde la ventana', poolView: 'la piscina vista desde dentro',
@@ -329,6 +337,11 @@ export default {
     palmeraieTitle: 'La Palmeraie acogerá sus sesiones.',
     palmeraieText: 'En La Palmeraie se prepara una sala para el yoga, los talleres y los encuentros de So Zen.',
     palmeraieCta: 'Descubrir La Palmeraie',
+    calendarEyebrow: 'La agenda So Zen',
+    calendarTitle: ['Las próximas', 'sesiones.'],
+    calendarEmpty: 'Las próximas fechas llegarán muy pronto. Mientras tanto, siga a So Zen en Facebook o llámenos.',
+    calendarBook: 'Reservar mi plaza',
+    eventTypes: { yoga: 'Sesión de yoga', constellation: 'Constelaciones familiares', bougie: 'Taller de velas', noel: 'Mercado de Navidad', other: 'Cita So Zen' },
   },
 
   notFound: { eyebrow: 'Página no encontrada', title: ['Este camino', 'se ha perdido.'], lead: 'La página que busca no existe o ha cambiado de dirección.', home: 'Volver al inicio' },

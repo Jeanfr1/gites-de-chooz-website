@@ -53,15 +53,19 @@ const paths = {
   palm: '<path d="M12.5 22c.6-4.6.2-9.1-1.3-13.3"/><path d="M11.2 8.7C9.6 6.4 6.6 5.5 3.5 6.6c2.4.4 4.3 1.6 5.4 3.4"/><path d="M11.2 8.7c1.2-2.6 4-4.1 7.3-3.8-2.2.9-3.7 2.4-4.4 4.4"/><path d="M11.2 8.7c-2.9-.6-5.7.7-7.4 3.5 2-1 4.2-1.1 6.1-.4"/><path d="M11.2 8.7c2.8-.9 5.8.1 7.8 2.6-2.1-.7-4.3-.6-6.2.3"/><path d="M11.2 8.7c-.4-2.4.4-4.8 2.4-6.7-.4 2.1-.1 4.1.8 5.8"/>',
   heartHand: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/>',
   door: '<path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/>',
+  snowflake: '<path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/>',
+  footprints: '<path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/>',
+  baby: '<path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>',
+  puzzle: '<path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/>',
   compass: '<circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/>',
 };
 
 export const featureIcon = {
   wifi: 'wifi', kitchen: 'utensils', bedroomUpstairs: 'bed', gardenPool: 'trees', livingRoom: 'sofa', fiveBedrooms: 'bed',
-  viewMeuse: 'mountain', privateBathrooms: 'bath', allInclusive: 'sparkle', village: 'house', terrace: 'sun', workspace: 'laptop', parking: 'car',
+  viewMeuse: 'mountain', privateBathrooms: 'bath', allInclusive: 'sparkle', village: 'house', terrace: 'sun', workspace: 'laptop', parking: 'car', aircon: 'snowflake', kidsArea: 'puzzle', babyGear: 'baby',
 };
 
-export const placeIcon = { bakery: 'wheat', restaurant: 'utensils', shopping: 'cart', health: 'pill', activity: 'sailboat', visit: 'landmark', town: 'building', all: 'compass' };
+export const placeIcon = { bakery: 'wheat', restaurant: 'utensils', shopping: 'cart', health: 'pill', activity: 'sailboat', visit: 'landmark', town: 'building', hike: 'footprints', all: 'compass' };
 
 export const triIcon = { packaging: 'recycle', glass: 'glass', compost: 'leaf', household: 'trash', dump: 'truck' };
 

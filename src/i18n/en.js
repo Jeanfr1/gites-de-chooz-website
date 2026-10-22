@@ -149,7 +149,7 @@ export default {
 
   features: {
     wifi: 'Wi-Fi', kitchen: 'Kitchen and living room', bedroomUpstairs: 'Bedroom upstairs', gardenPool: 'Shared garden and pool', livingRoom: 'Large living space', fiveBedrooms: '5 bedrooms',
-    viewMeuse: 'View of the Meuse and forest', privateBathrooms: 'A shower room per bedroom', allInclusive: 'All-inclusive', village: 'In the heart of the village', terrace: 'Terrace', workspace: 'Workspace', parking: 'Free parking',
+    viewMeuse: 'View of the Meuse and forest', privateBathrooms: 'A shower room per bedroom', allInclusive: 'All-inclusive', village: 'In the heart of the village', terrace: 'Terrace', workspace: 'Workspace', parking: 'Free parking', aircon: 'Air conditioning', kidsArea: 'Kids’ play area on the mezzanine', babyGear: 'High chairs, cot, changing table',
   },
 
   giteText: {
@@ -164,10 +164,12 @@ export default {
     brasserie: {
       tagline: 'The joy of getting together.',
       description: 'Generous living spaces, a terrace and the Meuse valley for family or friends’ reunions.',
-      energy: 'Utilities not included. Heating and electricity terms are detailed in your booking. Please avoid heating with the windows open.',
+      energy: 'From January 2027, utilities are included. Until then, heating and electricity terms are detailed in your booking. Please avoid heating with the windows open.',
       pets: 'Up to two pets, as stated in your booking.',
-      linen: 'Bed linen and towels may be charged as extras. Please check your booking.',
-      compare: { energy: 'Utilities not included', pets: 'Up to two pets', linen: 'Linen optional' },
+      linen: 'Household linen provided. From January 2027, bed linen and towels are included.',
+      compare: { energy: 'Utilities included from January 2027', pets: 'Up to two pets', linen: 'Household linen; bed linen and towels from January 2027' },
+      rooms: 'On the kitchen and living-room level, 3 bedrooms with private bathrooms. Upstairs, 2 bedrooms share a bathroom and a separate WC.',
+      pool: 'Please enjoy the pool with consideration for Le Grain d’Amour, right next door.',
     },
     suzanne: {
       tagline: 'Four bedrooms, four cocoons.',
@@ -180,10 +182,10 @@ export default {
     bouchon: {
       tagline: 'A bright little hideaway.',
       description: 'A flat with two lovely bedrooms and a terrace, in the heart of a peaceful village.',
-      energy: 'As per your Airbnb booking. Please avoid heating with the windows open.',
-      pets: 'As per your Airbnb booking.',
-      linen: 'As per your Airbnb booking.',
-      compare: { energy: 'As per Airbnb', pets: 'As per Airbnb', linen: 'As per Airbnb' },
+      energy: 'All inclusive: heating, electricity and cleaning.',
+      pets: 'Pets are not allowed.',
+      linen: 'Bed linen and towels provided.',
+      compare: { energy: 'All inclusive', pets: 'Not allowed', linen: 'Bed linen and towels provided' },
     },
   },
 
@@ -276,7 +278,7 @@ export default {
     title: ['Our good', 'addresses.'],
     lead: 'A bakery, a table, a walk: our favourite places around Chooz.',
     filters: 'Filter the addresses',
-    categories: { all: 'All', bakery: 'Bakeries', restaurant: 'Restaurants', shopping: 'Shopping', health: 'Health', activity: 'Activities', visit: 'Visits', town: 'Towns to discover' },
+    categories: { all: 'All', bakery: 'Bakeries', restaurant: 'Restaurants', shopping: 'Shopping', health: 'Health', activity: 'Activities', hike: 'Hikes', visit: 'Visits', town: 'Towns to discover' },
     inVillage: 'In the village',
     link: 'Find out more',
     note: 'Please check opening hours and conditions with each place.',
@@ -300,9 +302,15 @@ export default {
   placeKinds: {
     bakery: 'Bakery', pastry: 'Bakery, patisserie and tea room', inn: 'Hotel-restaurant', regional: 'French and regional cuisine', restaurant: 'Restaurant', brasserie: 'Brasserie', italian: 'Italian restaurant',
     supermarket: 'Supermarket', discount: 'Supermarkets', pharmacy: 'Pharmacy', clinic: 'Medical centre', boats: 'Licence-free electric boat hire', greenway: 'Walking or cycling along the Meuse',
-    escape: 'Escape game', fort: 'Historic site above the Meuse', museum: 'Eco-museum at the Treignes farm-castle', donkeys: 'Walks and encounters with donkeys', town: 'Town to discover',
+    escape: 'Escape game', fort: 'Historic site above the Meuse', museum: 'Eco-museum at the Treignes farm-castle', donkeys: 'Walks and encounters with donkeys', town: 'Town to discover', tourism: 'Val d’Ardenne tourist office', cave: 'Caves, guided tour', hike: 'Waymarked trail from Chooz',
   },
 
+  hike: {
+    trail: (n, color) => `Trail no. ${n} · ${color} markers`,
+    colors: { blue: 'blue', yellow: 'yellow', red: 'red', violet: 'purple' },
+    stats: (km, h, m, up) => `${km} km · ${h} h ${String(m).padStart(2, '0')} min · ${up} m climb`,
+    note: 'The waymarked trails of the village of Chooz: maps and route descriptions (in French) on chooz.com.',
+  },
   photoKinds: {
     exterior: 'the house and its garden', living: 'the living room', kitchen: 'the kitchen', dining: 'the dining room', bedroom: 'a bedroom', atticBedroom: 'an attic bedroom',
     familyBedroom: 'a bedroom with a cot', singleBedroom: 'a bedroom with a single bed', bathroom: 'a shower room', view: 'the view from the window', poolView: 'the pool seen from inside',
@@ -329,6 +337,11 @@ export default {
     palmeraieTitle: 'La Palmeraie will host your sessions.',
     palmeraieText: 'A room for yoga, workshops and So Zen gatherings is being prepared at La Palmeraie.',
     palmeraieCta: 'Discover La Palmeraie',
+    calendarEyebrow: 'The So Zen calendar',
+    calendarTitle: ['Upcoming', 'sessions.'],
+    calendarEmpty: 'New dates are coming very soon. Meanwhile, follow So Zen on Facebook or give us a call.',
+    calendarBook: 'Book my place',
+    eventTypes: { yoga: 'Yoga session', constellation: 'Family constellations', bougie: 'Candle workshop', noel: 'Christmas market', other: 'So Zen event' },
   },
 
   notFound: { eyebrow: 'Page not found', title: ['This path', 'has wandered off.'], lead: 'The page you asked for does not exist or has moved.', home: 'Back to home' },

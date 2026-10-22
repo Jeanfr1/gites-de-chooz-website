@@ -16,10 +16,12 @@ export default async function initFilters(section) {
 
   let gsap = null;
   let Flip = null;
+  let ScrollTrigger = null;
   if (motion) {
     try {
       ({ gsap } = await import('gsap'));
       ({ Flip } = await import('gsap/Flip'));
+      ({ ScrollTrigger } = await import('gsap/ScrollTrigger'));
       gsap.registerPlugin(Flip);
     } catch {
       gsap = null;
@@ -28,6 +30,15 @@ export default async function initFilters(section) {
 
   function apply(category) {
     const state = Flip ? Flip.getState(cards) : null;
+    // Cards that had not scrolled into view yet still wait for their entrance animation (opacity 0):
+    // once the visitor filters, every card is shown as it is (iPhone report, 21/10/2026).
+    for (const card of cards) {
+      if (!card.hasAttribute('data-revealed')) {
+        card.setAttribute('data-revealed', '');
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+      }
+    }
     let n = 0;
     for (const card of cards) {
       const visible = category === 'all' || card.dataset.category === category;
@@ -46,6 +57,7 @@ export default async function initFilters(section) {
         stagger: 0.02,
         onEnter: (els) => gsap.fromTo(els, { opacity: 0, scale: 0.86, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, stagger: 0.04, ease: 'power3.out' }),
         onLeave: (els) => gsap.to(els, { opacity: 0, scale: 0.86, duration: 0.35, ease: 'power2.in' }),
+        onComplete: () => ScrollTrigger && ScrollTrigger.refresh(),
       });
     }
   }

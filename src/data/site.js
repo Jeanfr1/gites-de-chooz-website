@@ -14,6 +14,8 @@ export const brand = { name: 'So Dream' };
 // Photo helper: `kind` drives the translated alt text (src/i18n -> photoKinds).
 const gdf = (key, kind) => ({ key, kind });
 const sd = (gite, n, kind) => ({ key: `sd-${gite}-${n}`, src: `10-photos-so-dream/${gite}/Z62_${n}.jpg`, kind });
+// A photo Sophie sent another way (file name given in full).
+const own = (gite, file, key, kind) => ({ key: `sd-${gite}-${key}`, src: `10-photos-so-dream/${gite}/${file}`, kind });
 
 export const gites = [
   {
@@ -30,10 +32,13 @@ export const gites = [
     ],
     // Gîtes de France communicates the times after booking — not published.
     times: null,
-    features: ['wifi', 'kitchen', 'bedroomUpstairs', 'gardenPool'],
-    card: 'grain-photo-430',
+    features: ['wifi', 'aircon', 'kitchen', 'bedroomUpstairs', 'gardenPool'],
+    // Lead photo chosen by Sophie (WhatsApp 21/10/2026, cut from her message: ~830 px wide).
+    // TODO(gites): swap for the original camera file when she shares the remaining exterior photos.
+    card: 'sd-grain-piscine',
     photos: [
-      gdf('grain-photo-430', 'exterior'),
+      own('grain', 'WA_piscine.jpg', 'piscine', 'pool'),
+      sd('exterieur', '8683', 'terrace'),
       sd('grain', '8659', 'living'),
       sd('grain', '8661', 'kitchen'),
       sd('grain', '8675', 'bedroom'),
@@ -67,7 +72,7 @@ export const gites = [
       { platform: 'gdf', ref: '08G339', url: 'https://www.gites-de-france-ardennes.com/location-vacances-Gite-Chooz-08G339.html' },
     ],
     times: { arrival: '16:00', arrivalUntil: '18:00', departure: '10:00' }, // Airbnb listing rooms/52766277
-    features: ['wifi', 'livingRoom', 'fiveBedrooms', 'viewMeuse'],
+    features: ['wifi', 'livingRoom', 'fiveBedrooms', 'viewMeuse', 'kidsArea', 'babyGear'],
     card: 'brasserie-photo-339',
     photos: [
       gdf('brasserie-photo-339', 'exterior'),
@@ -141,7 +146,7 @@ export const gites = [
       { platform: 'airbnb', url: 'https://www.airbnb.fr/rooms/1442187832227866709' },
     ],
     times: { arrival: '16:00', arrivalUntil: '20:00', departure: '10:00' }, // Airbnb
-    features: ['wifi', 'terrace', 'workspace', 'parking'],
+    features: ['wifi', 'allInclusive', 'terrace', 'workspace', 'parking'],
     card: 'sd-petit-bouchon-8787',
     photos: [
       sd('petit-bouchon', '8787', 'terrace'),
@@ -189,7 +194,7 @@ export const departureChecklist = 7;
 
 // Bonnes adresses (Sophie's list, links resolved 19/10/2026). Presqu'île de Chooz removed at her request.
 // `kind` is translated (i18n -> placeKinds).
-export const placeCategories = ['all', 'bakery', 'restaurant', 'shopping', 'health', 'activity', 'visit', 'town'];
+export const placeCategories = ['all', 'bakery', 'restaurant', 'shopping', 'health', 'activity', 'hike', 'visit', 'town'];
 export const places = [
   { cat: 'bakery', name: 'Boulangerie Lopes', town: 'Chooz', kind: 'bakery', url: 'https://www.facebook.com/lechequecadeaulapointe/videos/1241361537858567/', inVillage: true },
   { cat: 'bakery', name: 'Boulangerie Pâte à Choux', town: 'Vireux-Wallerand', kind: 'bakery', url: 'https://www.facebook.com/p/Boulangerie-p%C3%A2te-%C3%A0-choux-100057602732749/' },
@@ -210,7 +215,14 @@ export const places = [
   { cat: 'activity', name: 'Captain d’Ô Douce', town: 'Givet', kind: 'boats', url: 'https://www.valdardennetourisme.com/sports-loisirs/captain-do-douce/' },
   { cat: 'activity', name: 'La Voie Verte', town: 'Chooz', kind: 'greenway', url: 'https://www.valdardennetourisme.com/incontournables-du-val-dardenne/villes-et-villages/chooz/', inVillage: true },
   { cat: 'activity', name: 'La Brasserie — Escape Room', town: 'Aubrives', kind: 'escape', url: 'https://www.labrasserie-aubrives.fr/' },
+  // The four waymarked trails of the village (board at Chooz + chooz.com, Sophie 21/10/2026).
+  { cat: 'hike', name: 'Le chemin des Crêtes', town: 'Chooz', kind: 'hike', trail: { n: 1, color: 'blue', km: 5, h: 1, m: 30, up: 170 }, url: 'https://www.chooz.com/parcours-ndeg1-bleu-le-chemin-des-cretes', inVillage: true },
+  { cat: 'hike', name: 'Le tour de Chooz par l’écluse', town: 'Chooz', kind: 'hike', trail: { n: 2, color: 'yellow', km: 6.5, h: 1, m: 30, up: 100 }, url: 'https://www.chooz.com/parcours-ndeg2-jaune-le-tour-de-chooz-par-lecluse', inVillage: true },
+  { cat: 'hike', name: 'Promenade dans les bois', town: 'Chooz', kind: 'hike', trail: { n: 3, color: 'red', km: 3.5, h: 1, m: 5, up: 180 }, url: 'https://www.chooz.com/parcours-ndeg3-rouge-promenade-dans-les-bois', inVillage: true },
+  { cat: 'hike', name: 'En bordure de Landrichamps et Charnois', town: 'Chooz', kind: 'hike', trail: { n: 4, color: 'violet', km: 6.7, h: 1, m: 30, up: 160 }, url: 'https://www.chooz.com/parcours-ndeg4-violet-en-bordure-de-landrichamps-et-charnois', inVillage: true },
+  { cat: 'visit', name: 'Office de tourisme', town: '10 quai des Fours · Givet', kind: 'tourism', url: 'https://www.valdardennetourisme.com/mon-sejour/pratique/loffice-de-tourisme/' },
   { cat: 'visit', name: 'Fort de Charlemont', town: 'Givet', kind: 'fort', url: 'https://www.charlemont.fr/' },
+  { cat: 'visit', name: 'Grottes de Nichet', town: 'Fromelennes', kind: 'cave', url: 'https://www.fromelennes.fr/grottes-de-nichet' },
   { cat: 'visit', name: 'Écomusée du Viroin', town: 'Treignes (BE)', kind: 'museum', url: 'https://www.ecomuseeduviroin.be/' },
   { cat: 'visit', name: 'États d’Ânes', town: 'Treignes (BE)', kind: 'donkeys', url: 'https://www.facebook.com/etatsdanes/' },
   { cat: 'town', name: 'Dinant', country: 'BE', kind: 'town', url: 'https://www.dinant-tourisme.com/' },
@@ -257,6 +269,12 @@ export const sozen = {
     { key: 'sozen-yoga-02', source: '05-secoes/so-zen/yoga-terrasse-02.png', region: { left: 0, top: 710, width: 946, height: 628 }, kind: 'yoga2' },
   ],
 };
+
+// So Zen calendar (Sophie, 21/10/2026: "j'ai déjà des dates"). One line per date, past dates hide themselves.
+// type: yoga | constellation | bougie | noel | other — translated in i18n -> sozen.eventTypes.
+// Example: { date: '2026-11-15', start: '10:00', end: '11:30', type: 'yoga', place: 'La Palmeraie' },
+// TODO(gites): add Sophie's dates.
+export const sozenEvents = [];
 
 // La Palmeraie: contact = So Zen until Sophie confirms (Jean, 19/10/2026).
 export const palmeraie = { contact: 'sozen' };

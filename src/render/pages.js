@@ -1,14 +1,13 @@
 import hero from '../data/hero.json';
 import images from '../data/images.json';
 import {
-  gites, carnet, tri, placeCategories, places, agenda, mapTowns, meuseCourse, sozen, routes, LOCALES,
+  gites, carnet, tri, placeCategories, places, agenda, mapTowns, meuseCourse, sozen, sozenEvents, routes, LOCALES,
 } from '../data/site.js';
 import { icon, featureIcon, placeIcon, triIcon } from './icons.js';
 import { L, LOC, setLocale, href } from './i18n.js';
 import {
   layout, picture, button, textLink, eyebrow, sprig, t, esc, lines, facts, giteText, photoAlt, imgUrl, bookingButtons, platformName,
 } from './ui.js';
-import { emblem } from './brand.js';
 
 const gite = (id) => gites.find((g) => g.id === id);
 const fiche = (g) => href(`fiche-${g.id}`);
@@ -60,7 +59,7 @@ function giteCard(g, { headingLevel = 3, sizes = '(max-width: 700px) 80vw, 32vw'
 </article>`;
 }
 
-function sharedMoments(photoKey) {
+function sharedMoments(photoKey, note = '') {
   return `<section class="shared section" aria-labelledby="shared-title">
   <div class="container shared-grid">
     <div class="shared-photo" data-anim="arch" data-parallax>${picture(photoKey, { alt: `${L.photoKinds.pool}`, sizes: '(max-width: 820px) 92vw, 40vw', cls: 'arch' })}</div>
@@ -68,7 +67,7 @@ function sharedMoments(photoKey) {
       ${eyebrow(L.shared.eyebrow)}
       ${h(2, L.shared.title, { id: 'shared-title' })}
       <ul class="shared-list" data-anim="stagger">
-        <li>${icon('waves')}<span>${t(L.shared.pool)}</span></li>
+        <li>${icon('waves')}<span>${t(L.shared.pool)}${note ? ` ${t(note)}` : ''}</span></li>
         <li>${icon('trees')}<span>${t(L.shared.garden)}</span></li>
         <li>${icon('sparkle')}<span>${t(L.shared.palmeraie)} <a href="${href('palmeraie')}">${t(L.carnet.palmeraieLink)}</a></span></li>
       </ul>
@@ -317,7 +316,7 @@ function listing() {
     <p class="note">${t(L.gites.compareNote)}</p>
   </div>
 </section>
-${sharedMoments('grain-photo8-430')}
+${sharedMoments('sd-grain-piscine')}
 ${guideBand(null)}`;
   return layout({ routeId: 'gites', nav: 'gites', title: L.meta.gites.title, description: L.meta.gites.description, body, bodyClass: 'page-gites' });
 }
@@ -369,6 +368,7 @@ function fichePage(id) {
     <h1 id="page-title" data-split>${t(g.name)}</h1>
     <p class="lead" data-anim="fade">${t(tx.tagline)}</p>
     <p data-anim="fade">${t(tx.description)}</p>
+    ${tx.rooms ? `<p class="fiche-rooms" data-anim="fade">${icon('bed')}<span>${t(tx.rooms)}</span></p>` : ''}
     <dl class="facts" data-anim="fade">
       ${fact('users', L.fiche.facts.capacity, g.capacity, unit(L.people, g.capacity))}
       ${fact('bed', L.fiche.facts.bedrooms, g.bedrooms, unit(L.rooms, g.bedrooms))}
@@ -386,7 +386,7 @@ function fichePage(id) {
   </div>
 </section>
 
-<ul class="amenities container" aria-label="${esc(L.fiche.galleryEyebrow)}" data-anim="stagger">
+<ul class="amenities container" style="--n:${g.features.length}" aria-label="${esc(L.fiche.galleryEyebrow)}" data-anim="stagger">
   ${g.features.map((f) => `<li>${icon(featureIcon[f] || 'leaf')}<span>${t(L.features[f])}</span></li>`).join('')}
 </ul>
 
@@ -438,7 +438,7 @@ function fichePage(id) {
     </div>
   </div>
 </section>
-${g.sharedGardenPool ? sharedMoments(g.id === 'grain' ? 'grain-photo8-430' : 'brasserie-photo10-339') : `
+${g.sharedGardenPool ? sharedMoments(g.id === 'grain' ? 'sd-exterieur-8683' : 'brasserie-photo10-339', tx.pool || '') : `
 <section class="section village" aria-labelledby="village-title">
   <div class="container village-grid">
     <div class="village-copy">
@@ -557,7 +557,7 @@ function departure(g) {
       </ul>
       <p>${t(L.carnet.departOutro)}</p>
       <p class="depart-sign">${t(L.carnet.departSign)}</p>
-      <p class="depart-done" hidden data-depart-done aria-hidden="true">${emblem({ cls: 'stamp-emblem', sw: 3.2 })}<span>So <em>Dream</em></span>${icon('check')}</p>
+      <p class="depart-done" hidden data-depart-done aria-hidden="true">${picture('brand-disc', { sizes: '34px', cls: 'stamp-emblem' })}<span>So Dream</span>${icon('check')}</p>
     </div>
   </div>
 </section>`;
@@ -575,6 +575,7 @@ function carnetPage(id) {
       case 'times': return `${timesText(g)}<p><a href="#depart">${t(L.times.reminder)}</a></p>`;
       case 'tri': return `<p>${t(it.text)}</p><p><a href="#tri">${t(L.carnet.triEyebrow)}</a></p>`;
       case 'palmeraie': return `<p>${t(it.text)}</p><p><a href="${href('palmeraie')}">${t(L.carnet.palmeraieLink)}</a></p>`;
+      case 'pool': return `<p>${t(it.text)}</p>${tx.pool ? `<p>${t(tx.pool)}</p>` : ''}`;
       default: return `<p>${t(it.text)}</p>`;
     }
   };
@@ -732,6 +733,7 @@ function agendaCards() {
 function adressesPage() {
   const country = new Intl.DisplayNames([L.dateLocale], { type: 'region' });
   const where = (p) => p.town || country.of(p.country);
+  const km = (v) => new Intl.NumberFormat(L.dateLocale).format(v);
   const cats = placeCategories.filter((c) => c === 'all' || places.some((p) => p.cat === c));
   const body = `
 <section class="page-head container" aria-labelledby="page-title">
@@ -746,15 +748,17 @@ function adressesPage() {
     </div>
     <p class="filter-result" aria-live="polite" data-filter-result data-labels="${esc(JSON.stringify(places.map((_, i) => L.ideas(i)).concat(L.ideas(places.length))))}">${t(L.ideas(places.length))}</p>
     <div class="places" data-places>
-      ${places.map((p) => `<article class="place" data-category="${p.cat}">
+      ${places.map((p) => `<article class="place${p.trail ? ` place-trail trail-${p.trail.color}` : ''}" data-category="${p.cat}">
         <div class="place-top">${icon(placeIcon[p.cat])}<span class="place-cat">${t(L.adresses.categories[p.cat])}</span>${p.inVillage ? `<span class="place-badge">${t(L.adresses.inVillage)}</span>` : ''}</div>
         <h2>${t(p.name)}</h2>
         <p class="place-kind">${t(L.placeKinds[p.kind])}</p>
+        ${p.trail ? `<p class="place-trail-line"><span class="trail-dot" aria-hidden="true"></span>${t(L.hike.trail(p.trail.n, L.hike.colors[p.trail.color]))}</p>
+        <p class="place-stats">${t(L.hike.stats(km(p.trail.km), p.trail.h, p.trail.m, p.trail.up))}</p>` : ''}
         <p class="place-where">${icon('pin')}${t(where(p))}</p>
         ${p.url ? textLink(p.url, L.adresses.link, { external: true }) : ''}
       </article>`).join('')}
     </div>
-    <p class="note">${t(L.adresses.note)}</p>
+    <p class="note">${t(L.adresses.note)} ${t(L.hike.note)}</p>
   </div>
 </section>
 <section class="section agenda" id="agenda" aria-labelledby="agenda-title" data-agenda>
@@ -776,6 +780,45 @@ function adressesPage() {
 // ---------------------------------------------------------------------------
 // So Zen
 // ---------------------------------------------------------------------------
+
+// So Zen calendar: sozenEvents in src/data/site.js (past dates hide at build time and in the browser).
+function sozenCalendar() {
+  const Z = L.sozen;
+  const fmtDay = new Intl.DateTimeFormat(L.dateLocale, { weekday: 'long' });
+  const fmtMonth = new Intl.DateTimeFormat(L.dateLocale, { month: 'short', year: 'numeric' });
+  const hm = (v) => (LOC === 'fr' ? v.replace(':00', '\u00A0h').replace(':', '\u00A0h\u00A0') : v);
+  const items = sozenEvents.filter((e) => e.date >= TODAY).sort((a, b) => (a.date + (a.start || '')).localeCompare(b.date + (b.start || '')));
+  const phone = esc(LOC === 'fr' ? sozen.phone : sozen.phoneIntl);
+  const empty = `<div class="zen-cal-empty"${items.length ? ' hidden' : ''} data-agenda-empty>
+      ${icon('calendar', 'icon-lg')}
+      <p>${t(Z.calendarEmpty)}</p>
+      <div class="card-actions">
+        ${button(sozen.facebookUrl, Z.fbCta, { external: true })}
+        <a class="btn btn-outline" href="${sozen.phoneHref}"><span class="btn-label">${phone}</span>${icon('phone')}</a>
+      </div>
+    </div>`;
+  const list = items.length ? `<ol class="agenda-list" data-anim="calendar">${items.map((e) => {
+    const d = new Date(`${e.date}T12:00:00`);
+    const time = e.start ? `${hm(e.start)}${e.end ? ` – ${hm(e.end)}` : ''}` : '';
+    return `<li class="agenda-item" data-date="${e.date}">
+      <time class="agenda-date" datetime="${e.date}"><span class="agenda-day">${d.getDate()}</span><span class="agenda-month">${esc(fmtMonth.format(d))}</span><span class="agenda-weekday">${esc(fmtDay.format(d))}</span></time>
+      <div class="agenda-body">
+        <h3>${t(e.title || Z.eventTypes[e.type] || Z.eventTypes.other)}</h3>
+        ${e.text ? `<p>${t(e.text)}</p>` : ''}
+        <p class="agenda-meta">${time ? `${icon('clock')}<span>${t(time)}</span>` : ''}${e.place ? `${icon('pin')}<span>${t(e.place)}</span>` : ''}</p>
+        <a class="text-link" href="${sozen.phoneHref}">${icon('phone')}<span>${t(Z.calendarBook)} · ${phone}</span></a>
+      </div>
+    </li>`;
+  }).join('')}</ol>` : '';
+  return `<section class="section zen-calendar" id="agenda" aria-labelledby="zen-cal-title" data-agenda>
+  <div class="container">
+    ${eyebrow(Z.calendarEyebrow)}
+    ${h(2, Z.calendarTitle, { id: 'zen-cal-title' })}
+    ${list}
+    ${empty}
+  </div>
+</section>`;
+}
 
 function sozenPage() {
   const Z = L.sozen;
@@ -824,6 +867,8 @@ function sozenPage() {
     </div>
   </div>
 </section>
+
+${sozenCalendar()}
 
 <section class="section section-tight zen-palmeraie" aria-labelledby="zen-palm-title">
   <a class="container zen-palm-inner" href="${href('palmeraie')}" data-anim="fade">

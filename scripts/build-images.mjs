@@ -3,9 +3,9 @@
 // changed image needs a new version instead of an overwrite.
 // Sources: Sophie's photos (10-photos-so-dream, kept locally), the Gîtes de France
 // exteriors of the kit (04-fotos-reais), the hero layers (npm run hero) and the
-// So Dream brand (assets-src/brand, made by scripts/make-logo.py).
+// So Dream logo (assets-src/brand/client, made by scripts/prepare-client-logo.py).
 // Run: npm run images
-import { mkdir, writeFile, rm, readdir, readFile, copyFile } from 'node:fs/promises';
+import { mkdir, writeFile, rm, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,7 +14,7 @@ import { gites, sozen } from '../src/data/site.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'public', 'img');
-const V = 'v2';
+const V = 'v3';
 const manifest = {};
 
 const AVIF = { quality: 52, effort: 5 };
@@ -85,34 +85,33 @@ async function main() {
   }
   await encode(path.join(ROOT, sozen.logo), 'sozen-logo', [240, 480], { alpha: true });
 
-  // ---- So Dream identity ----------------------------------------------------
-  const brand = path.join(ROOT, 'assets-src', 'brand');
-  const emblemBold = await readFile(path.join(brand, 'emblem-forest-bold.svg'));
-  await copyFile(path.join(brand, 'emblem-forest-bold.svg'), path.join(OUT, `favicon-${V}.svg`));
-  for (const [size, file] of [[32, `favicon-32-${V}.png`], [180, `apple-touch-icon-${V}.png`], [512, `icon-512-${V}.png`]]) {
-    const pad = Math.round(size * (size <= 32 ? 0.02 : 0.12));
-    const inner = await sharp(emblemBold, { density: 72 * Math.max(1, (size * 2) / 200) })
-      .resize(size - pad * 2, size - pad * 2, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-      .png()
-      .toBuffer();
+  // ---- So Dream identity: Sophie's logo (made by a friend), prepared by scripts/prepare-client-logo.py
+  const client = path.join(ROOT, 'assets-src', 'brand', 'client');
+  if (!existsSync(path.join(client, 'so-dream-disc.png'))) throw new Error('Run scripts/prepare-client-logo.py first.');
+  await encode(path.join(client, 'so-dream-disc.png'), 'brand-disc', [96, 160, 320], { alpha: true });
+  await encode(path.join(client, 'so-dream-emblem-linen.png'), 'brand-emblem-linen', [240, 480, 638], { alpha: true });
+  await encode(path.join(client, 'so-dream-logo.png'), 'brand-logo', [320, 638], { alpha: true });
+  const disc = path.join(client, 'so-dream-disc.png');
+  // favicon: the painted disc alone; app icons: the disc on linen
+  await sharp(disc).resize(32, 32, { kernel: 'lanczos3' }).png().toFile(path.join(OUT, `favicon-32-${V}.png`));
+  for (const [size, file] of [[180, `apple-touch-icon-${V}.png`], [512, `icon-512-${V}.png`]]) {
+    const pad = Math.round(size * 0.08);
+    const inner = await sharp(disc).resize(size - pad * 2, size - pad * 2, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer();
     await sharp({ create: { width: size, height: size, channels: 4, background: LINEN } })
       .composite([{ input: inner, left: pad, top: pad }])
       .png()
       .toFile(path.join(OUT, file));
   }
 
-  // Share image 1200×630: the hero illustration, a forest veil and the stacked So Dream lockup
-  const lockup = await sharp(path.join(ROOT, '01-identidade', 'so-dream', 'so-dream-stacked-linen.svg'), { density: 160 })
-    .resize({ height: 430 })
-    .png()
-    .toBuffer();
+  // Share image 1200×630: the hero illustration, a forest veil and the So Dream logo (linen lettering)
+  const lockup = await sharp(path.join(client, 'so-dream-logo-linen.png')).resize({ height: 500 }).png().toBuffer();
   const lm = await sharp(lockup).metadata();
   const veil = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-    <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#173a30" stop-opacity=".96"/><stop offset=".42" stop-color="#173a30" stop-opacity=".78"/><stop offset=".72" stop-color="#173a30" stop-opacity="0"/></linearGradient></defs>
+    <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#173a30" stop-opacity=".96"/><stop offset=".42" stop-color="#173a30" stop-opacity=".8"/><stop offset=".72" stop-color="#173a30" stop-opacity="0"/></linearGradient></defs>
     <rect width="1200" height="630" fill="url(#g)"/></svg>`);
   await sharp(path.join(cache, 'rebuild-rest.png'))
     .resize(1200, 630, { fit: 'cover', position: 'right' })
-    .composite([{ input: veil }, { input: lockup, left: Math.round(250 - lm.width / 2) + 40, top: Math.round((630 - lm.height) / 2) }])
+    .composite([{ input: veil }, { input: lockup, left: Math.round(260 - lm.width / 2), top: Math.round((630 - lm.height) / 2) }])
     .jpeg({ quality: 84, mozjpeg: true })
     .toFile(path.join(OUT, `og-${V}.jpg`));
 
