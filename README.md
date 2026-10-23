@@ -270,7 +270,7 @@ The kit folders stay in the repository but are excluded from the deployment (`.v
 
 Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 
-- [ ] 13 of the 14 exterior photos: the Drive files are still not shared (only Z62_8683, the terrace, came through). Le Grain d’Amour opens with the pool photo the owner sent on WhatsApp (~830 px), to swap for the camera original
+- [ ] Exterior photo Z62_8697, the only one of the shoot not received yet
 - [ ] Arrival and departure times of Le Grain d’Amour (Gîtes de France only gives them after booking)
 - [ ] Whether guests of Chez Suzanne and Au Petit Bouchon can use the pool
 - [ ] Keys, where the bins are, the owner’s contact for each gîte
@@ -281,7 +281,7 @@ Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 - [ ] Final domain: then remove `noindex` and set `SITE_URL`; keep `gites-de-chooz.vercel.app` working
 - [x] So Dream name and logo, four gîtes, seven languages, Palmeraie, bonnes adresses, agenda, recycling guide, departure checklist, pool May to September, Presqu’île de Chooz removed
 - [x] Business card and A6 booklet cards ready to print (`12-impression/final/`), with the owner’s logo
-- [x] v3 (owner’s feedback, October 2026): her logo everywhere, Le Grain d’Amour pool photo and air conditioning, La Brasserie rooms, baby gear, kids’ corner and linen/charges from January 2027, Au Petit Bouchon all-inclusive with no pets, the four Chooz trails, Grottes de Nichet and the tourist office in the addresses, filter fix on iPhone, So Zen calendar with the November and December 2026 dates, seven garden and pool photos the owner sent on WhatsApp
+- [x] v3 (owner’s feedback, October 2026): her logo everywhere, Le Grain d’Amour pool photo and air conditioning, La Brasserie rooms, baby gear, kids’ corner and linen/charges from January 2027, Au Petit Bouchon all-inclusive with no pets, the four Chooz trails, Grottes de Nichet and the tourist office in the addresses, filter fix on iPhone, So Zen calendar with the November and December 2026 dates, the exterior photo shoot (house, garden, pool, terraces, play area; La Brasserie now opens on its façade) and seven garden and pool photos the owner sent on WhatsApp
 
 <br />
 

@@ -371,7 +371,7 @@ export default {
     exterior: 'ev ve dış alanı', living: 'oturma odası', kitchen: 'mutfak', dining: 'yemek odası', bedroom: 'bir yatak odası', atticBedroom: 'çatı katında bir yatak odası',
     familyBedroom: 'bebek yataklı bir yatak odası', singleBedroom: 'tek kişilik yataklı bir oda', bathroom: 'bir banyo', view: 'pencereden manzara', poolView: 'içeriden havuz manzarası',
     detail: 'bir dekorasyon detayı', garden: 'bahçe', pool: 'ortak havuz', aerial: 'bahçe ve havuzun genel görünümü', terrace: 'teras',
-    mezzanine: 'asma kat', bar: 'bar köşesi', stairs: 'merdiven', yoga1: 'Evlerin terasında bir yoga ve rahatlama anı', yoga2: 'Kapalı terasın altında matlarına uzanmış katılımcılar',
+    mezzanine: 'asma kat', bar: 'bar köşesi', stairs: 'merdiven', playground: 'bahçedeki oyun alanı', yoga1: 'Evlerin terasında bir yoga ve rahatlama anı', yoga2: 'Kapalı terasın altında matlarına uzanmış katılımcılar',
   },
 
   sozen: {

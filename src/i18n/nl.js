@@ -315,7 +315,7 @@ export default {
     exterior: 'het huis en de tuin', living: 'de woonkamer', kitchen: 'de keuken', dining: 'de eetkamer', bedroom: 'een slaapkamer', atticBedroom: 'een zolderslaapkamer',
     familyBedroom: 'een slaapkamer met babybedje', singleBedroom: 'een slaapkamer met eenpersoonsbed', bathroom: 'een badkamer', view: 'het uitzicht uit het raam', poolView: 'het zwembad gezien van binnen',
     detail: 'een decoratief detail', garden: 'de tuin', pool: 'het gedeelde zwembad', aerial: 'overzicht van tuin en zwembad', terrace: 'het terras',
-    mezzanine: 'de mezzanine', bar: 'de bar', stairs: 'de trap', yoga1: 'Een moment yoga en ontspanning op het terras van de gîtes', yoga2: 'Deelnemers liggen op hun matje onder het overdekte terras',
+    mezzanine: 'de mezzanine', bar: 'de bar', stairs: 'de trap', playground: 'de speelhoek in de tuin', yoga1: 'Een moment yoga en ontspanning op het terras van de gîtes', yoga2: 'Deelnemers liggen op hun matje onder het overdekte terras',
   },
 
   sozen: {

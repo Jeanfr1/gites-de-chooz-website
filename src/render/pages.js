@@ -316,7 +316,7 @@ function listing() {
     <p class="note">${t(L.gites.compareNote)}</p>
   </div>
 </section>
-${sharedMoments('sd-grain-piscine')}
+${sharedMoments('sd-exterieur-8693')}
 ${guideBand(null)}`;
   return layout({ routeId: 'gites', nav: 'gites', title: L.meta.gites.title, description: L.meta.gites.description, body, bodyClass: 'page-gites' });
 }
@@ -438,7 +438,7 @@ function fichePage(id) {
     </div>
   </div>
 </section>
-${g.sharedGardenPool ? sharedMoments(g.id === 'grain' ? 'sd-exterieur-8683' : 'sd-exterieur-piscine-table', tx.pool || '') : `
+${g.sharedGardenPool ? sharedMoments(g.id === 'grain' ? 'sd-exterieur-8693' : 'sd-exterieur-piscine-table', tx.pool || '') : `
 <section class="section village" aria-labelledby="village-title">
   <div class="container village-grid">
     <div class="village-copy">

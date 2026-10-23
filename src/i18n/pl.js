@@ -372,7 +372,7 @@ export default {
     exterior: 'dom i jego otoczenie', living: 'salon', kitchen: 'kuchnia', dining: 'jadalnia', bedroom: 'sypialnia', atticBedroom: 'sypialnia na poddaszu',
     familyBedroom: 'sypialnia z łóżeczkiem dziecięcym', singleBedroom: 'sypialnia z pojedynczym łóżkiem', bathroom: 'łazienka', view: 'widok z okna', poolView: 'basen widziany z wnętrza',
     detail: 'detal wystroju', garden: 'ogród', pool: 'wspólny basen', aerial: 'widok na ogród i basen', terrace: 'taras',
-    mezzanine: 'antresola', bar: 'kącik barowy', stairs: 'schody', yoga1: 'Chwila jogi i relaksu na tarasie domów', yoga2: 'Uczestnicy leżący na matach pod zadaszonym tarasem',
+    mezzanine: 'antresola', bar: 'kącik barowy', stairs: 'schody', playground: 'plac zabaw w ogrodzie', yoga1: 'Chwila jogi i relaksu na tarasie domów', yoga2: 'Uczestnicy leżący na matach pod zadaszonym tarasem',
   },
 
   sozen: {

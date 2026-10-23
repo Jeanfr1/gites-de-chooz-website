@@ -315,7 +315,7 @@ export default {
     exterior: 'das Haus und sein Garten', living: 'das Wohnzimmer', kitchen: 'die Küche', dining: 'das Esszimmer', bedroom: 'ein Schlafzimmer', atticBedroom: 'ein Dachzimmer',
     familyBedroom: 'ein Schlafzimmer mit Babybett', singleBedroom: 'ein Schlafzimmer mit Einzelbett', bathroom: 'ein Duschbad', view: 'der Blick aus dem Fenster', poolView: 'der Pool von innen gesehen',
     detail: 'ein Dekorationsdetail', garden: 'der Garten', pool: 'der gemeinsame Pool', aerial: 'Blick über Garten und Pool', terrace: 'die Terrasse',
-    mezzanine: 'die Galerie', bar: 'die Bar-Ecke', stairs: 'die Treppe', yoga1: 'Ein Moment Yoga und Entspannung auf der Terrasse der Gîtes', yoga2: 'Teilnehmende liegen auf ihren Matten unter der überdachten Terrasse',
+    mezzanine: 'die Galerie', bar: 'die Bar-Ecke', stairs: 'die Treppe', playground: 'der Spielplatz im Garten', yoga1: 'Ein Moment Yoga und Entspannung auf der Terrasse der Gîtes', yoga2: 'Teilnehmende liegen auf ihren Matten unter der überdachten Terrasse',
   },
 
   sozen: {

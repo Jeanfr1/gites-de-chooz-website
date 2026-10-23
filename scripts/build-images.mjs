@@ -63,7 +63,7 @@ async function main() {
       if (p.src) {
         const file = path.join(ROOT, p.src);
         if (!existsSync(file)) throw new Error(`Missing ${p.src} — Sophie's masters are kept locally (see 10-photos-so-dream/manifest.json)`);
-        await encode(file, p.key, [480, 960, 1600]);
+        await encode(file, p.key, [480, 960, 1600], { region: p.region });
       } else {
         await encode(await gdfFile(p.key), p.key, [480, 960, 1440]);
       }
