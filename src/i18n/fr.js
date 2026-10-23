@@ -395,10 +395,11 @@ export default {
     palmeraieText: 'Une salle pour le yoga, les ateliers et les rendez-vous de So Zen est en préparation à La Palmeraie.',
     palmeraieCta: 'Découvrir La Palmeraie',
     calendarEyebrow: 'L’agenda So Zen',
-    calendarTitle: ['Les prochaines', 'séances.'],
+    calendarTitle: ['Les prochains', 'rendez-vous.'],
     calendarEmpty: 'Les prochaines dates arrivent très bientôt. En attendant, suivez So Zen sur Facebook ou appelez-nous.',
     calendarBook: 'Réserver ma place',
-    eventTypes: { yoga: 'Séance de yoga', constellation: 'Constellations familiales', bougie: 'Atelier bougie', noel: 'Marché de Noël', other: 'Rendez-vous So Zen' },
+    calendarInfo: 'Renseignements',
+    eventTypes: { yoga: 'Séance de yoga', constellation: 'Constellation familiale', bougie: 'Ateliers bougies : folies en famille', noel: 'Soirée marché de Noël', other: 'Rendez-vous So Zen' },
   },
 
   notFound: {

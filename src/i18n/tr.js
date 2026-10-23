@@ -394,10 +394,11 @@ export default {
     palmeraieText: 'La Palmeraie’de yoga, atölyeler ve So Zen buluşmaları için bir salon hazırlanıyor.',
     palmeraieCta: 'La Palmeraie’yi keşfedin',
     calendarEyebrow: 'So Zen ajandası',
-    calendarTitle: ['Yaklaşan', 'seanslar.'],
+    calendarTitle: ['Yaklaşan', 'buluşmalar.'],
     calendarEmpty: 'Yeni tarihler çok yakında. Bu arada So Zen’i Facebook’ta takip edin ya da bizi arayın.',
     calendarBook: 'Yerimi ayırt',
-    eventTypes: { yoga: 'Yoga seansı', constellation: 'Aile dizimi', bougie: 'Mum atölyesi', noel: 'Noel pazarı', other: 'So Zen buluşması' },
+    calendarInfo: 'Bilgi',
+    eventTypes: { yoga: 'Yoga seansı', constellation: 'Aile dizimi', bougie: 'Mum atölyeleri: ailece eğlence', noel: 'Noel pazarı akşamı', other: 'So Zen buluşması' },
   },
 
   notFound: {

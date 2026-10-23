@@ -338,10 +338,11 @@ export default {
     palmeraieText: 'En La Palmeraie se prepara una sala para el yoga, los talleres y los encuentros de So Zen.',
     palmeraieCta: 'Descubrir La Palmeraie',
     calendarEyebrow: 'La agenda So Zen',
-    calendarTitle: ['Las próximas', 'sesiones.'],
+    calendarTitle: ['Las próximas', 'citas.'],
     calendarEmpty: 'Las próximas fechas llegarán muy pronto. Mientras tanto, siga a So Zen en Facebook o llámenos.',
     calendarBook: 'Reservar mi plaza',
-    eventTypes: { yoga: 'Sesión de yoga', constellation: 'Constelaciones familiares', bougie: 'Taller de velas', noel: 'Mercado de Navidad', other: 'Cita So Zen' },
+    calendarInfo: 'Información',
+    eventTypes: { yoga: 'Sesión de yoga', constellation: 'Constelación familiar', bougie: 'Talleres de velas: diversión en familia', noel: 'Velada de mercado navideño', other: 'Cita So Zen' },
   },
 
   notFound: { eyebrow: 'Página no encontrada', title: ['Este camino', 'se ha perdido.'], lead: 'La página que busca no existe o ha cambiado de dirección.', home: 'Volver al inicio' },

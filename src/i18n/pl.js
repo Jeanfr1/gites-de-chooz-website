@@ -395,10 +395,11 @@ export default {
     palmeraieText: 'W La Palmeraie powstaje sala na jogę, warsztaty i spotkania So Zen.',
     palmeraieCta: 'Odkryj La Palmeraie',
     calendarEyebrow: 'Kalendarz So Zen',
-    calendarTitle: ['Najbliższe', 'zajęcia.'],
+    calendarTitle: ['Najbliższe', 'spotkania.'],
     calendarEmpty: 'Nowe terminy już wkrótce. Do tego czasu obserwuj So Zen na Facebooku lub zadzwoń do nas.',
     calendarBook: 'Zarezerwuj miejsce',
-    eventTypes: { yoga: 'Zajęcia jogi', constellation: 'Ustawienia rodzinne', bougie: 'Warsztaty świecowe', noel: 'Jarmark bożonarodzeniowy', other: 'Spotkanie So Zen' },
+    calendarInfo: 'Informacje',
+    eventTypes: { yoga: 'Zajęcia jogi', constellation: 'Ustawienie rodzinne', bougie: 'Warsztaty świecowe: rodzinna zabawa', noel: 'Wieczór jarmarku bożonarodzeniowego', other: 'Spotkanie So Zen' },
   },
 
   notFound: {

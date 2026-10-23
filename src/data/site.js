@@ -14,7 +14,7 @@ export const brand = { name: 'So Dream' };
 // Photo helper: `kind` drives the translated alt text (src/i18n -> photoKinds).
 const gdf = (key, kind) => ({ key, kind });
 const sd = (gite, n, kind) => ({ key: `sd-${gite}-${n}`, src: `10-photos-so-dream/${gite}/Z62_${n}.jpg`, kind });
-// A photo Sophie sent another way (file name given in full).
+// A photo Sophie sent another way (file name given in full): WA_* came through WhatsApp (1600 px).
 const own = (gite, file, key, kind) => ({ key: `sd-${gite}-${key}`, src: `10-photos-so-dream/${gite}/${file}`, kind });
 
 export const gites = [
@@ -39,6 +39,9 @@ export const gites = [
     photos: [
       own('grain', 'WA_piscine.jpg', 'piscine', 'pool'),
       sd('exterieur', '8683', 'terrace'),
+      own('exterieur', 'WA_vue-terrasse.jpg', 'vue-terrasse', 'garden'),
+      own('exterieur', 'WA_piscine-cerisier.jpg', 'piscine-cerisier', 'pool'),
+      own('exterieur', 'WA_jardin-salon.jpg', 'jardin-salon', 'garden'),
       sd('grain', '8659', 'living'),
       sd('grain', '8661', 'kitchen'),
       sd('grain', '8675', 'bedroom'),
@@ -76,6 +79,8 @@ export const gites = [
     card: 'brasserie-photo-339',
     photos: [
       gdf('brasserie-photo-339', 'exterior'),
+      own('exterieur', 'WA_piscine-brasserie.jpg', 'piscine-brasserie', 'pool'),
+      own('exterieur', 'WA_vue-terrasse.jpg', 'vue-terrasse', 'garden'),
       sd('brasserie', '8703', 'dining'),
       sd('brasserie', '8713', 'living'),
       sd('brasserie', '8704-HDR', 'kitchen'),
@@ -96,6 +101,9 @@ export const gites = [
       sd('brasserie', '8732', 'bathroom'),
       sd('brasserie', '8715', 'stairs'),
       sd('brasserie', '8711', 'detail'),
+      own('exterieur', 'WA_piscine-ciel.jpg', 'piscine-ciel', 'pool'),
+      own('exterieur', 'WA_jardin-graminees.jpg', 'jardin-graminees', 'garden'),
+      own('exterieur', 'WA_piscine-table.jpg', 'piscine-table', 'pool'),
       gdf('brasserie-photo11-339', 'terrace'),
       gdf('brasserie-photo12-339', 'terrace'),
       gdf('brasserie-photo10-339', 'aerial'),
@@ -273,8 +281,15 @@ export const sozen = {
 // So Zen calendar (Sophie, 21/10/2026: "j'ai déjà des dates"). One line per date, past dates hide themselves.
 // type: yoga | constellation | bougie | noel | other — translated in i18n -> sozen.eventTypes.
 // Example: { date: '2026-11-15', start: '10:00', end: '11:30', type: 'yoga', place: 'La Palmeraie' },
-// TODO(gites): add Sophie's dates.
-export const sozenEvents = [];
+export const sozenEvents = [
+  // Sophie, 23/10/2026 (no times or place given yet)
+  { date: '2026-11-07', type: 'bougie' },
+  { date: '2026-11-08', type: 'bougie' },
+  { date: '2026-11-29', type: 'constellation' },
+  { date: '2026-12-05', type: 'noel' },
+  { date: '2026-12-06', type: 'constellation' },
+  { date: '2026-12-13', type: 'constellation' },
+];
 
 // La Palmeraie: contact = So Zen until Sophie confirms (Jean, 19/10/2026).
 export const palmeraie = { contact: 'sozen' };

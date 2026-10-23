@@ -341,7 +341,8 @@ export default {
     calendarTitle: ['Die nächsten', 'Termine.'],
     calendarEmpty: 'Neue Termine folgen in Kürze. Bis dahin finden Sie So Zen auf Facebook, oder rufen Sie uns an.',
     calendarBook: 'Platz reservieren',
-    eventTypes: { yoga: 'Yogastunde', constellation: 'Familienaufstellung', bougie: 'Kerzenwerkstatt', noel: 'Weihnachtsmarkt', other: 'So-Zen-Termin' },
+    calendarInfo: 'Auskunft',
+    eventTypes: { yoga: 'Yogastunde', constellation: 'Familienaufstellung', bougie: 'Kerzenwerkstatt: Spaß für die ganze Familie', noel: 'Weihnachtsmarkt am Abend', other: 'So-Zen-Termin' },
   },
 
   notFound: { eyebrow: 'Seite nicht gefunden', title: ['Dieser Weg', 'hat sich verirrt.'], lead: 'Die gesuchte Seite existiert nicht oder wurde verschoben.', home: 'Zur Startseite' },

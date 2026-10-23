@@ -438,7 +438,7 @@ function fichePage(id) {
     </div>
   </div>
 </section>
-${g.sharedGardenPool ? sharedMoments(g.id === 'grain' ? 'sd-exterieur-8683' : 'brasserie-photo10-339', tx.pool || '') : `
+${g.sharedGardenPool ? sharedMoments(g.id === 'grain' ? 'sd-exterieur-8683' : 'sd-exterieur-piscine-table', tx.pool || '') : `
 <section class="section village" aria-labelledby="village-title">
   <div class="container village-grid">
     <div class="village-copy">
@@ -806,7 +806,7 @@ function sozenCalendar() {
         <h3>${t(e.title || Z.eventTypes[e.type] || Z.eventTypes.other)}</h3>
         ${e.text ? `<p>${t(e.text)}</p>` : ''}
         <p class="agenda-meta">${time ? `${icon('clock')}<span>${t(time)}</span>` : ''}${e.place ? `${icon('pin')}<span>${t(e.place)}</span>` : ''}</p>
-        <a class="text-link" href="${sozen.phoneHref}">${icon('phone')}<span>${t(Z.calendarBook)} · ${phone}</span></a>
+        <a class="text-link" href="${sozen.phoneHref}">${icon('phone')}<span>${t(e.type === 'noel' ? Z.calendarInfo : Z.calendarBook)} · ${phone}</span></a>
       </div>
     </li>`;
   }).join('')}</ol>` : '';

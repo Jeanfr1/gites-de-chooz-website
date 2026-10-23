@@ -338,10 +338,11 @@ export default {
     palmeraieText: 'In La Palmeraie wordt een zaal voorbereid voor yoga, workshops en bijeenkomsten van So Zen.',
     palmeraieCta: 'Ontdek La Palmeraie',
     calendarEyebrow: 'De So Zen-agenda',
-    calendarTitle: ['De volgende', 'sessies.'],
+    calendarTitle: ['De volgende', 'afspraken.'],
     calendarEmpty: 'Nieuwe data volgen binnenkort. Volg So Zen intussen op Facebook of bel ons.',
     calendarBook: 'Mijn plaats reserveren',
-    eventTypes: { yoga: 'Yogasessie', constellation: 'Familieopstellingen', bougie: 'Kaarsenworkshop', noel: 'Kerstmarkt', other: 'So Zen-afspraak' },
+    calendarInfo: 'Inlichtingen',
+    eventTypes: { yoga: 'Yogasessie', constellation: 'Familieopstelling', bougie: 'Kaarsenworkshops: plezier met het hele gezin', noel: 'Kerstmarktavond', other: 'So Zen-afspraak' },
   },
 
   notFound: { eyebrow: 'Pagina niet gevonden', title: ['Dit pad', 'is verdwaald.'], lead: 'De gevraagde pagina bestaat niet of is verhuisd.', home: 'Terug naar home' },

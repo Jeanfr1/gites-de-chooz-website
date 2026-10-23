@@ -273,7 +273,6 @@ Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 - [ ] 13 of the 14 exterior photos: the Drive files are still not shared (only Z62_8683, the terrace, came through). Le Grain d’Amour opens with the pool photo the owner sent on WhatsApp (~830 px), to swap for the camera original
 - [ ] Arrival and departure times of Le Grain d’Amour (Gîtes de France only gives them after booking)
 - [ ] Whether guests of Chez Suzanne and Au Petit Bouchon can use the pool
-- [ ] So Zen dates for the new calendar (`sozenEvents` in `src/data/site.js`; past dates hide themselves)
 - [ ] Keys, where the bins are, the owner’s contact for each gîte
 - [ ] Contact for La Palmeraie (So Zen’s phone is shown meanwhile)
 - [ ] So Zen illustration: the current file is a stock image with its source’s watermarks; replace it with the licensed original or So Zen’s own artwork
@@ -282,7 +281,7 @@ Waiting on the owner. Each item is also marked `TODO(gites)` in the code.
 - [ ] Final domain: then remove `noindex` and set `SITE_URL`; keep `gites-de-chooz.vercel.app` working
 - [x] So Dream name and logo, four gîtes, seven languages, Palmeraie, bonnes adresses, agenda, recycling guide, departure checklist, pool May to September, Presqu’île de Chooz removed
 - [x] Business card and A6 booklet cards ready to print (`12-impression/final/`), with the owner’s logo
-- [x] v3 (owner’s feedback, October 2026): her logo everywhere, Le Grain d’Amour pool photo and air conditioning, La Brasserie rooms, baby gear, kids’ corner and linen/charges from January 2027, Au Petit Bouchon all-inclusive with no pets, the four Chooz trails, Grottes de Nichet and the tourist office in the addresses, filter fix on iPhone, So Zen calendar
+- [x] v3 (owner’s feedback, October 2026): her logo everywhere, Le Grain d’Amour pool photo and air conditioning, La Brasserie rooms, baby gear, kids’ corner and linen/charges from January 2027, Au Petit Bouchon all-inclusive with no pets, the four Chooz trails, Grottes de Nichet and the tourist office in the addresses, filter fix on iPhone, So Zen calendar with the November and December 2026 dates, seven garden and pool photos the owner sent on WhatsApp
 
 <br />
 
