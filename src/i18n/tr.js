@@ -353,6 +353,10 @@ export default {
       title: 'Üretici pazarı',
       text: 'Givet üretici pazarında yöresel lezzetlerin en iyisi.',
     },
+    'foire-oignons': {
+      title: 'Soğan panayırı',
+      text: 'Büyük Saint-Martin panayırı, 08.30–19.00 arası: şehir merkezinin sokaklarında 500 kadar tezgâh, soğan, yöresel ürünler, tekstil ve ikinci el eşya.',
+    },
   },
 
   placeKinds: {
@@ -398,7 +402,7 @@ export default {
     calendarEmpty: 'Yeni tarihler çok yakında. Bu arada So Zen’i Facebook’ta takip edin ya da bizi arayın.',
     calendarBook: 'Yerimi ayırt',
     calendarInfo: 'Bilgi',
-    eventTypes: { yoga: 'Yoga seansı', constellation: 'Aile dizimi', bougie: 'Mum atölyeleri: ailece eğlence', noel: 'Noel pazarı akşamı', other: 'So Zen buluşması' },
+    eventTypes: { yoga: 'Yoga seansı', yogaNature: 'Doğada yoga sabahı', constellation: 'Aile dizimi', bougie: 'Mum atölyeleri: ailece eğlence', noel: 'Noel pazarı akşamı', foire: 'Givet panayırı', other: 'So Zen buluşması' },
   },
 
   notFound: {

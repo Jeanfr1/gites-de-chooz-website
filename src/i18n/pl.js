@@ -354,6 +354,10 @@ export default {
       title: 'Targ producentów',
       text: 'To, co najlepsze z regionu, na targu producentów w Givet.',
     },
+    'foire-oignons': {
+      title: 'Jarmark cebulowy',
+      text: 'Wielki jarmark św. Marcina, od 8:30 do 19:00: około 500 stoisk na ulicach centrum, cebula, produkty regionalne, tekstylia i rzeczy z drugiej ręki.',
+    },
   },
 
   placeKinds: {
@@ -399,7 +403,7 @@ export default {
     calendarEmpty: 'Nowe terminy już wkrótce. Do tego czasu obserwuj So Zen na Facebooku lub zadzwoń do nas.',
     calendarBook: 'Zarezerwuj miejsce',
     calendarInfo: 'Informacje',
-    eventTypes: { yoga: 'Zajęcia jogi', constellation: 'Ustawienie rodzinne', bougie: 'Warsztaty świecowe: rodzinna zabawa', noel: 'Wieczór jarmarku bożonarodzeniowego', other: 'Spotkanie So Zen' },
+    eventTypes: { yoga: 'Zajęcia jogi', yogaNature: 'Poranek jogi na łonie natury', constellation: 'Ustawienie rodzinne', bougie: 'Warsztaty świecowe: rodzinna zabawa', noel: 'Wieczór jarmarku bożonarodzeniowego', foire: 'Jarmark w Givet', other: 'Spotkanie So Zen' },
   },
 
   notFound: {

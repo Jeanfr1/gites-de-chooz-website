@@ -297,6 +297,7 @@ export default {
       themes: { '2026-11-14': 'Cramique', '2027-02-13': 'Avisance', '2027-04-10': 'Pan rústico', '2027-06-12': 'Baguette y tapenades' },
     },
     'marche-producteurs': { title: 'Mercado de productores', text: 'Lo mejor de la tierra en el mercado de productores de Givet.' },
+    'foire-oignons': { title: 'Feria de la cebolla', text: 'La gran feria de San Martín, de 8:30 a 19:00: unos 500 puestos por las calles del centro, cebollas, productos de la tierra, textil y artículos de segunda mano.' },
   },
 
   placeKinds: {
@@ -342,7 +343,7 @@ export default {
     calendarEmpty: 'Las próximas fechas llegarán muy pronto. Mientras tanto, siga a So Zen en Facebook o llámenos.',
     calendarBook: 'Reservar mi plaza',
     calendarInfo: 'Información',
-    eventTypes: { yoga: 'Sesión de yoga', constellation: 'Constelación familiar', bougie: 'Talleres de velas: diversión en familia', noel: 'Velada de mercado navideño', other: 'Cita So Zen' },
+    eventTypes: { yoga: 'Sesión de yoga', yogaNature: 'Mañana de yoga en la naturaleza', constellation: 'Constelación familiar', bougie: 'Talleres de velas: diversión en familia', noel: 'Velada de mercado navideño', foire: 'Feria de Givet', other: 'Cita So Zen' },
   },
 
   notFound: { eyebrow: 'Página no encontrada', title: ['Este camino', 'se ha perdido.'], lead: 'La página que busca no existe o ha cambiado de dirección.', home: 'Volver al inicio' },

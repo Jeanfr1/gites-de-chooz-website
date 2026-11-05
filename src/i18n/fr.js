@@ -354,6 +354,10 @@ export default {
       title: 'Marché des producteurs',
       text: 'Le meilleur du terroir au marché des producteurs de Givet.',
     },
+    'foire-oignons': {
+      title: 'Foire aux oignons',
+      text: 'La grande foire de la Saint-Martin, de 8 h 30 à 19 h : quelque 500 exposants dans les rues du centre-ville, oignons, produits du terroir, textile et brocante.',
+    },
   },
 
   placeKinds: {
@@ -399,7 +403,7 @@ export default {
     calendarEmpty: 'Les prochaines dates arrivent très bientôt. En attendant, suivez So Zen sur Facebook ou appelez-nous.',
     calendarBook: 'Réserver ma place',
     calendarInfo: 'Renseignements',
-    eventTypes: { yoga: 'Séance de yoga', constellation: 'Constellation familiale', bougie: 'Ateliers bougies : folies en famille', noel: 'Soirée marché de Noël', other: 'Rendez-vous So Zen' },
+    eventTypes: { yoga: 'Séance de yoga', yogaNature: 'Matinée yoga nature', constellation: 'Constellation familiale', bougie: 'Ateliers bougies : folies en famille', noel: 'Soirée marché de Noël', foire: 'Foire de Givet', other: 'Rendez-vous So Zen' },
   },
 
   notFound: {

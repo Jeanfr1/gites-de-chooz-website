@@ -297,6 +297,7 @@ export default {
       themes: { '2026-11-14': 'Cramique', '2027-02-13': 'Avisance', '2027-04-10': 'Country bread', '2027-06-12': 'Baguette and tapenades' },
     },
     'marche-producteurs': { title: 'Local producers’ market', text: 'The best of local produce at the Givet producers’ market.' },
+    'foire-oignons': { title: 'Onion fair', text: 'The big Saint Martin fair, from 8:30 to 19:00: some 500 stalls in the streets of the town centre, onions, local produce, textiles and second-hand goods.' },
   },
 
   placeKinds: {
@@ -342,7 +343,7 @@ export default {
     calendarEmpty: 'New dates are coming very soon. Meanwhile, follow So Zen on Facebook or give us a call.',
     calendarBook: 'Book my place',
     calendarInfo: 'Information',
-    eventTypes: { yoga: 'Yoga session', constellation: 'Family constellation', bougie: 'Candle workshops: family fun', noel: 'Christmas market evening', other: 'So Zen event' },
+    eventTypes: { yoga: 'Yoga session', yogaNature: 'Nature yoga morning', constellation: 'Family constellation', bougie: 'Candle workshops: family fun', noel: 'Christmas market evening', foire: 'Givet fair', other: 'So Zen event' },
   },
 
   notFound: { eyebrow: 'Page not found', title: ['This path', 'has wandered off.'], lead: 'The page you asked for does not exist or has moved.', home: 'Back to home' },

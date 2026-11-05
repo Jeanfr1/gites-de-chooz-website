@@ -255,6 +255,7 @@ export const places = [
 export const agenda = [
   { id: 'four-pain', dates: ['2026-11-14', '2027-02-13', '2027-04-10', '2027-06-12'], place: 'Écomusée du Viroin', town: 'Treignes (BE)', phone: '+32 60 39 96 24', phoneHref: 'tel:+3260399624', price: '9 €' },
   { id: 'marche-producteurs', dates: ['2026-11-07'], place: 'Givet', town: 'Givet', url: 'https://www.valdardennetourisme.com/agenda/marche-des-producteurs/' },
+  { id: 'foire-oignons', dates: ['2026-11-11'], place: 'Givet', town: 'Givet', url: 'https://www.ardennes.com/agenda/la-foire-aux-oignons/' },
 ];
 
 // Map of the Meuse (schematic, north up): lat/lon of the towns in the list.
@@ -292,12 +293,15 @@ export const sozen = {
 };
 
 // So Zen calendar (Sophie, 21/10/2026: "j'ai déjà des dates"). One line per date, past dates hide themselves.
-// type: yoga | constellation | bougie | noel | other — translated in i18n -> sozen.eventTypes.
+// type: yoga | yogaNature | constellation | bougie | noel | foire | other — translated in i18n -> sozen.eventTypes.
 // Example: { date: '2026-11-15', start: '10:00', end: '11:30', type: 'yoga', place: 'La Palmeraie' },
 export const sozenEvents = [
   // Sophie, 23/10/2026 (no times or place given yet)
   { date: '2026-11-07', type: 'bougie' },
   { date: '2026-11-08', type: 'bougie' },
+  // Sophie, 05/11/2026
+  { date: '2026-11-11', type: 'foire', place: 'Givet' },
+  { date: '2026-11-22', type: 'yogaNature' },
   { date: '2026-11-29', type: 'constellation' },
   { date: '2026-12-05', type: 'noel' },
   { date: '2026-12-06', type: 'constellation' },

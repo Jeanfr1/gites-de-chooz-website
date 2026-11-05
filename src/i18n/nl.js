@@ -297,6 +297,7 @@ export default {
       themes: { '2026-11-14': 'Kramiek', '2027-02-13': 'Avisance', '2027-04-10': 'Boerenbrood', '2027-06-12': 'Baguette en tapenades' },
     },
     'marche-producteurs': { title: 'Producentenmarkt', text: 'Het beste van de streek op de producentenmarkt van Givet.' },
+    'foire-oignons': { title: 'Uienmarkt', text: 'De grote Sint-Maartensmarkt, van 8.30 tot 19.00 uur: zo’n 500 kramen in de straten van het centrum, uien, streekproducten, textiel en tweedehands spullen.' },
   },
 
   placeKinds: {
@@ -342,7 +343,7 @@ export default {
     calendarEmpty: 'Nieuwe data volgen binnenkort. Volg So Zen intussen op Facebook of bel ons.',
     calendarBook: 'Mijn plaats reserveren',
     calendarInfo: 'Inlichtingen',
-    eventTypes: { yoga: 'Yogasessie', constellation: 'Familieopstelling', bougie: 'Kaarsenworkshops: plezier met het hele gezin', noel: 'Kerstmarktavond', other: 'So Zen-afspraak' },
+    eventTypes: { yoga: 'Yogasessie', yogaNature: 'Yogaochtend in de natuur', constellation: 'Familieopstelling', bougie: 'Kaarsenworkshops: plezier met het hele gezin', noel: 'Kerstmarktavond', foire: 'Jaarmarkt van Givet', other: 'So Zen-afspraak' },
   },
 
   notFound: { eyebrow: 'Pagina niet gevonden', title: ['Dit pad', 'is verdwaald.'], lead: 'De gevraagde pagina bestaat niet of is verhuisd.', home: 'Terug naar home' },

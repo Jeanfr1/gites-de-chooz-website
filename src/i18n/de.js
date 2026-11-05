@@ -297,6 +297,7 @@ export default {
       themes: { '2026-11-14': 'Cramique', '2027-02-13': 'Avisance', '2027-04-10': 'Bauernbrot', '2027-06-12': 'Baguette und Tapenaden' },
     },
     'marche-producteurs': { title: 'Erzeugermarkt', text: 'Das Beste aus der Region auf dem Erzeugermarkt in Givet.' },
+    'foire-oignons': { title: 'Zwiebelmarkt', text: 'Der große Martinsmarkt, von 8:30 bis 19:00 Uhr: rund 500 Stände in den Straßen der Innenstadt, Zwiebeln, regionale Produkte, Textilien und Trödel.' },
   },
 
   placeKinds: {
@@ -342,7 +343,7 @@ export default {
     calendarEmpty: 'Neue Termine folgen in Kürze. Bis dahin finden Sie So Zen auf Facebook, oder rufen Sie uns an.',
     calendarBook: 'Platz reservieren',
     calendarInfo: 'Auskunft',
-    eventTypes: { yoga: 'Yogastunde', constellation: 'Familienaufstellung', bougie: 'Kerzenwerkstatt: Spaß für die ganze Familie', noel: 'Weihnachtsmarkt am Abend', other: 'So-Zen-Termin' },
+    eventTypes: { yoga: 'Yogastunde', yogaNature: 'Yoga-Vormittag in der Natur', constellation: 'Familienaufstellung', bougie: 'Kerzenwerkstatt: Spaß für die ganze Familie', noel: 'Weihnachtsmarkt am Abend', foire: 'Jahrmarkt in Givet', other: 'So-Zen-Termin' },
   },
 
   notFound: { eyebrow: 'Seite nicht gefunden', title: ['Dieser Weg', 'hat sich verirrt.'], lead: 'Die gesuchte Seite existiert nicht oder wurde verschoben.', home: 'Zur Startseite' },
