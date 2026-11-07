@@ -90,6 +90,7 @@ export default {
       'Chez Suzanne ve Au Petit Bouchon, köyün kalbinde.',
     ],
     drag: 'Dört evi keşfetmek için kaydırın',
+    follow: 'So Dream’i Facebook’ta takip edin',
   },
 
   guest: {

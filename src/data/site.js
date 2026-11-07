@@ -9,7 +9,12 @@
 export const LOCALES = ['fr', 'en', 'de', 'es', 'nl', 'pl', 'tr'];
 export const DEFAULT_LOCALE = 'fr';
 
-export const brand = { name: 'So Dream' };
+// Google Search Console, property "URL prefix" https://gites-de-chooz.vercel.app/ verified with the
+// "HTML tag" method: paste the content="…" value here (empty = no tag).
+export const seo = { googleSiteVerification: 'RYgzakJBodFZt03QHy0zMgQlBuHxiKpnCJQLWnvACQM' };
+
+// Facebook page "So Dream | Chooz" (share link from Jean, 07/11/2026, resolved to its profile id).
+export const brand = { name: 'So Dream', facebookUrl: 'https://www.facebook.com/people/So-Dream/61575801225607/' };
 
 // Photo helper: `kind` drives the translated alt text (src/i18n -> photoKinds).
 const gdf = (key, kind) => ({ key, kind });

@@ -78,6 +78,7 @@ export default {
       'Chez Suzanne en Au Petit Bouchon, midden in het dorp.',
     ],
     drag: 'Veeg om de vier gîtes te ontdekken',
+    follow: 'Volg So Dream op Facebook',
   },
 
   guest: {

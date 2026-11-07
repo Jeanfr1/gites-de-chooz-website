@@ -1,13 +1,57 @@
 import hero from '../data/hero.json';
 import images from '../data/images.json';
 import {
-  gites, carnet, tri, placeCategories, places, agenda, mapTowns, meuseCourse, sozen, sozenEvents, routes, LOCALES,
+  brand, gites, carnet, tri, placeCategories, places, agenda, mapTowns, meuseCourse, sozen, sozenEvents, routes, LOCALES,
 } from '../data/site.js';
 import { icon, featureIcon, placeIcon, triIcon } from './icons.js';
-import { L, LOC, setLocale, href } from './i18n.js';
+import { L, LOC, setLocale, href, DEFAULT_LOCALE } from './i18n.js';
 import {
-  layout, picture, button, textLink, eyebrow, sprig, t, esc, lines, facts, giteText, photoAlt, imgUrl, bookingButtons, platformName,
+  layout, picture, button, textLink, eyebrow, sprig, t, esc, lines, facts, giteText, photoAlt, imgUrl, bookingButtons, platformName, SITE_URL,
 } from './ui.js';
+
+// Structured data (schema.org) for Google: So Dream on the home page, each gîte on its own page.
+// Only facts the site already shows (town, phone of the Contact column, booking listings): no prices.
+const ADDRESS = { '@type': 'PostalAddress', addressLocality: 'Chooz', postalCode: '08600', addressRegion: 'Ardennes', addressCountry: 'FR' };
+const BUSINESS_ID = `${SITE_URL}/#so-dream`;
+const giteId = (g) => `${SITE_URL}${href(`fiche-${g.id}`, DEFAULT_LOCALE)}#gite`;
+
+function homeLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'WebSite', '@id': `${SITE_URL}/#website`, url: `${SITE_URL}/`, name: brand.name, alternateName: ['So Dream Chooz', 'Gîtes de Chooz'], inLanguage: L.code, publisher: { '@id': BUSINESS_ID } },
+      {
+        '@type': 'LodgingBusiness',
+        '@id': BUSINESS_ID,
+        name: brand.name,
+        description: L.meta.home.description,
+        url: `${SITE_URL}${href('home')}`,
+        image: `${SITE_URL}/img/og-v3.jpg`,
+        logo: `${SITE_URL}${imgUrl('brand-logo', 'webp')}`,
+        telephone: sozen.phoneIntl,
+        address: ADDRESS,
+        sameAs: [brand.facebookUrl],
+        containsPlace: gites.map((g) => ({ '@type': 'LodgingBusiness', '@id': giteId(g), name: g.name })),
+      },
+    ],
+  };
+}
+
+function giteLd(g, description) {
+  const keys = [...new Set([g.card, ...g.photos.map((p) => p.key)])].slice(0, 4);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LodgingBusiness',
+    '@id': giteId(g),
+    name: g.name,
+    description,
+    url: `${SITE_URL}${href(`fiche-${g.id}`)}`,
+    image: keys.map((k) => `${SITE_URL}${imgUrl(k)}`),
+    address: ADDRESS,
+    parentOrganization: { '@id': BUSINESS_ID },
+    sameAs: g.booking.map((b) => b.url),
+  };
+}
 
 const gite = (id) => gites.find((g) => g.id === id);
 const fiche = (g) => href(`fiche-${g.id}`);
@@ -197,7 +241,10 @@ function home() {
   <div class="container intro-head">
     ${eyebrow(L.intro.eyebrow)}
     ${h(2, L.intro.title, { id: 'intro-title' })}
-    <p class="intro-text" data-anim="fade">${L.intro.text.map(t).join('<br>')}</p>
+    <div class="intro-aside">
+      <p class="intro-text" data-anim="fade">${L.intro.text.map(t).join('<br>')}</p>
+      <p class="intro-follow" data-anim="fade">${textLink(brand.facebookUrl, L.intro.follow, { external: true, ic: 'facebook' })}</p>
+    </div>
   </div>
   <div class="carousel" data-carousel>
     <div class="carousel-track" role="region" aria-label="${esc(L.meta.gites.title)}" tabindex="0" data-carousel-track>
@@ -269,7 +316,7 @@ function home() {
     ${meuseMap()}
   </div>
 </section>`;
-  return layout({ routeId: 'home', title: L.meta.home.title, description: L.meta.home.description, body, bodyClass: 'page-home' });
+  return layout({ routeId: 'home', title: L.meta.home.title, description: L.meta.home.description, body, bodyClass: 'page-home', jsonLd: homeLd() });
 }
 
 // ---------------------------------------------------------------------------
@@ -467,7 +514,7 @@ ${guideBand(g)}
   </div>
 </section>`;
   const meta = L.meta.fiche({ ...g, tagline: tx.tagline });
-  return layout({ routeId: `fiche-${g.id}`, nav: 'gites', title: meta.title, description: meta.description, body, bodyClass: `page-fiche page-${g.id}` });
+  return layout({ routeId: `fiche-${g.id}`, nav: 'gites', title: meta.title, description: meta.description, body, bodyClass: `page-fiche page-${g.id}`, jsonLd: giteLd(g, meta.description) });
 }
 
 // ---------------------------------------------------------------------------

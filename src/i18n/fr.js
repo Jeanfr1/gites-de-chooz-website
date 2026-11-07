@@ -91,6 +91,7 @@ export default {
       'Chez Suzanne et Au Petit Bouchon, au cœur du village.',
     ],
     drag: 'Faites glisser pour découvrir les quatre gîtes',
+    follow: 'Suivre So Dream sur Facebook',
   },
 
   guest: {

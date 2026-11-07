@@ -1,5 +1,5 @@
 import images from '../data/images.json';
-import { brand, gites, sozen, platforms, routes } from '../data/site.js';
+import { brand, gites, sozen, platforms, routes, seo } from '../data/site.js';
 import { L, LOC, LOCALES, DEFAULT_LOCALE, dicts, href, prefix } from './i18n.js';
 import { icon, sprite } from './icons.js';
 
@@ -151,6 +151,7 @@ function footer(routeId) {
           <p class="footer-head">${t(L.footer.contact)}</p>
           <ul>
             <li><a href="${sozen.phoneHref}">${icon('phone')}${esc(LOC === 'fr' ? sozen.phone : sozen.phoneIntl)}</a></li>
+            <li><a href="${esc(brand.facebookUrl)}" target="_blank" rel="noopener noreferrer">${icon('facebook')}So Dream · Facebook${newTab()}</a></li>
             <li><a href="${esc(sozen.facebookUrl)}" target="_blank" rel="noopener noreferrer">${icon('facebook')}So Zen · Facebook${newTab()}</a></li>
             <li class="footer-address">${icon('pin')}Chooz · Ardennes</li>
           </ul>
@@ -177,10 +178,13 @@ function suggestData(routeId) {
   return `<script type="application/json" data-lang-suggest>${JSON.stringify({ current: LOC, locales: data }).replace(/</g, '\\u003c')}</script>`;
 }
 
-// TODO(gites): remove noindex (here and in vercel.json) once Sophie validates the texts and photos
-// and the final domain is set; then point SITE_URL to it. The printed QR cards open
+// Open to Google since 07/11/2026, except the guests' stay booklet (sejour/) and the 404.
+// The sitemap (vite.config.js) lists the same pages.
+export const isIndexable = (routeId) => Boolean(routeId) && routeId !== 'sejour' && !routeId.startsWith('carnet-');
+
+// TODO(gites): when a final domain is set, point SITE_URL to it. The printed QR cards open
 // https://gites-de-chooz.vercel.app: keep that address alive (redirect) after any domain change.
-export function layout({ routeId, nav: active = '', title, description, body, bodyClass = '' }) {
+export function layout({ routeId, nav: active = '', title, description, body, bodyClass = '', jsonLd = null }) {
   const fullTitle = routeId === 'home' ? title : `${title} · ${brand.name}`;
   const url = routeId ? `${SITE_URL}${href(routeId)}` : SITE_URL;
   const alternates = routeId
@@ -195,7 +199,8 @@ export function layout({ routeId, nav: active = '', title, description, body, bo
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${t(fullTitle)}</title>
 <meta name="description" content="${esc(description)}">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="${isIndexable(routeId) ? 'max-image-preview:large' : 'noindex, follow'}">
+${seo.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(seo.googleSiteVerification)}">` : ''}
 <meta name="theme-color" content="#203F35">
 ${routeId ? `<link rel="canonical" href="${url}">` : ''}
 ${alternates}
@@ -212,6 +217,7 @@ ${ogAlt}
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32-v3.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon-v3.png">
+${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>` : ''}
 <script>(function(d){var r=d.documentElement;r.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('motion');setTimeout(function(){if(!r.classList.contains('motion-ready'))r.classList.remove('motion')},3500)}})(document)</script>
 <link rel="stylesheet" href="/src/styles/main.css">
 <script type="module" src="/src/main.js"></script>

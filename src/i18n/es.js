@@ -78,6 +78,7 @@ export default {
       'Chez Suzanne y Au Petit Bouchon, en el corazón del pueblo.',
     ],
     drag: 'Deslice para descubrir los cuatro gîtes',
+    follow: 'Seguir a So Dream en Facebook',
   },
 
   guest: {

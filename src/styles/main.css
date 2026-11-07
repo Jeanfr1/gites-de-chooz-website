@@ -452,6 +452,8 @@ h1 em, h2 em, h3 em, .footer-title em { font-style: italic; color: var(--sage-in
 .intro-head .eyebrow { grid-column: 1 / -1; }
 .intro-head h2 { margin: 0; }
 .intro-text { margin: 0; font-size: 1.06rem; line-height: 1.9; max-width: 44ch; }
+.intro-follow { margin: 1rem 0 0; }
+.intro-follow .icon { color: var(--brass); }
 
 .carousel { position: relative; }
 .carousel-track {
@@ -1109,7 +1111,7 @@ h1 em, h2 em, h3 em, .footer-title em { font-style: italic; color: var(--sage-in
 @media (max-width: 820px) {
   .intro-head, .guest-head, .guide-band-inner, .sozen-teaser-grid, .shared-grid, .fiche-lead, .zen-lead, .yoga-story-inner,
   .village-grid, .tri-head, .depart-grid, .palm-hero-grid, .palm-contact-inner { grid-template-columns: 1fr; }
-  .intro-head .intro-text { margin-top: 1.4rem; }
+  .intro-head .intro-aside { margin-top: 1.4rem; }
   .cards-grid { grid-template-columns: 1fr; gap: 56px; padding-bottom: 0; }
   .cards-grid .gite-card:nth-child(even) { margin: 0; }
   .guest-cta { margin-top: 8px; }

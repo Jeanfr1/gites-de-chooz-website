@@ -91,6 +91,7 @@ export default {
       'Chez Suzanne i Au Petit Bouchon w sercu wioski.',
     ],
     drag: 'Przesuń, aby odkryć cztery domy',
+    follow: 'Obserwuj So Dream na Facebooku',
   },
 
   guest: {
